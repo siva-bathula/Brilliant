@@ -1,0 +1,204 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="14.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{956EC036-0A62-4857-A56A-3047E8F82576}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>GenericDefs</RootNamespace>
+    <AssemblyName>GenericDefs</AssemblyName>
+    <TargetFrameworkVersion>v4.6.1</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <SccProjectName>SAK</SccProjectName>
+    <SccLocalPath>SAK</SccLocalPath>
+    <SccAuxPath>SAK</SccAuxPath>
+    <SccProvider>SAK</SccProvider>
+    <TargetFrameworkProfile />
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <AllowUnsafeBlocks>true</AllowUnsafeBlocks>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="BigRationalLibrary">
+      <HintPath>..\packages\Microsoft-BCL-BigRational-DonotDelete\BigRationalLibrary.dll</HintPath>
+    </Reference>
+    <Reference Include="BrilliantProblems, Version=0.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\DynamicallyBuiltAssemblies\BrilliantProblems.dll</HintPath>
+    </Reference>
+    <Reference Include="Combinatorics, Version=1.0.3.0, Culture=neutral, PublicKeyToken=d5738f21cd5d2f66, processorArchitecture=MSIL">
+      <HintPath>..\packages\Combinatorics.1.0.3.2\lib\net40\Combinatorics.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="log4net, Version=1.2.15.0, Culture=neutral, PublicKeyToken=669e0ddf0bb1aa2a, processorArchitecture=MSIL">
+      <HintPath>..\packages\log4net.2.0.5\lib\net45-full\log4net.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="MathNet.Numerics, Version=3.13.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\MathNet.Numerics.3.13.0\lib\net40\MathNet.Numerics.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Microsoft.VisualStudio.QualityTools.UnitTestFramework, Version=10.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL" />
+    <Reference Include="Newtonsoft.Json, Version=9.0.0.0, Culture=neutral, PublicKeyToken=30ad4fe6b2a6aeed, processorArchitecture=MSIL">
+      <HintPath>..\packages\Newtonsoft.Json.9.0.1\lib\net45\Newtonsoft.Json.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="ObjectDumper, Version=1.0.0.12, Culture=neutral, PublicKeyToken=9e2fabf3af85dba9, processorArchitecture=MSIL">
+      <HintPath>..\packages\ObjectDumper.1.0.0.12\lib\net35-Client\ObjectDumper.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="ProblemSets">
+      <HintPath>..\DynamicallyBuiltAssemblies\ProblemSets.dll</HintPath>
+    </Reference>
+    <Reference Include="ProjectEulerProblems">
+      <HintPath>..\DynamicallyBuiltAssemblies\ProjectEulerProblems.dll</HintPath>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.Configuration" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Numerics" />
+    <Reference Include="System.Web" />
+    <Reference Include="System.Web.Extensions" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Net.Http" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Classes\Calibration.cs" />
+    <Compile Include="Classes\CircularLinkedList.cs" />
+    <Compile Include="Classes\Collections\BinaryTree.cs" />
+    <Compile Include="Classes\Collections\CircularLinkedList.cs" />
+    <Compile Include="Classes\Collections\Deque.cs" />
+    <Compile Include="Classes\Collections\ITree.cs" />
+    <Compile Include="Classes\Combinations.cs" />
+    <Compile Include="Classes\NumberTypes\BigRational.cs" />
+    <Compile Include="Classes\NumberTypes\Number.cs" />
+    <Compile Include="Classes\ParityObjects.cs" />
+    <Compile Include="Classes\Patterns\Visitor.cs" />
+    <Compile Include="Classes\Player.cs" />
+    <Compile Include="Classes\SimpleCounter.cs" />
+    <Compile Include="Classes\SimpleHashSet.cs" />
+    <Compile Include="Classes\Util\Guard.cs" />
+    <Compile Include="Classes\WordArrangements.cs" />
+    <Compile Include="DotNet\Attributes.cs" />
+    <Compile Include="DotNet\Http.cs" />
+    <Compile Include="DotNet\Json.cs" />
+    <Compile Include="DotNet\LinqExtensions.cs" />
+    <Compile Include="DotNet\RandomExtensions.cs" />
+    <Compile Include="DotNet\TailRecursion.cs" />
+    <Compile Include="Functions\Algorithms\DP\ArrayMatrix.cs" />
+    <Compile Include="Functions\Algorithms\DP\MinCostPath.cs" />
+    <Compile Include="Functions\Algorithms\DP\MinEditDistance.cs" />
+    <Compile Include="Functions\Algorithms\DP\Strings.cs" />
+    <Compile Include="Functions\Algorithms\Shuffle.cs" />
+    <Compile Include="Functions\Algorithms\Sort\QuickSort.cs" />
+    <Compile Include="Functions\Algorithms\Sort\Sort.cs" />
+    <Compile Include="Functions\Algorithms\Sort\UncommonSort.cs" />
+    <Compile Include="Functions\Calculus\BisectionRootApproximation.cs" />
+    <Compile Include="Functions\Calculus\PolynomialRootFinder.cs" />
+    <Compile Include="Functions\Combinatorics\Polygon.cs" />
+    <Compile Include="Functions\CoordinateGeometry\Coordinates.cs" />
+    <Compile Include="Functions\CoordinateGeometry\RegularPolygon.cs" />
+    <Compile Include="Classes\NumberTypes\BigNumber.cs" />
+    <Compile Include="Classes\NumberTypes\Fraction.cs" />
+    <Compile Include="Classes\Generic.cs" />
+    <Compile Include="Classes\Logic\SimpleSlider.cs" />
+    <Compile Include="Classes\NumberTypes\HighPrecisionConverter\DoubleConverter.cs" />
+    <Compile Include="Classes\Quirky\ConsecutiveStreakCounter.cs" />
+    <Compile Include="Classes\Quirky\Iterator.cs" />
+    <Compile Include="DotNet\IteratorChecker.cs" />
+    <Compile Include="Classes\Quirky\ParamsArray.cs" />
+    <Compile Include="Classes\UniqueArrangementChecker.cs" />
+    <Compile Include="DotNet\ConfigManager.cs" />
+    <Compile Include="DotNet\Logger.cs" />
+    <Compile Include="Classes\Logic\Cryptarithm.cs" />
+    <Compile Include="Classes\Logic\Labyrinth.cs" />
+    <Compile Include="Classes\Permutations.cs" />
+    <Compile Include="Classes\Pool.cs" />
+    <Compile Include="DotNet\QueuedConsole.cs" />
+    <Compile Include="Classes\NumberTypes\Rational.cs" />
+    <Compile Include="Classes\Sort.cs" />
+    <Compile Include="Classes\UniqueIntegralPairs.cs" />
+    <Compile Include="DotNet\Utility.cs" />
+    <Compile Include="DotNet\EnumerableExtensions.cs" />
+    <Compile Include="DotNet\Serialization.cs" />
+    <Compile Include="DotNet\StatusUpdater.cs" />
+    <Compile Include="Functions\Algorithms\DP\BoundedKnapsack.cs" />
+    <Compile Include="Functions\Algorithms\DP\Dice.cs" />
+    <Compile Include="Functions\Algorithms\DP\Knapsack.cs" />
+    <Compile Include="Functions\Algorithms\DP\LongestCommonSubsequence.cs" />
+    <Compile Include="Functions\Algorithms\DP\Palindrome.cs" />
+    <Compile Include="Functions\Algorithms\DP\Path.cs" />
+    <Compile Include="Functions\Algorithms\Sort\BogoSorter.cs" />
+    <Compile Include="Functions\Binary.cs" />
+    <Compile Include="Functions\Crypto\Hash\MD5.cs" />
+    <Compile Include="Functions\EulerTotient.cs" />
+    <Compile Include="Functions\Factors.cs" />
+    <Compile Include="Functions\LinearEquations.cs" />
+    <Compile Include="Functions\Logic\Bitwise.cs" />
+    <Compile Include="Functions\Crypto\Cypher\Vigenere.cs" />
+    <Compile Include="Functions\Matrix.cs" />
+    <Compile Include="Functions\NumberTheory\BernoulliNumbers.cs" />
+    <Compile Include="Functions\NumberTheory\Fibonacci.cs" />
+    <Compile Include="Functions\Geometry\PropertiesOfTriangle.cs" />
+    <Compile Include="Functions\Crypto\Cypher\Caeser.cs" />
+    <Compile Include="Functions\Logic\JosephusProblem.cs" />
+    <Compile Include="Functions\MathFunctions.cs" />
+    <Compile Include="Functions\Numbers.cs" />
+    <Compile Include="Functions\NumberTheory\MobiusFunction.cs" />
+    <Compile Include="Functions\NumberTheory\PolynomialEquations.cs" />
+    <Compile Include="Classes\PowerSet.cs" />
+    <Compile Include="Functions\NumberTheory\PolynomialSolver.cs" />
+    <Compile Include="Functions\NumberTheory\SeriesSummation.cs" />
+    <Compile Include="Functions\Prime.cs" />
+    <Compile Include="Functions\PythogoreanTheorem.cs" />
+    <Compile Include="Functions\QuadraticResidue.cs" />
+    <Compile Include="Functions\RemainderCalculator.cs" />
+    <Compile Include="DotNet\Strings.cs" />
+    <Compile Include="OtherProjects\BigDecimal.cs" />
+    <Compile Include="OtherProjects\Numbers.cs" />
+    <Compile Include="OtherProjects\Pi.cs" />
+    <Compile Include="OtherProjects\Primality.cs" />
+    <Compile Include="OtherProjects\SudokuSolver.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="packages.config" />
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <PropertyGroup>
+    <PreBuildEvent>
+    </PreBuildEvent>
+  </PropertyGroup>
+  <PropertyGroup>
+    <PostBuildEvent>echo F| xcopy /Y "$(ProjectDir)bin\Debug\GenericDefs.dll" "$(SolutionDir)DynamicallyBuiltAssemblies\"</PostBuildEvent>
+  </PropertyGroup>
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>

@@ -1,0 +1,169 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>Academy.Numerics</name>
+    </assembly>
+    <members>
+        <member name="T:Academy.Numerics.ArithmeticOperator">
+            <summary>
+            Provides a base class for implementations of the <see cref="T:Academy.Numerics.IArithmeticOperator"/> generic interface.
+            </summary>
+        </member>
+        <member name="T:Academy.Numerics.IArithmeticOperator">
+            <summary>
+            Defines methods to support arithmetic operations for objects.
+            </summary>
+        </member>
+        <member name="M:Academy.Numerics.IArithmeticOperator.Add(System.Object,System.Object)">
+            <summary>
+            Gets the result of adding the two specified values.
+            </summary>
+            <param name="left">The left operand for the addition operation.</param>
+            <param name="right">The right operand for the addition operation.</param>
+            <returns>The result of adding the two specified values.</returns>
+        </member>
+        <member name="M:Academy.Numerics.IArithmeticOperator.Subtract(System.Object,System.Object)">
+            <summary>
+            Gets the result of subtract the two specified values.
+            </summary>
+            <param name="left">The left operand. Represents the minuend in the operation.</param>
+            <param name="right">The right operand. Represents the subtrahend in the operation.</param>
+            <returns>The result of substract the left operand from the right operand.</returns>
+        </member>
+        <member name="M:Academy.Numerics.IArithmeticOperator.Multiply(System.Object,System.Object)">
+            <summary>
+            Gets the result of multiply the two specified values.
+            </summary>
+            <param name="left">The left operand. Represents the multiplicand in the operation.</param>
+            <param name="right">The right operand. Represents the multiplier in the operation.</param>
+            <returns>The result of multiply the left operand by the right operand.</returns>
+        </member>
+        <member name="M:Academy.Numerics.IArithmeticOperator.Divide(System.Object,System.Object)">
+            <summary>
+            Gets the result of divide the two specified values.
+            </summary>
+            <param name="left">The left operand. Represents the dividend in the operation.</param>
+            <param name="right">The right operand. Represents the divisor in the operation.</param>
+            <returns>The result of divide the left operand by the right operand.</returns>
+        </member>
+        <member name="M:Academy.Numerics.IArithmeticOperator.Mod(System.Object,System.Object)">
+            <summary>
+            Gets the remainder value of divide the two specified values.
+            </summary>
+            <param name="left">he left operand. Represents the dividend in the operation.</param>
+            <param name="right">The right operand. Represents the divisor in the operation.</param>
+            <returns>The remainder value of divide the left operand by the right operand.</returns>
+        </member>
+        <member name="M:Academy.Numerics.ArithmeticOperator.Add(System.Object,System.Object)">
+            <summary>
+            When overridden in a derived class, gets the result of adding the two specified values.
+            </summary>
+            <param name="left">The left operand for the addition operation.</param>
+            <param name="right">The right operand for the addition operation.</param>
+            <returns>The result of adding the two specified values.</returns>
+        </member>
+        <member name="M:Academy.Numerics.ArithmeticOperator.Subtract(System.Object,System.Object)">
+            <summary>
+            When overridden in a derived class, gets the result of subtract the two specified values.
+            </summary>
+            <param name="left">The left operand. Represents the minuend in the operation.</param>
+            <param name="right">The right operand. Represents the subtrahend in the operation.</param>
+            <returns>The result of substract the left operand from the right operand.</returns>
+        </member>
+        <member name="M:Academy.Numerics.ArithmeticOperator.Multiply(System.Object,System.Object)">
+            <summary>
+            When overridden in a derived class, gets the result of multiply the two specified values.
+            </summary>
+            <param name="left">The left operand. Represents the multiplicand in the operation.</param>
+            <param name="right">The right operand. Represents the multiplier in the operation.</param>
+            <returns>The result of multiply the left operand by the right operand.</returns>
+        </member>
+        <member name="M:Academy.Numerics.ArithmeticOperator.Divide(System.Object,System.Object)">
+            <summary>
+            When overridden in a derived class, gets the result of divide the two specified values.
+            </summary>
+            <param name="left">The left operand. Represents the dividend in the operation.</param>
+            <param name="right">The right operand. Represents the divisor in the operation.</param>
+            <returns>The result of divide the left operand by the right operand.</returns>
+        </member>
+        <member name="M:Academy.Numerics.ArithmeticOperator.Mod(System.Object,System.Object)">
+            <summary>
+            When overridden in a derived class, gets the remainder value of divide the two specified values.
+            </summary>
+            <param name="left">he left operand. Represents the dividend in the operation.</param>
+            <param name="right">The right operand. Represents the divisor in the operation.</param>
+            <returns>The remainder value of divide the left operand by the right operand.</returns>
+        </member>
+        <member name="P:Academy.Numerics.ArithmeticOperator.Default">
+            <summary>
+            Gets a default arithmetic operator for objects.
+            </summary>
+        </member>
+        <member name="T:Academy.Numerics.IArithmeticallyOperable">
+            <summary>
+            Defines methods that a value type or class implements to support arithmetic operations with other instances.
+            </summary>
+        </member>
+        <member name="M:Academy.Numerics.IArithmeticallyOperable.Add(System.Object)">
+            <summary>
+            Gets the result of adding the current object and another object.
+            </summary>
+            <param name="obj">The object to add to the current object.</param>
+            <returns>The result of adding the current object and the specified argument.</returns>
+        </member>
+        <member name="M:Academy.Numerics.IArithmeticallyOperable.Subtract(System.Object)">
+            <summary>
+            Gets the result of substract the current object and another object.
+            </summary>
+            <param name="obj">The object to substract to the current object.</param>
+            <returns>The result of substract the specified argument to the current object.</returns>
+        </member>
+        <member name="M:Academy.Numerics.IArithmeticallyOperable.Multiply(System.Object)">
+            <summary>
+            Gets the result of multiply the current object by another object.
+            </summary>
+            <param name="obj">The object to multiply the current object by.</param>
+            <returns>The result of multiply the current object by the specified argument.</returns>
+        </member>
+        <member name="M:Academy.Numerics.IArithmeticallyOperable.Divide(System.Object)">
+            <summary>
+            Gets the result of divide the current object by another object.
+            </summary>
+            <param name="obj">The object to divide the current object by.</param>
+            <returns>The result of divide the current object by the specified argument.</returns>
+        </member>
+        <member name="M:Academy.Numerics.IArithmeticallyOperable.Mod(System.Object)">
+            <summary>
+            Gets the remainder value of divide the current object by another object.
+            </summary>
+            <param name="obj">The object to divide the current object by.</param>
+            <returns>The remainder value of divide the current object by the specified argument.</returns>
+        </member>
+        <member name="T:Academy.Numerics.Properties.Resources">
+            <summary>
+              A strongly-typed resource class, for looking up localized strings, etc.
+            </summary>
+        </member>
+        <member name="P:Academy.Numerics.Properties.Resources.ResourceManager">
+            <summary>
+              Returns the cached ResourceManager instance used by this class.
+            </summary>
+        </member>
+        <member name="P:Academy.Numerics.Properties.Resources.Culture">
+            <summary>
+              Overrides the current thread's CurrentUICulture property for all
+              resource lookups using this strongly typed resource class.
+            </summary>
+        </member>
+        <member name="P:Academy.Numerics.Properties.Resources.InvalidCast_ReturnTypeNotCompatible_G">
+            <summary>
+              Looks up a localized string similar to Unable to cast object of type {0} to type {1} which is the return type of {2} operator in {1}..
+            </summary>
+        </member>
+        <member name="P:Academy.Numerics.Properties.Resources.InvalidOperation_NotOperableOrOperatorDefined_G">
+            <summary>
+              Looks up a localized string similar to Type {0} does not implement {1} or defines the &apos;{2}&apos; operator..
+            </summary>
+        </member>
+    </members>
+</doc>

@@ -1,0 +1,323 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="14.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{028D5FF6-1763-4623-BB7F-2DE96025417F}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>Brilliant</RootNamespace>
+    <AssemblyName>Brilliant</AssemblyName>
+    <TargetFrameworkVersion>v4.6.1</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <SccProjectName>SAK</SccProjectName>
+    <SccLocalPath>SAK</SccLocalPath>
+    <SccAuxPath>SAK</SccAuxPath>
+    <SccProvider>SAK</SccProvider>
+    <TargetFrameworkProfile />
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <AllowUnsafeBlocks>false</AllowUnsafeBlocks>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="BigRationalLibrary">
+      <HintPath>..\packages\Microsoft-BCL-BigRational-DonotDelete\BigRationalLibrary.dll</HintPath>
+    </Reference>
+    <Reference Include="Combinatorics, Version=1.0.3.0, Culture=neutral, PublicKeyToken=d5738f21cd5d2f66, processorArchitecture=MSIL">
+      <HintPath>..\packages\Combinatorics.1.0.3.2\lib\net40\Combinatorics.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="log4net, Version=1.2.15.0, Culture=neutral, PublicKeyToken=669e0ddf0bb1aa2a, processorArchitecture=MSIL">
+      <HintPath>..\packages\log4net.2.0.5\lib\net45-full\log4net.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Microsoft.VisualStudio.QualityTools.UnitTestFramework, Version=10.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL" />
+    <Reference Include="Newtonsoft.Json, Version=9.0.0.0, Culture=neutral, PublicKeyToken=30ad4fe6b2a6aeed, processorArchitecture=MSIL">
+      <HintPath>..\packages\Newtonsoft.Json.9.0.1\lib\net45\Newtonsoft.Json.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="ObjectDumper, Version=1.0.0.12, Culture=neutral, PublicKeyToken=9e2fabf3af85dba9, processorArchitecture=MSIL">
+      <HintPath>..\packages\ObjectDumper.1.0.0.12\lib\net35-Client\ObjectDumper.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Numerics" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Net.Http" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Algebra\BruteInequality.cs" />
+    <Compile Include="Algebra\LastDigitOf2pow4pow6pow8.cs" />
+    <Compile Include="Algebra\Recurrence.cs" />
+    <Compile Include="Algebra\SplittingEnormousCake.cs" />
+    <Compile Include="Algebra\SigmaCeilings.cs" />
+    <Compile Include="Algebra\Primetastic.cs" />
+    <Compile Include="Calculus\CalculusCollection.cs" />
+    <Compile Include="Combinatorics\BaseballMultiHit.cs" />
+    <Compile Include="Combinatorics\CombinatoricsCollection.cs" />
+    <Compile Include="Combinatorics\5\MillionthPermutation.cs" />
+    <Compile Include="Combinatorics\5\RecursiveSummation.cs" />
+    <Compile Include="Combinatorics\5\TrollGCD.cs" />
+    <Compile Include="Combinatorics\5\PaperCorrection.cs" />
+    <Compile Include="Combinatorics\5\SameScoreProbability.cs" />
+    <Compile Include="Combinatorics\AddingGiganticNumbers.cs" />
+    <Compile Include="Algebra\AlgebraCollection.cs" />
+    <Compile Include="Combinatorics\CountingProblems.cs" />
+    <Compile Include="Combinatorics\PathAndGridWalkingProblems.cs" />
+    <Compile Include="Combinatorics\Quadrilatorics.cs" />
+    <Compile Include="Combinatorics\MarblesInAJar.cs" />
+    <Compile Include="Combinatorics\FourCallingBirds.cs" />
+    <Compile Include="Combinatorics\Oddition20.cs" />
+    <Compile Include="Combinatorics\WaterCombinatorics.cs" />
+    <Compile Include="Combinatorics\Dividingthirtyballs.cs" />
+    <Compile Include="Combinatorics\IamOnion.cs" />
+    <Compile Include="Combinatorics\AreYouGoodWithMoney.cs" />
+    <Compile Include="Combinatorics\AndrewsRecursiveDream.cs" />
+    <Compile Include="Combinatorics\HotChocolateVeryVeryLargeSet.cs" />
+    <Compile Include="Combinatorics\HotChocolateSmallSet.cs" />
+    <Compile Include="ComputerScience\2\CountingRectanglesInGrid.cs" />
+    <Compile Include="ComputerScience\2\LCS-1.cs" />
+    <Compile Include="ComputerScience\4\Ackermann.cs" />
+    <Compile Include="ComputerScience\4\BinaryTransmissionGlitch.cs" />
+    <Compile Include="ComputerScience\4\AComplexFunction.cs" />
+    <Compile Include="ComputerScience\4\AlgorithmicBurglar.cs" />
+    <Compile Include="ComputerScience\4\CyclicPermutationPrimes.cs" />
+    <Compile Include="ComputerScience\4\HerNameIsCheryl.cs" />
+    <Compile Include="ComputerScience\4\IDontWantToBeEmbarassed.cs" />
+    <Compile Include="ComputerScience\4\DiceWithKSides.cs" />
+    <Compile Include="ComputerScience\4\Cracking1980sEncryption.cs" />
+    <Compile Include="ComputerScience\4\DontPushMyButtons.cs" />
+    <Compile Include="ComputerScience\4\kperfectnumbers.cs" />
+    <Compile Include="ComputerScience\4\OddTallyCounter.cs" />
+    <Compile Include="ComputerScience\4\PiChains.cs" />
+    <Compile Include="ComputerScience\4\PalPrimes.cs" />
+    <Compile Include="ComputerScience\4\TipTheScales.cs" />
+    <Compile Include="ComputerScience\5\Holes.cs" />
+    <Compile Include="ComputerScience\5\LookingForPatterns.cs" />
+    <Compile Include="ComputerScience\5\BogoSorter.cs" />
+    <Compile Include="ComputerScience\5\LoopTheLoops.cs" />
+    <Compile Include="ComputerScience\5\MaximumWithACatch.cs" />
+    <Compile Include="ComputerScience\5\RubiksCube.cs" />
+    <Compile Include="ComputerScience\5\SelfDescribingSequence.cs" />
+    <Compile Include="ComputerScience\5\Congruentnpown.cs" />
+    <Compile Include="ComputerScience\5\HiddenPalindrome.cs" />
+    <Compile Include="ComputerScience\5\SpanningArray.cs" />
+    <Compile Include="ComputerScience\5\SummingSequences.cs" />
+    <Compile Include="ComputerScience\5\Anagrams1.cs" />
+    <Compile Include="ComputerScience\5\CalvinHatesHisHomework.cs" />
+    <Compile Include="ComputerScience\5\CandiceTripToCandyShop.cs" />
+    <Compile Include="ComputerScience\5\CollatzConjecture.cs" />
+    <Compile Include="ComputerScience\5\CoordinatingFlights.cs" />
+    <Compile Include="ComputerScience\5\Josephus_Loops.cs" />
+    <Compile Include="ComputerScience\5\SangarNumber.cs" />
+    <Compile Include="ComputerScience\5\ALotOfPhis.cs" />
+    <Compile Include="ComputerScience\AllBuzzkillForJust1NumberPart2.cs" />
+    <Compile Include="ComputerScience\BinaryPrimes19thSmallestNumber.cs" />
+    <Compile Include="ComputerScience\BinaryTree.cs" />
+    <Compile Include="ComputerScience\ChessBoard.cs" />
+    <Compile Include="ComputerScience\Collection.cs" />
+    <Compile Include="ComputerScience\ComputerScienceCollection.cs" />
+    <Compile Include="ComputerScience\EggDroppingProblem.cs" />
+    <Compile Include="ComputerScience\EulerTotientSolver.cs" />
+    <Compile Include="ComputerScience\INOI2016Brackets.cs" />
+    <Compile Include="ComputerScience\JosephusProblem.cs" />
+    <Compile Include="ComputerScience\EscapeSatanSaveMathematics.cs" />
+    <Compile Include="ComputerScience\EulersTotient10pow10adiv1729.cs" />
+    <Compile Include="ComputerScience\AVLTreeNodes.cs" />
+    <Compile Include="ComputerScience\ReversedMultipleAreBrilliant.cs" />
+    <Compile Include="ComputerScience\CheckersBoard.cs" />
+    <Compile Include="ComputerScience\SallyWantsApples.cs" />
+    <Compile Include="ComputerScience\TotallyOriginallyCreatedByMeNumber.cs" />
+    <Compile Include="ComputerScience\TrickySums.cs" />
+    <Compile Include="ComputerScience\TripleDigitHunting.cs" />
+    <Compile Include="ComputerScience\WealthDisparity.cs" />
+    <Compile Include="ComputerScience\WordSearches.cs" />
+    <Compile Include="Geometry\CollectionOfProblems.cs" />
+    <Compile Include="Geometry\WhoLovesGeometry.cs" />
+    <Compile Include="ISolve.cs" />
+    <Compile Include="JustCalculation.cs" />
+    <Compile Include="Logic\CalvinAndSusanNumberGame.cs" />
+    <Compile Include="Logic\LogicCollectionOfProblems.cs" />
+    <Compile Include="Logic\DigitsInsideBox.cs" />
+    <Compile Include="Logic\CodeBreakerY2J.cs" />
+    <Compile Include="Logic\Cryptarithms.cs" />
+    <Compile Include="Logic\TheLabyrinth.cs" />
+    <Compile Include="Logic\TooHighTooLow.cs" />
+    <Compile Include="NumberTheory\4\ReciprocalOfReciprocals.cs" />
+    <Compile Include="NumberTheory\5\CubicDiophantineFamily.cs" />
+    <Compile Include="NumberTheory\5\FunnyNumbers.cs" />
+    <Compile Include="NumberTheory\5\MoreOnPhi_2016_2.cs" />
+    <Compile Include="NumberTheory\5\FindLargestPrimeGIvenACondition.cs" />
+    <Compile Include="NumberTheory\5\Problem23.cs" />
+    <Compile Include="NumberTheory\a2b2c2d2g2eq2016.cs" />
+    <Compile Include="NumberTheory\NumberTheoryCollection.cs" />
+    <Compile Include="NumberTheory\LastDigitOfNpowNSummation.cs" />
+    <Compile Include="NumberTheory\Modulus1009.cs" />
+    <Compile Include="NumberTheory\RecurrenceRelationOne.cs" />
+    <Compile Include="NumberTheory\RiemannZeta.cs" />
+    <Compile Include="NumberTheory\ThePowOf2MoreFunPow1.cs" />
+    <Compile Include="NumberTheory\ThePowOf8.cs" />
+    <Compile Include="NumberTheory\ThreeLastDigitsAwesome.cs" />
+    <Compile Include="NumberTheory\TwoLastDigitsBeautiful.cs" />
+    <Compile Include="NumberTheory\AnEarlyChristmasAlgebraicSequence.cs" />
+    <Compile Include="NumberTheory\LockerProblemExtended.cs" />
+    <Compile Include="NumberTheory\PartridgeNumber.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="QuickCalculation.cs" />
+    <Compile Include="Year2016Collection.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\GenericDefs\GenericDefs.csproj">
+      <Project>{956ec036-0a62-4857-a56a-3047e8f82576}</Project>
+      <Name>GenericDefs</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="ComputerScience\data\rice-field.txt">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </EmbeddedResource>
+    <None Include="packages.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="ComputerScience\data\sangar.txt">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </EmbeddedResource>
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="ComputerScience\data\a-lot-of-phis-totients.txt">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </EmbeddedResource>
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="ComputerScience\data\problems.txt">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </EmbeddedResource>
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="ComputerScience\data\41swaps.txt">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </EmbeddedResource>
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="ComputerScience\data\flight-times.txt">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </EmbeddedResource>
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="ComputerScience\data\anagrams-1.txt">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </EmbeddedResource>
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="ComputerScience\data\summing-sequences.txt">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </EmbeddedResource>
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Combinatorics\data\edsgerdogstra.txt">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </EmbeddedResource>
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="ComputerScience\data\14-adjacent-digits-max-product.txt">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </EmbeddedResource>
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="ComputerScience\data\1500-digit-number-palindrome.txt">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </EmbeddedResource>
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="ComputerScience\data\word-search-grid\word-grid.txt">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ComputerScience\data\word-search-grid\words.txt">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </EmbeddedResource>
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="ComputerScience\data\who-wants-to-be-millionaire.txt">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </EmbeddedResource>
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="ComputerScience\data\looking-for-patterns.txt">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </EmbeddedResource>
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="ComputerScience\data\positive-streak.txt">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </EmbeddedResource>
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="ComputerScience\data\rinks.txt">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </EmbeddedResource>
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="ComputerScience\data\spanning-array.txt">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </EmbeddedResource>
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="ComputerScience\data\sub-arrays.txt">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </EmbeddedResource>
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="ComputerScience\data\shifty-sort.txt">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </EmbeddedResource>
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="ComputerScience\data\pythogorean-primes.txt">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </EmbeddedResource>
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="ComputerScience\data\snail-input.txt">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </EmbeddedResource>
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="ComputerScience\data\King.txt">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </EmbeddedResource>
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="ComputerScience\data\NoO.txt">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </EmbeddedResource>
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>

@@ -1,0 +1,153 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>Shields.DataStructures</name>
+    </assembly>
+    <members>
+        <member name="T:Shields.DataStructures.IPriorityQueueHandle`2">
+            <summary>
+            Represents a key/value pair in a priority queue.
+            </summary>
+            <typeparam name="TKey">The key type.</typeparam>
+            <typeparam name="TValue">The value type.</typeparam>
+        </member>
+        <member name="P:Shields.DataStructures.IPriorityQueueHandle`2.Key">
+            <summary>
+            The key for this handle.
+            </summary>
+        </member>
+        <member name="P:Shields.DataStructures.IPriorityQueueHandle`2.Value">
+            <summary>
+            The value for this handle.
+            </summary>
+        </member>
+        <member name="P:Shields.DataStructures.IPriorityQueueHandle`2.IsActive">
+            <summary>
+            Is this handle still in the priority queue that created it?
+            </summary>
+        </member>
+        <member name="T:Shields.DataStructures.IPriorityQueue`2">
+            <summary>
+            Represents a collection of key/value pairs.
+            </summary>
+            <typeparam name="TKey">The key type.</typeparam>
+            <typeparam name="TValue">The value type.</typeparam>
+        </member>
+        <member name="M:Shields.DataStructures.IPriorityQueue`2.Add(`0,`1)">
+            <summary>
+            Adds a key/value pair to the priority queue.
+            </summary>
+            <param name="key">The key.</param>
+            <param name="value">The value.</param>
+            <returns>The handle for the inserted key/value pair.</returns>
+        </member>
+        <member name="M:Shields.DataStructures.IPriorityQueue`2.Remove(Shields.DataStructures.IPriorityQueueHandle{`0,`1})">
+            <summary>
+            Removes a key/value pair from the priority queue.
+            If the given handle is not active, an <see cref="T:System.InvalidOperationException"/> is thrown.
+            </summary>
+            <param name="handle">The handle for the key/value pair to remove.</param>
+            <exception cref="T:System.ArgumentNullException">Thrown if the handle is null.</exception>
+            <exception cref="T:System.InvalidOperationException">Thrown if the handle is not active or if the handle belongs to a different priority queue.</exception>
+        </member>
+        <member name="M:Shields.DataStructures.IPriorityQueue`2.UpdateKey(Shields.DataStructures.IPriorityQueueHandle{`0,`1},`0)">
+            <summary>
+            Updates the key for a key/value pair that is currently in the priority queue.
+            If the given handle is not active, an <see cref="T:System.InvalidOperationException"/> is thrown.
+            </summary>
+            <param name="handle">The handle for the key/value pair.</param>
+            <param name="key">The current key is replaced with this value.</param>
+            <exception cref="T:System.ArgumentNullException">Thrown if the handle is null.</exception>
+            <exception cref="T:System.InvalidOperationException">Thrown if the handle is not active or if the handle belongs to a different priority queue.</exception>
+        </member>
+        <member name="P:Shields.DataStructures.IPriorityQueue`2.Comparer">
+            <summary>
+            The comparer that defines the order of keys.
+            </summary>
+        </member>
+        <member name="P:Shields.DataStructures.IPriorityQueue`2.Count">
+            <summary>
+            The number of items in the priority queue.
+            </summary>
+        </member>
+        <member name="P:Shields.DataStructures.IPriorityQueue`2.Handles">
+            <summary>
+            The collection of handles in the priority queue in an arbitrary order.
+            </summary>
+        </member>
+        <member name="P:Shields.DataStructures.IPriorityQueue`2.Min">
+            <summary>
+            Gets a handle with a minimal key.
+            If the priority queue is empty, an <see cref="T:System.InvalidOperationException"/> is thrown.
+            </summary>
+            <exception cref="T:System.InvalidOperationException">Thrown if the priority queue is empty.</exception>
+        </member>
+        <member name="T:Shields.DataStructures.PairingHeap`2">
+            <summary>
+            A mutable pairing heap data structure. http://en.wikipedia.org/wiki/Pairing_heap
+            </summary>
+            <typeparam name="TKey">The key type.</typeparam>
+            <typeparam name="TValue">The value type.</typeparam>
+        </member>
+        <member name="M:Shields.DataStructures.PairingHeap`2.#ctor">
+            <summary>
+            Constructs an empty pairing heap using the default comparer for the key type.
+            </summary>
+        </member>
+        <member name="M:Shields.DataStructures.PairingHeap`2.#ctor(System.Collections.Generic.IComparer{`0})">
+            <summary>
+            Constructs an empty pairing heap using the specified comparer for the key type.
+            </summary>
+            <param name="comparer">The comparer for the key type.</param>
+        </member>
+        <member name="M:Shields.DataStructures.PairingHeap`2.Add(`0,`1)">
+            <summary>
+            Adds a key/value pair to the priority queue.
+            </summary>
+            <param name="key">The key.</param>
+            <param name="value">The value.</param>
+            <returns>The handle for the inserted key/value pair.</returns>
+        </member>
+        <member name="M:Shields.DataStructures.PairingHeap`2.Remove(Shields.DataStructures.IPriorityQueueHandle{`0,`1})">
+            <summary>
+            Removes a key/value pair from the priority queue.
+            If the given handle is not active, an <see cref="T:System.InvalidOperationException"/> is thrown.
+            </summary>
+            <param name="handle">The handle for the key/value pair to remove.</param>
+            <exception cref="T:System.ArgumentNullException">Thrown if the handle is null.</exception>
+            <exception cref="T:System.InvalidOperationException">Thrown if the handle is not active or if the handle belongs to a different priority queue.</exception>
+        </member>
+        <member name="M:Shields.DataStructures.PairingHeap`2.UpdateKey(Shields.DataStructures.IPriorityQueueHandle{`0,`1},`0)">
+            <summary>
+            Updates the key for a key/value pair that is currently in the priority queue.
+            If the given handle is not active, an <see cref="T:System.InvalidOperationException"/> is thrown.
+            </summary>
+            <param name="handle">The handle for the key/value pair.</param>
+            <param name="key">The current key is replaced with this value.</param>
+            <exception cref="T:System.ArgumentNullException">Thrown if the handle is null.</exception>
+            <exception cref="T:System.InvalidOperationException">Thrown if the handle is not active or if the handle belongs to a different priority queue.</exception>
+        </member>
+        <member name="P:Shields.DataStructures.PairingHeap`2.Comparer">
+            <summary>
+            The comparer that defines the order of keys.
+            </summary>
+        </member>
+        <member name="P:Shields.DataStructures.PairingHeap`2.Count">
+            <summary>
+            The number of items in the priority queue.
+            </summary>
+        </member>
+        <member name="P:Shields.DataStructures.PairingHeap`2.Handles">
+            <summary>
+            The collection of handles in the priority queue in an arbitrary order.
+            </summary>
+        </member>
+        <member name="P:Shields.DataStructures.PairingHeap`2.Min">
+            <summary>
+            Gets a handle with a minimal key.
+            If the priority queue is empty, an <see cref="T:System.InvalidOperationException"/> is thrown.
+            </summary>
+            <exception cref="T:System.InvalidOperationException">Thrown if the priority queue is empty.</exception>
+        </member>
+    </members>
+</doc>

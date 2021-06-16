@@ -1,0 +1,138 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<xs:schema elementFormDefault="qualified" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+  <xs:element name="Problem" nillable="true" type="Problem" />
+  <xs:complexType name="Problem">
+    <xs:sequence>
+      <xs:element minOccurs="1" maxOccurs="1" name="BrilliantProblem" type="BrilliantProblems" />
+      <xs:element minOccurs="1" maxOccurs="1" name="PEProblem" type="ProjectEulerProblems" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:simpleType name="BrilliantProblems">
+    <xs:restriction base="xs:string">
+      <xs:enumeration value="Brilliant_JustCalculation" />
+      <xs:enumeration value="Brilliant_QuickCalculation" />
+      <xs:enumeration value="Brilliant_Year2016Collection" />
+      <xs:enumeration value="Brilliant_Logic_CalvinAndSusanNumberGame" />
+      <xs:enumeration value="Brilliant_Logic_LogicCollectionOfProblems" />
+      <xs:enumeration value="Brilliant_Logic_DigitsInsideBox" />
+      <xs:enumeration value="Brilliant_Logic_CodeBreakerY2J" />
+      <xs:enumeration value="Brilliant_Logic_Cryptarithms" />
+      <xs:enumeration value="Brilliant_Logic_TheLabyrinth" />
+      <xs:enumeration value="Brilliant_Logic_TooHighTooLow" />
+      <xs:enumeration value="Brilliant_NumberTheory_WhoLovesGeometry" />
+      <xs:enumeration value="Brilliant_NumberTheory_a2b2c2d2g2eq2016" />
+      <xs:enumeration value="Brilliant_NumberTheory_NumberTheoryCollection" />
+      <xs:enumeration value="Brilliant_NumberTheory_LastDigitOfNpowNSummation" />
+      <xs:enumeration value="Brilliant_NumberTheory_Modulus1009" />
+      <xs:enumeration value="Brilliant_NumberTheory_RecurrenceRelationOne" />
+      <xs:enumeration value="Brilliant_NumberTheory_RiemannZeta" />
+      <xs:enumeration value="Brilliant_NumberTheory_ThePowOf2MoreFunPow1" />
+      <xs:enumeration value="Brilliant_NumberTheory_ThePowOf8" />
+      <xs:enumeration value="Brilliant_NumberTheory_ThreeLastDigitsAwesome" />
+      <xs:enumeration value="Brilliant_NumberTheory_TwoLastDigitsBeautiful" />
+      <xs:enumeration value="Brilliant_NumberTheory_AnEarlyChristmasAlgebraicSequence" />
+      <xs:enumeration value="Brilliant_NumberTheory_LockerProblemExtended" />
+      <xs:enumeration value="Brilliant_NumberTheory_PartridgeNumber" />
+      <xs:enumeration value="Brilliant_NumberTheory__5_CubicDiophantineFamily" />
+      <xs:enumeration value="Brilliant_NumberTheory__5_FunnyNumbers" />
+      <xs:enumeration value="Brilliant_NumberTheory__5_MoreOnPhi_2016_2" />
+      <xs:enumeration value="Brilliant_NumberTheory__5_FindLargestPrimeGIvenACondition" />
+      <xs:enumeration value="Brilliant_NumberTheory__5_Problem23" />
+      <xs:enumeration value="Brilliant_NumberTheory__4_ReciprocalOfReciprocals" />
+      <xs:enumeration value="Brilliant_Geometry_CollectionOfProblems" />
+      <xs:enumeration value="Brilliant_ComputerScience_AllBuzzkillForJust1NumberPart2" />
+      <xs:enumeration value="Brilliant_ComputerScience_BinaryPrimes19thSmallestNumber" />
+      <xs:enumeration value="Brilliant_ComputerScience_BinaryTree" />
+      <xs:enumeration value="Brilliant_ComputerScience_ChessBoard" />
+      <xs:enumeration value="Brilliant_ComputerScience_Collection" />
+      <xs:enumeration value="Brilliant_ComputerScience_ComputerScienceCollection" />
+      <xs:enumeration value="Brilliant_ComputerScience_EggDroppingProblem" />
+      <xs:enumeration value="Brilliant_ComputerScience_EulerTotientSolver" />
+      <xs:enumeration value="Brilliant_ComputerScience_INOI2016Brackets" />
+      <xs:enumeration value="Brilliant_ComputerScience_JosephusProblem" />
+      <xs:enumeration value="Brilliant_ComputerScience_EscapeSatanSaveMathematics" />
+      <xs:enumeration value="Brilliant_ComputerScience_EulersTotient10pow10adiv1729" />
+      <xs:enumeration value="Brilliant_ComputerScience_AVLTreeNodes" />
+      <xs:enumeration value="Brilliant_ComputerScience_ReversedMultipleAreBrilliant" />
+      <xs:enumeration value="Brilliant_ComputerScience_CheckersBoard" />
+      <xs:enumeration value="Brilliant_ComputerScience_SallyWantsApples" />
+      <xs:enumeration value="Brilliant_ComputerScience_TotallyOriginallyCreatedByMeNumber" />
+      <xs:enumeration value="Brilliant_ComputerScience_TrickySums" />
+      <xs:enumeration value="Brilliant_ComputerScience_TripleDigitHunting" />
+      <xs:enumeration value="Brilliant_ComputerScience_WealthDisparity" />
+      <xs:enumeration value="Brilliant_ComputerScience_WordSearches" />
+      <xs:enumeration value="Brilliant_ComputerScience__5_Holes" />
+      <xs:enumeration value="Brilliant_ComputerScience__5_LookingForPatterns" />
+      <xs:enumeration value="Brilliant_ComputerScience__5_BogoSorter" />
+      <xs:enumeration value="Brilliant_ComputerScience__5_LoopTheLoops" />
+      <xs:enumeration value="Brilliant_ComputerScience__5_MaximumWithACatch" />
+      <xs:enumeration value="Brilliant_ComputerScience__5_RubiksCube" />
+      <xs:enumeration value="Brilliant_ComputerScience__5_SelfDescribingSequence" />
+      <xs:enumeration value="Brilliant_ComputerScience__5_Congruentnpown" />
+      <xs:enumeration value="Brilliant_ComputerScience__5_HiddenPalindrome" />
+      <xs:enumeration value="Brilliant_ComputerScience__5_SpanningArray" />
+      <xs:enumeration value="Brilliant_ComputerScience__5_SummingSequences" />
+      <xs:enumeration value="Brilliant_ComputerScience__5_Anagrams1" />
+      <xs:enumeration value="Brilliant_ComputerScience__5_CalvinHatesHisHomework" />
+      <xs:enumeration value="Brilliant_ComputerScience__5_CandiceTripToCandyShop" />
+      <xs:enumeration value="Brilliant_ComputerScience__5_CollatzConjecture" />
+      <xs:enumeration value="Brilliant_ComputerScience__5_Josephus_Loops" />
+      <xs:enumeration value="Brilliant_ComputerScience__5_SangarNumber" />
+      <xs:enumeration value="Brilliant_ComputerScience__5_ALotOfPhis" />
+      <xs:enumeration value="Brilliant_ComputerScience__4_Ackermann" />
+      <xs:enumeration value="Brilliant_ComputerScience__4_BinaryTransmissionGlitch" />
+      <xs:enumeration value="Brilliant_ComputerScience__4_AComplexFunction" />
+      <xs:enumeration value="Brilliant_ComputerScience__4_AlgorithmicBurglar" />
+      <xs:enumeration value="Brilliant_ComputerScience__4_CyclicPermutationPrimes" />
+      <xs:enumeration value="Brilliant_ComputerScience__4_HerNameIsCheryl" />
+      <xs:enumeration value="Brilliant_ComputerScience__4_IDontWantToBeEmbarassed" />
+      <xs:enumeration value="Brilliant_ComputerScience__4_DiceWithKSides" />
+      <xs:enumeration value="Brilliant_ComputerScience__4_Cracking1980sEncryption" />
+      <xs:enumeration value="Brilliant_ComputerScience__4_DontPushMyButtons" />
+      <xs:enumeration value="Brilliant_ComputerScience__4_kperfectnumbers" />
+      <xs:enumeration value="Brilliant_ComputerScience__4_OddTallyCounter" />
+      <xs:enumeration value="Brilliant_ComputerScience__4_PiChains" />
+      <xs:enumeration value="Brilliant_ComputerScience__4_PalPrimes" />
+      <xs:enumeration value="Brilliant_ComputerScience__4_TipTheScales" />
+      <xs:enumeration value="Brilliant_ComputerScience__4_CoordinatingFlights" />
+      <xs:enumeration value="Brilliant_ComputerScience__2_CountingRectanglesInGrid" />
+      <xs:enumeration value="Brilliant_ComputerScience__2_LCS_1" />
+      <xs:enumeration value="Brilliant_Combinatorics_BaseballMultiHit" />
+      <xs:enumeration value="Brilliant_Combinatorics_CombinatoricsCollection" />
+      <xs:enumeration value="Brilliant_Combinatorics_AddingGiganticNumbers" />
+      <xs:enumeration value="Brilliant_Combinatorics_CountingProblems" />
+      <xs:enumeration value="Brilliant_Combinatorics_PathAndGridWalkingProblems" />
+      <xs:enumeration value="Brilliant_Combinatorics_Quadrilatorics" />
+      <xs:enumeration value="Brilliant_Combinatorics_MarblesInAJar" />
+      <xs:enumeration value="Brilliant_Combinatorics_FourCallingBirds" />
+      <xs:enumeration value="Brilliant_Combinatorics_Oddition20" />
+      <xs:enumeration value="Brilliant_Combinatorics_WaterCombinatorics" />
+      <xs:enumeration value="Brilliant_Combinatorics_Dividingthirtyballs" />
+      <xs:enumeration value="Brilliant_Combinatorics_IamOnion" />
+      <xs:enumeration value="Brilliant_Combinatorics_AreYouGoodWithMoney" />
+      <xs:enumeration value="Brilliant_Combinatorics_AndrewsRecursiveDream" />
+      <xs:enumeration value="Brilliant_Combinatorics_HotChocolateVeryVeryLargeSet" />
+      <xs:enumeration value="Brilliant_Combinatorics_HotChocolateSmallSet" />
+      <xs:enumeration value="Brilliant_Combinatorics__5_MillionthPermutation" />
+      <xs:enumeration value="Brilliant_Combinatorics__5_RecursiveSummation" />
+      <xs:enumeration value="Brilliant_Combinatorics__5_TrollGCD" />
+      <xs:enumeration value="Brilliant_Combinatorics__5_PaperCorrection" />
+      <xs:enumeration value="Brilliant_Combinatorics__5_SameScoreProbability" />
+      <xs:enumeration value="Brilliant_Calculus_CalculusCollection" />
+      <xs:enumeration value="Brilliant_Algebra_BruteInequality" />
+      <xs:enumeration value="Brilliant_Algebra_LastDigitOf2pow4pow6pow8" />
+      <xs:enumeration value="Brilliant_Algebra_Recurrence" />
+      <xs:enumeration value="Brilliant_Algebra_SplittingEnormousCake" />
+      <xs:enumeration value="Brilliant_Algebra_SigmaCeilings" />
+      <xs:enumeration value="Brilliant_Algebra_Primetastic" />
+      <xs:enumeration value="Brilliant_Algebra_AlgebraCollection" />
+    </xs:restriction>
+  </xs:simpleType>
+  <xs:simpleType name="ProjectEulerProblems">
+    <xs:restriction base="xs:string">
+      <xs:enumeration value="ProjectEuler_N267Billionaire" />
+      <xs:enumeration value="ProjectEuler_QuickCalculation" />
+      <xs:enumeration value="ProjectEuler__100__91_100_Problem96" />
+    </xs:restriction>
+  </xs:simpleType>
+</xs:schema>

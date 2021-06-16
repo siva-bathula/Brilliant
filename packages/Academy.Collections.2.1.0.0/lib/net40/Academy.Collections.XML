@@ -1,0 +1,2617 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>Academy.Collections</name>
+    </assembly>
+    <members>
+        <member name="T:Academy.Collections.Generic.DisjointSet`2">
+            <summary>
+            Represents a set of values as a collection of disjoint subsets represented each by a key. The subsets can be accessed by the representing key.
+            </summary>
+            <typeparam name="TKey">The representation key type for the subsets.</typeparam>
+            <typeparam name="TValue">The value type to store in the subsets.</typeparam>
+        </member>
+        <member name="M:Academy.Collections.Generic.DisjointSet`2.#ctor">
+            <summary>
+            Initializes a new instance of the <see cref="T:Academy.Collections.Generic.DisjointSet`2"/> class 
+            that is empty and uses the default equality comparers for the key and value types.
+            </summary>
+        </member>
+        <member name="M:Academy.Collections.Generic.DisjointSet`2.#ctor(System.Collections.Generic.IEqualityComparer{`0},System.Collections.Generic.IEqualityComparer{`1})">
+            <summary>
+            Initializes a new instance of the <see cref="T:Academy.Collections.Generic.DisjointSet`2"/> class 
+            that is empty and uses the specified equality comparers for both, the key and value type.
+            </summary>
+            <param name="keyComparer">
+            The <see cref="T:System.Collections.Generic.IEqualityComparer`1"/> implementation to use when comparing 
+            keys in the disjoint set, or null to use the default <see cref="T:System.Collections.Generic.EqualityComparer`1"/> 
+            implementation for the key type.
+            </param>
+            <param name="valueComparer">
+            The <see cref="T:System.Collections.Generic.IEqualityComparer`1"/> implementation to use when comparing 
+            values in the disjoint set, or null to use the default <see cref="T:System.Collections.Generic.EqualityComparer`1"/> 
+            implementation for the value type.
+            </param>
+        </member>
+        <member name="M:Academy.Collections.Generic.DisjointSet`2.#ctor(System.Linq.ILookup{`0,`1},System.Collections.Generic.IEqualityComparer{`0},System.Collections.Generic.IEqualityComparer{`1})">
+            <summary>
+            Initializes a new instance of the <see cref="T:Academy.Collections.Generic.DisjointSet`2"/> class 
+            that uses the specified equality comparers for both, the key and value type and contains elements copied from the 
+            specified <see cref="T:System.Linq.ILookup`2"/> object.
+            </summary>
+            <param name="lookup">
+            The <see cref="T:System.Linq.ILookup`2"/> object whose keys and elements are copied to the new disjoint set.
+            </param>
+            <param name="keyComparer">
+            The <see cref="T:System.Collections.Generic.IEqualityComparer`1"/> implementation to use when comparing 
+            keys in the disjoint set, or null to use the default <see cref="T:System.Collections.Generic.EqualityComparer`1"/> 
+            implementation for the key type.
+            </param>
+            <param name="valueComparer">
+            The <see cref="T:System.Collections.Generic.IEqualityComparer`1"/> implementation to use when comparing 
+            values in the disjoint set, or null to use the default <see cref="T:System.Collections.Generic.EqualityComparer`1"/> 
+            implementation for the value type.
+            </param>
+        </member>
+        <member name="M:Academy.Collections.Generic.DisjointSet`2.ContainsKey(`0)">
+            <summary>
+            Gets whether the <see cref="T:Academy.Collections.Generic.DisjointSet`2"/> contains a subset represented by the specified key.
+            </summary>
+            <param name="key">The subset representation key.</param>
+            <returns>true if the <see cref="T:Academy.Collections.Generic.DisjointSet`2"/> contains subset represntd by the specified key; otherwise, false.</returns>
+        </member>
+        <member name="M:Academy.Collections.Generic.DisjointSet`2.ContainsValue(`1)">
+            <summary>
+            Gets whether the specified value is contained in one of the subsets in the <see cref="T:Academy.Collections.Generic.DisjointSet`2"/>.
+            </summary>
+            <param name="value">The value to find in the disjoint set.</param>
+            <returns>true if the specified value is found; otherwise, false.</returns>
+        </member>
+        <member name="M:Academy.Collections.Generic.DisjointSet`2.AreRelated(`0,`1)">
+            <summary>
+            Gets whether the <see cref="T:Academy.Collections.Generic.DisjointSet`2"/> has a subset represented by the specified key that contains the specified value.
+            </summary>
+            <param name="key">The subset representation key.</param>
+            <param name="value">The value to find.</param>
+            <returns>true if the <see cref="T:Academy.Collections.Generic.DisjointSet`2"/> contains a subset represented by the key specified and that subset contains the specified value; otherwise false.</returns>
+        </member>
+        <member name="M:Academy.Collections.Generic.DisjointSet`2.GetSubset(`1)">
+            <summary>
+            Gets the contained subset that contains the specified value.
+            </summary>
+            <param name="value">The value to locate in the <see cref="T:Academy.Collections.Generic.DisjointSet`2"/>.</param>
+            <returns>A <see cref="T:Academy.Collections.Generic.DisjointSet`2.Subset"/> representing the subset that contains the specified value. If no subset contains the value then returns null.</returns>
+        </member>
+        <member name="M:Academy.Collections.Generic.DisjointSet`2.GetEnumerator">
+            <summary>
+            Gets an enumerator that iterates through the subsets of the <see cref="T:Academy.Collections.Generic.DisjointSet`2"/>.
+            </summary>
+            <returns>An <see cref="T:Academy.Collections.Generic.DisjointSet`2.Enumerator"/> that iterates through the subsets of the disjoint set.</returns>
+        </member>
+        <member name="P:Academy.Collections.Generic.DisjointSet`2.Item(`0)">
+            <summary>
+            Gets the subset represented by the specified key.
+            </summary>
+            <param name="key"></param>
+            <returns>
+            The subset represented by the specified key. If the specified key is not found throws a 
+            <see cref="T:System.Collections.Generic.KeyNotFoundException>"/>.
+            </returns>
+        </member>
+        <member name="P:Academy.Collections.Generic.DisjointSet`2.SubsetKeys">
+            <summary>
+            Gets a set containing the subsets representation keys in the <see cref="T:Academy.Collections.Generic.DisjointSet`2"/> for key management operations.
+            </summary>
+        </member>
+        <member name="P:Academy.Collections.Generic.DisjointSet`2.Values">
+            <summary>
+            Gets a set containing the values in the <see cref="T:Academy.Collections.Generic.DisjointSet`2"/> for value management operations.
+            </summary>
+        </member>
+        <member name="P:Academy.Collections.Generic.DisjointSet`2.Count">
+            <summary>
+            Gets the number of subsets contained in the <see cref="T:Academy.Collections.Generic.DisjointSet`2"/>.
+            </summary>
+        </member>
+        <member name="T:Academy.Collections.Generic.DisjointSet`2.KeySet">
+            <summary>
+            Represents the set of keys representing the subsets contained in the 
+            <see cref="T:Academy.Collections.Generic.DisjointSet`2"/>. This class cannot be inherited.
+            </summary>
+        </member>
+        <member name="M:Academy.Collections.Generic.DisjointSet`2.KeySet.Add(`0)">
+            <summary>
+            Adds an empty subset represented by the specified key to the <see cref="T:Academy.Collections.Generic.DisjointSet`2"/>.
+            </summary>
+            <param name="item"></param>
+            <returns>
+            true if the subset is added to the <see cref="T:Academy.Collections.Generic.DisjointSet`2"/>; otherwise false.
+            </returns>
+        </member>
+        <member name="M:Academy.Collections.Generic.DisjointSet`2.KeySet.Clear">
+            <summary>
+            Removes all subsets from the <see cref="T:Academy.Collections.Generic.DisjointSet`2"/>. Values associated will be also removed.
+            </summary>
+        </member>
+        <member name="M:Academy.Collections.Generic.DisjointSet`2.KeySet.Contains(`0)">
+            <summary>
+            Gets whether the <see cref="T:Academy.Collections.Generic.DisjointSet`2"/> contains a subset represented by the specified key.
+            </summary>
+            <param name="key">The representative key.</param>
+            <returns>true if the collection contains a subset represented by the specified key; otherwise false.</returns>
+        </member>
+        <member name="M:Academy.Collections.Generic.DisjointSet`2.KeySet.CopyTo(`0[])">
+            <summary>
+            Copies the complete <see cref="T:Academy.Collections.Generic.DisjointSet`2.KeySet"/> to a compatible one-dimensional array, starting at the beginning of the target array.
+            </summary>
+            <param name="array">A one-dimensional array that is the destination of the elements copied from the <see cref="T:Academy.Collections.Generic.DisjointSet`2.KeySet"/>.</param>
+        </member>
+        <member name="M:Academy.Collections.Generic.DisjointSet`2.KeySet.CopyTo(`0[],System.Int32)">
+            <summary>
+            Copies the complete <see cref="T:Academy.Collections.Generic.DisjointSet`2.KeySet"/> to a compatible one-dimensional array, starting at the specific array index.
+            </summary>
+            <param name="array">
+            A one-dimensional array that is the destination of the elements copied from the <see cref="T:Academy.Collections.Generic.DisjointSet`2.KeySet"/>. The array must have zero-based indexing
+            </param>
+            <param name="index">The zero-based index in array at which copying begins.</param>
+        </member>
+        <member name="M:Academy.Collections.Generic.DisjointSet`2.KeySet.CopyTo(`0[],System.Int32,System.Int32)">
+            <summary>
+            Copies a specific number of elements from the <see cref="T:Academy.Collections.Generic.DisjointSet`2.KeySet"/>
+            to a compatible one-dimensional array, starting at the specific array index.
+            </summary>
+            <param name="array">
+            A one-dimensional array that is the destination of the elements copied from the 
+            <see cref="T:Academy.Collections.Generic.DisjointSet`2.KeySet"/>. The array must have zero-based indexing
+            </param>
+            <param name="index">The zero-based index in array at which copying begins.</param>
+            <param name="count">The number of elements to copy.</param>
+        </member>
+        <member name="M:Academy.Collections.Generic.DisjointSet`2.KeySet.GetEnumerator">
+            <summary>
+            Returns an enumerator that iterates through the <see cref="T:Academy.Collections.Generic.DisjointSet`2.KeySet"/>.
+            </summary>
+            <returns>A <see cref="T:Academy.Collections.Generic.DisjointSet`2.KeySet.Enumerator"/> for the <see cref="T:Academy.Collections.Generic.DisjointSet`2.KeySet"/>.</returns>
+        </member>
+        <member name="M:Academy.Collections.Generic.DisjointSet`2.KeySet.Remove(`0)">
+            <summary>
+            Removes the entire subset represented by the specified key from the <see cref="T:Academy.Collections.Generic.DisjointSet`2"/>.
+            </summary>
+            <param name="key">The representative key.</param>
+            <returns>true if the key was successfully found and the subset removed; otherwise false.</returns>
+        </member>
+        <member name="M:Academy.Collections.Generic.DisjointSet`2.KeySet.ExceptWith(System.Collections.Generic.IEnumerable{`0})">
+            <summary>
+            Removes all keys in the specified collection from the current <see cref="T:Academy.Collections.Generic.DisjointSet`2.KeySet"/>. Values associated with the deleted keys will be also removed.
+            </summary>
+            <param name="other">The collection of keys to remove from the set.</param>
+        </member>
+        <member name="M:Academy.Collections.Generic.DisjointSet`2.KeySet.IntersectWith(System.Collections.Generic.IEnumerable{`0})">
+            <summary>
+            Modifies the current <see cref="T:Academy.Collections.Generic.DisjointSet`2.KeySet"/> so that it contains only keys that are also in a specified collection. Values associated with the deleted keys will be also removed.
+            </summary>
+            <param name="other">The collection to compare to the <see cref="T:Academy.Collections.Generic.DisjointSet`2.KeySet"/>.</param>
+        </member>
+        <member name="M:Academy.Collections.Generic.DisjointSet`2.KeySet.IsProperSubsetOf(System.Collections.Generic.IEnumerable{`0})">
+            <summary>
+            Determines whether the current <see cref="T:Academy.Collections.Generic.DisjointSet`2.KeySet"/> is a proper (strict) subset of a specified collection.
+            </summary>
+            <param name="other">The collection to compare to the current set.</param>
+            <returns> true if the current <see cref="T:Academy.Collections.Generic.DisjointSet`2.KeySet"/> is a proper subset of <paramref name="other"/>; otherwise, false.</returns>
+        </member>
+        <member name="M:Academy.Collections.Generic.DisjointSet`2.KeySet.IsProperSupersetOf(System.Collections.Generic.IEnumerable{`0})">
+            <summary>
+            Determines whether the current <see cref="T:Academy.Collections.Generic.DisjointSet`2.KeySet"/> is a proper (strict) superset of a specified collection.
+            </summary>
+            <param name="other">The collection to compare to the current set.</param>
+            <returns>true if the current <see cref="T:Academy.Collections.Generic.DisjointSet`2.KeySet"/> is a proper superset of <paramref name="other"/>; otherwise, false.</returns>
+        </member>
+        <member name="M:Academy.Collections.Generic.DisjointSet`2.KeySet.IsSubsetOf(System.Collections.Generic.IEnumerable{`0})">
+            <summary>
+            Determines whether the current <see cref="T:Academy.Collections.Generic.DisjointSet`2.KeySet"/> is a subset of a specified collection.
+            </summary>
+            <param name="other">The collection to compare to the current set.</param>
+            <returns>true if the current <see cref="T:Academy.Collections.Generic.DisjointSet`2.KeySet"/> is a subset of <paramref name="other"/>; otherwise, false.</returns>
+        </member>
+        <member name="M:Academy.Collections.Generic.DisjointSet`2.KeySet.IsSupersetOf(System.Collections.Generic.IEnumerable{`0})">
+            <summary>
+            Determines whether the current <see cref="T:Academy.Collections.Generic.DisjointSet`2.KeySet"/> is a superset of a specified collection.
+            </summary>
+            <param name="other">The collection to compare to the current set.</param>
+            <returns>true if the current <see cref="T:Academy.Collections.Generic.DisjointSet`2.KeySet"/> is a superset of <paramref name="other"/>; otherwise, false.</returns>
+        </member>
+        <member name="M:Academy.Collections.Generic.DisjointSet`2.KeySet.Overlaps(System.Collections.Generic.IEnumerable{`0})">
+            <summary>
+            Determines whether the current <see cref="T:Academy.Collections.Generic.DisjointSet`2.KeySet"/> overlaps with the specified collection.
+            </summary>
+            <param name="other">The collection to compare to the current set.</param>
+            <returns>true if the current <see cref="T:Academy.Collections.Generic.DisjointSet`2.KeySet"/> and <paramref name="other"/> share at least one common key; otherwise, false.</returns>
+        </member>
+        <member name="M:Academy.Collections.Generic.DisjointSet`2.KeySet.SetEquals(System.Collections.Generic.IEnumerable{`0})">
+            <summary>
+            Determines whether the current <see cref="T:Academy.Collections.Generic.DisjointSet`2.KeySet"/> and the specified collection contain the same elements.
+            </summary>
+            <param name="other">The collection to compare to the current set.</param>
+            <returns>true if the current <see cref="T:Academy.Collections.Generic.DisjointSet`2.KeySet"/> is equal to <paramref name="other"/>; otherwise, false.</returns>
+        </member>
+        <member name="M:Academy.Collections.Generic.DisjointSet`2.KeySet.SymmetricExceptWith(System.Collections.Generic.IEnumerable{`0})">
+            <summary>
+            Modifies the current <see cref="T:Academy.Collections.Generic.DisjointSet`2.KeySet"/> so that it contains only keys that are present either in the current set or in the specified collection, but not both.
+            </summary>
+            <param name="other">The collection to compare to the current set.</param>
+        </member>
+        <member name="M:Academy.Collections.Generic.DisjointSet`2.KeySet.UnionWith(System.Collections.Generic.IEnumerable{`0})">
+            <summary>
+            Modifies the current <see cref="T:Academy.Collections.Generic.DisjointSet`2.KeySet"/> so that it contains all keys that are present in either the current set or the specified collection.
+            </summary>
+            <param name="other">The collection to compare to the current set.</param>
+        </member>
+        <member name="P:Academy.Collections.Generic.DisjointSet`2.KeySet.Count">
+            <summary>
+            Gets the number of keys contained in the <see cref="T:Academy.Collections.Generic.DisjointSet`2.KeySet"/>.
+            </summary>
+        </member>
+        <member name="P:Academy.Collections.Generic.DisjointSet`2.KeySet.Comparer">
+            <summary>
+            Gets the <see cref="T:System.Collections.Generic.IEqualityComparer`1"/> object that is used to determine equality for the keys in the set.
+            </summary>
+        </member>
+        <member name="T:Academy.Collections.Generic.DisjointSet`2.KeySet.Enumerator">
+            <summary>
+            An enumerator that iterates through the elements of a <see cref="T:Academy.Collections.Generic.DisjointSet`2.KeySet"/>.
+            </summary>
+        </member>
+        <member name="M:Academy.Collections.Generic.DisjointSet`2.KeySet.Enumerator.Dispose">
+            <summary>
+            Releases all resources used by the <see cref="T:Academy.Collections.Generic.DisjointSet`2.KeySet.Enumerator"/>.
+            </summary>
+        </member>
+        <member name="M:Academy.Collections.Generic.DisjointSet`2.KeySet.Enumerator.MoveNext">
+            <summary>
+            Advances the enumerator to the next element of the <see cref="T:Academy.Collections.Generic.DisjointSet`2.KeySet"/>.
+            </summary>
+            <returns>true if the enumerator was successfully advanced to the next key; false if the enumerator has passed the end of the collection.</returns>
+        </member>
+        <member name="P:Academy.Collections.Generic.DisjointSet`2.KeySet.Enumerator.Current">
+            <summary>
+            Gets the key at the current position of the enumerator.
+            </summary>
+        </member>
+        <member name="T:Academy.Collections.Generic.DisjointSet`2.ValueSet">
+            <summary>
+            Represents the set of values contained in the <see cref="T:Academy.Collections.Generic.DisjointSet`2"/>. 
+            This class cannot be inherited.
+            </summary>
+        </member>
+        <member name="M:Academy.Collections.Generic.DisjointSet`2.ValueSet.AddTo(`0,`1)">
+            <summary>
+            Adds a specified value to the subset represented by the specified key in the <see cref="T:Academy.Collections.Generic.DisjointSet`2"/>. 
+            If no subset with the specified key exists, the method creates it and then adds the value.
+            </summary>
+            <param name="key">The subset representation key.</param>
+            <param name="value">The value to add to the subset.</param>
+            <returns>true if the value is not contained in any subset in the disjoint set and successfully added; otherwise false.</returns>
+        </member>
+        <member name="M:Academy.Collections.Generic.DisjointSet`2.ValueSet.Clear">
+            <summary>
+            Removes all values from the <see cref="T:Academy.Collections.Generic.DisjointSet`2"/>. The operation maintains all contained subsets.
+            </summary>
+        </member>
+        <member name="M:Academy.Collections.Generic.DisjointSet`2.ValueSet.Contains(`1)">
+            <summary>
+            Determines whether the <see cref="T:Academy.Collections.Generic.DisjointSet`2"/> contains the specified value.
+            </summary>
+            <param name="value">The value to find in the <see cref="T:Academy.Collections.Generic.DisjointSet`2"/>.</param>
+            <returns>true if the specified value is contained in any subset in the disjoint set; otherwise false.</returns>
+        </member>
+        <member name="M:Academy.Collections.Generic.DisjointSet`2.ValueSet.CopyTo(`1[])">
+            <summary>
+            Copies the complete <see cref="T:Academy.Collections.Generic.DisjointSet`2.ValueSet"/> to a compatible one-dimensional array, starting at the beginning of the target array.
+            </summary>
+            <param name="array">A one-dimensional array that is the destination of the elements copied from the <see cref="T:Academy.Collections.Generic.DisjointSet`2.ValueSet"/>.</param>
+        </member>
+        <member name="M:Academy.Collections.Generic.DisjointSet`2.ValueSet.CopyTo(`1[],System.Int32)">
+            <summary>
+            Copies the complete <see cref="T:Academy.Collections.Generic.DisjointSet`2.ValueSet"/> to a compatible one-dimensional array, starting at the specific array index.
+            </summary>
+            <param name="array">
+            A one-dimensional array that is the destination of the elements copied from the <see cref="T:Academy.Collections.Generic.DisjointSet`2.ValueSet"/>. The array must have zero-based indexing
+            </param>
+            <param name="index">The zero-based index in array at which copying begins.</param>
+        </member>
+        <member name="M:Academy.Collections.Generic.DisjointSet`2.ValueSet.CopyTo(`1[],System.Int32,System.Int32)">
+            <summary>
+            Copies a specific number of elements from the <see cref="T:Academy.Collections.Generic.DisjointSet`2.ValueSet"/>
+            to a compatible one-dimensional array, starting at the specific array index.
+            </summary>
+            <param name="array">
+            A one-dimensional array that is the destination of the elements copied from the 
+            <see cref="T:Academy.Collections.Generic.DisjointSet`2.ValueSet"/>. The array must have zero-based indexing
+            </param>
+            <param name="index">The zero-based index in array at which copying begins.</param>
+            <param name="count">The number of elements to copy.</param>
+        </member>
+        <member name="M:Academy.Collections.Generic.DisjointSet`2.ValueSet.Remove(`1)">
+            <summary>
+            Removes the specified value from the <see cref="T:Academy.Collections.Generic.DisjointSet`2"/>.
+            </summary>
+            <param name="value">The value to remove.</param>
+            <returns>true if the specified value is contained in any subset in the <see cref="T:Academy.Collections.Generic.DisjointSet`2"/> and successfully removed; otherwise false.</returns>
+        </member>
+        <member name="M:Academy.Collections.Generic.DisjointSet`2.ValueSet.GetEnumerator">
+            <summary>
+            Returns an enumerator that iterates through the <see cref="T:Academy.Collections.Generic.DisjointSet`2.ValueSet"/>.
+            </summary>
+            <returns>A <see cref="T:Academy.Collections.Generic.DisjointSet`2.ValueSet.Enumerator"/> for the <see cref="T:Academy.Collections.Generic.DisjointSet`2.ValueSet"/>.</returns>
+        </member>
+        <member name="M:Academy.Collections.Generic.DisjointSet`2.ValueSet.ExceptWith(System.Collections.Generic.IEnumerable{`1})">
+            <summary>
+            Removes all values in the specified collection from the current <see cref="T:Academy.Collections.Generic.DisjointSet`2.ValueSet"/>.
+            </summary>
+            <param name="other">The collection of values to remove from the current set.</param>
+        </member>
+        <member name="M:Academy.Collections.Generic.DisjointSet`2.ValueSet.IntersectWith(System.Collections.Generic.IEnumerable{`1})">
+            <summary>
+            Modifies the current <see cref="T:Academy.Collections.Generic.DisjointSet`2.ValueSet"/> so that it contains only values that are also in a specified collection
+            </summary>
+            <param name="other">The collection to compare to the current set.</param>
+        </member>
+        <member name="M:Academy.Collections.Generic.DisjointSet`2.ValueSet.IsProperSubsetOf(System.Collections.Generic.IEnumerable{`1})">
+            <summary>
+            Determines whether the current <see cref="T:Academy.Collections.Generic.DisjointSet`2.ValueSet"/> is a proper (strict) subset of a specified collection.
+            </summary>
+            <param name="other">The collection to compare to the current set.</param>
+            <returns> true if the current <see cref="T:Academy.Collections.Generic.DisjointSet`2.ValueSet"/> is a proper subset of <paramref name="other"/>; otherwise, false.</returns>
+        </member>
+        <member name="M:Academy.Collections.Generic.DisjointSet`2.ValueSet.IsProperSupersetOf(System.Collections.Generic.IEnumerable{`1})">
+            <summary>
+            Determines whether the current <see cref="T:Academy.Collections.Generic.DisjointSet`2.ValueSet"/> is a proper (strict) superset of a specified collection.
+            </summary>
+            <param name="other">The collection to compare to the current set.</param>
+            <returns>true if the current <see cref="T:Academy.Collections.Generic.DisjointSet`2.ValueSet"/> is a proper superset of <paramref name="other"/>; otherwise, false.</returns>
+        </member>
+        <member name="M:Academy.Collections.Generic.DisjointSet`2.ValueSet.IsSubsetOf(System.Collections.Generic.IEnumerable{`1})">
+            <summary>
+            Determines whether the current <see cref="T:Academy.Collections.Generic.DisjointSet`2.ValueSet"/> is a subset of a specified collection.
+            </summary>
+            <param name="other">The collection to compare to the current set.</param>
+            <returns>true if the current <see cref="T:Academy.Collections.Generic.DisjointSet`2.ValueSet"/> is a subset of the specified collection; otherwise, false.</returns>
+        </member>
+        <member name="M:Academy.Collections.Generic.DisjointSet`2.ValueSet.IsSupersetOf(System.Collections.Generic.IEnumerable{`1})">
+            <summary>
+            Determines whether the current <see cref="T:Academy.Collections.Generic.DisjointSet`2.ValueSet"/> is a superset of a specified collection.
+            </summary>
+            <param name="other">The collection to compare to the current set.</param>
+            <returns>true if the current <see cref="T:Academy.Collections.Generic.DisjointSet`2.ValueSet"/> is a superset of <paramref name="other"/>; otherwise, false.</returns>
+        </member>
+        <member name="M:Academy.Collections.Generic.DisjointSet`2.ValueSet.Overlaps(System.Collections.Generic.IEnumerable{`1})">
+            <summary>
+            Determines whether the current <see cref="T:Academy.Collections.Generic.DisjointSet`2.ValueSet"/> overlaps with the specified collection.
+            </summary>
+            <param name="other">The collection to compare to the current set.</param>
+            <returns>true if the current <see cref="T:Academy.Collections.Generic.DisjointSet`2.ValueSet"/> and <paramref name="other"/> share at least one common key; otherwise, false.</returns>
+        </member>
+        <member name="M:Academy.Collections.Generic.DisjointSet`2.ValueSet.SetEquals(System.Collections.Generic.IEnumerable{`1})">
+            <summary>
+            Determines whether the current <see cref="T:Academy.Collections.Generic.DisjointSet`2.ValueSet"/> and the specified collection contain the same elements.
+            </summary>
+            <param name="other">The collection to compare to the current set.</param>
+            <returns>true if the current <see cref="T:Academy.Collections.Generic.DisjointSet`2.ValueSet"/> is equal to <paramref name="other"/>; otherwise, false.</returns>
+        </member>
+        <member name="M:Academy.Collections.Generic.DisjointSet`2.ValueSet.SymmetricExceptWith(System.Collections.Generic.IEnumerable{`1})">
+            <summary>
+            Modifies the current <see cref="T:Academy.Collections.Generic.DisjointSet`2.ValueSet"/> so that it contains only values that are present either in the current set or in the specified collection, but not both.
+            New values will be added to the subset represented by the key type default value.
+            </summary>
+            <param name="other">The collection to compare to the current set.</param>
+        </member>
+        <member name="M:Academy.Collections.Generic.DisjointSet`2.ValueSet.SymmetricExceptWith(System.Collections.Generic.IEnumerable{`1},`0)">
+            <summary>
+            Modifies the current <see cref="T:Academy.Collections.Generic.DisjointSet`2.ValueSet"/> so that it contains only values that are present either in the current set or in the specified collection, but not both.
+            New values will be added to the subset represented by the specified key.
+            </summary>
+            <param name="other">The collection to compare to the current set.</param>
+            <param name="defaultKey">The key which subset will contain the new values added by the current operation.</param>
+        </member>
+        <member name="M:Academy.Collections.Generic.DisjointSet`2.ValueSet.UnionWith(System.Collections.Generic.IEnumerable{`1})">
+            <summary>
+            Modifies the current <see cref="T:Academy.Collections.Generic.DisjointSet`2.ValueSet"/> so that it contains all values that are present in either the current set or the specified collection.
+            New values will be added to the subset represented by the key type default value.
+            </summary>
+            <param name="other">The collection to compare to the current set.</param>
+        </member>
+        <member name="M:Academy.Collections.Generic.DisjointSet`2.ValueSet.UnionWith(System.Collections.Generic.IEnumerable{`1},`0)">
+            <summary>
+            Modifies the current <see cref="T:Academy.Collections.Generic.DisjointSet`2.ValueSet"/> so that it contains all values that are present in either the current set or the specified collection.
+            New values will be added to the subset represented by the specified key.
+            </summary>
+            <param name="other">The collection to compare to the current set.</param>
+            <param name="defaultKey">The key which subset will contain the new values added by the current operation.</param>
+        </member>
+        <member name="P:Academy.Collections.Generic.DisjointSet`2.ValueSet.Count">
+            <summary>
+            Gets the number of values contained in the <see cref="T:Academy.Collections.Generic.DisjointSet`2.ValueSet"/>.
+            </summary>
+        </member>
+        <member name="P:Academy.Collections.Generic.DisjointSet`2.ValueSet.Comparer">
+            <summary>
+            Gets the <see cref="T:System.Collections.Generic.IEqualityComparer`1"/> object that is used to determine equality for the values in the set.
+            </summary>
+        </member>
+        <member name="T:Academy.Collections.Generic.DisjointSet`2.ValueSet.Enumerator">
+            <summary>
+            An enumerator that iterates through the elements of a <see cref="T:Academy.Collections.Generic.DisjointSet`2.ValueSet"/>.
+            </summary>
+        </member>
+        <member name="M:Academy.Collections.Generic.DisjointSet`2.ValueSet.Enumerator.MoveNext">
+            <summary>
+            Advances the enumerator to the next element of the <see cref="T:Academy.Collections.Generic.DisjointSet`2.ValueSet"/>.
+            </summary>
+            <returns>true if the enumerator was successfully advanced to the next value; false if the enumerator has passed the end of the collection.</returns>
+        </member>
+        <member name="M:Academy.Collections.Generic.DisjointSet`2.ValueSet.Enumerator.Dispose">
+            <summary>
+            Releases all resources used by the <see cref="T:Academy.Collections.Generic.DisjointSet`2.ValueSet.Enumerator"/>.
+            </summary>
+        </member>
+        <member name="P:Academy.Collections.Generic.DisjointSet`2.ValueSet.Enumerator.Current">
+            <summary>
+            Gets the value at the current position of the enumerator.
+            </summary>
+        </member>
+        <member name="T:Academy.Collections.Generic.DisjointSet`2.Subset">
+            <summary>
+            Represents a set of values mapped to a key contained in a <see cref="T:Academy.Collections.Generic.DisjointSet`2"/>.
+            </summary>
+        </member>
+        <member name="M:Academy.Collections.Generic.DisjointSet`2.Subset.Add(`1)">
+            <summary>
+            Adds a value to the subset represented by the managed key in the associated <see cref="T:Academy.Collections.Generic.DisjointSet`2"/>.
+            </summary>
+            <param name="value">The value to add</param>
+            <returns>true if the value was successfully added; otherwise false.</returns>
+        </member>
+        <member name="M:Academy.Collections.Generic.DisjointSet`2.Subset.ExceptWith(System.Collections.Generic.IEnumerable{`1})">
+            <summary>
+            Removes all values in the specified collection from the managed subset.
+            </summary>
+            <param name="other">The collection of values to remove from the current set.</param>
+        </member>
+        <member name="M:Academy.Collections.Generic.DisjointSet`2.Subset.IntersectWith(System.Collections.Generic.IEnumerable{`1})">
+            <summary>
+            Modifies the managed subset so that it contains only values that are also in a specified collection. 
+            Values contained in the associated <see cref="T:Academy.Collections.Generic.DisjointSet`2"/> subsets 
+            will be assumed as part of the collection for Contains checks.
+            </summary>
+            <param name="other">The collection to compare to the current set.</param>
+        </member>
+        <member name="M:Academy.Collections.Generic.DisjointSet`2.Subset.IsProperSubsetOf(System.Collections.Generic.IEnumerable{`1})">
+            <summary>
+            Determines whether the managed subset is a proper (strict) subset of a specified collection.
+            </summary>
+            <param name="other">The collection to compare to the current set.</param>
+            <returns> true if the current <see cref="T:Academy.Collections.Generic.DisjointSet`2.Subset"/> is a proper subset of <paramref name="other"/>; otherwise, false.</returns>
+        </member>
+        <member name="M:Academy.Collections.Generic.DisjointSet`2.Subset.IsProperSupersetOf(System.Collections.Generic.IEnumerable{`1})">
+            <summary>
+            Determines whether the managed subset is a proper (strict) superset of a specified collection.
+            </summary>
+            <param name="other">The collection to compare to the current set.</param>
+            <returns>true if the current <see cref="T:Academy.Collections.Generic.DisjointSet`2.Subset"/> is a proper superset of <paramref name="other"/>; otherwise, false.</returns>
+        </member>
+        <member name="M:Academy.Collections.Generic.DisjointSet`2.Subset.IsSubsetOf(System.Collections.Generic.IEnumerable{`1})">
+            <summary>
+            Determines whether the managed subset is a subset of a specified collection.
+            </summary>
+            <param name="other">The collection to compare to the current set.</param>
+            <returns>true if the current <see cref="T:Academy.Collections.Generic.DisjointSet`2.Subset"/> is a subset of the specified collection; otherwise, false.</returns>
+        </member>
+        <member name="M:Academy.Collections.Generic.DisjointSet`2.Subset.IsSupersetOf(System.Collections.Generic.IEnumerable{`1})">
+            <summary>
+            Determines whether the managed subset is a superset of a specified collection.
+            </summary>
+            <param name="other">The collection to compare to the current set.</param>
+            <returns>true if the current <see cref="T:Academy.Collections.Generic.DisjointSet`2.Subset"/> is a superset of <paramref name="other"/>; otherwise, false.</returns>
+        </member>
+        <member name="M:Academy.Collections.Generic.DisjointSet`2.Subset.Overlaps(System.Collections.Generic.IEnumerable{`1})">
+            <summary>
+            Determines whether the managed subset overlaps with the specified collection.
+            </summary>
+            <param name="other">The collection to compare to the current set.</param>
+            <returns>true if the current <see cref="T:Academy.Collections.Generic.DisjointSet`2.Subset"/> and <paramref name="other"/> share at least one common key; otherwise, false.</returns>
+        </member>
+        <member name="M:Academy.Collections.Generic.DisjointSet`2.Subset.SetEquals(System.Collections.Generic.IEnumerable{`1})">
+            <summary>
+            Determines whether the managed subset and the specified collection contain the same elements.
+            </summary>
+            <param name="other">The collection to compare to the current set.</param>
+            <returns>true if the current <see cref="T:Academy.Collections.Generic.DisjointSet`2.Subset"/> is equal to <paramref name="other"/>; otherwise, false.</returns>
+        </member>
+        <member name="M:Academy.Collections.Generic.DisjointSet`2.Subset.SymmetricExceptWith(System.Collections.Generic.IEnumerable{`1})">
+            <summary>
+            Modifies the managed subset so that it contains only values that are present either in the current set or in the specified collection, but not both. 
+            Values contained in the associated <see cref="T:Academy.Collections.Generic.DisjointSet`2"/> subsets 
+            will be assumed as part of the collection for Contains checks.
+            </summary>
+            <param name="other">The collection to compare to the current set.</param>
+        </member>
+        <member name="M:Academy.Collections.Generic.DisjointSet`2.Subset.UnionWith(System.Collections.Generic.IEnumerable{`1})">
+            <summary>
+            Modifies the managed subset so that it contains all values that are present in either the current set or the specified collection. 
+            Values contained in the associated <see cref="T:Academy.Collections.Generic.DisjointSet`2"/> subsets 
+            will be assumed as part of the collection for Contains checks.
+            </summary>
+            <param name="other">The collection to compare to the current set.</param>
+        </member>
+        <member name="M:Academy.Collections.Generic.DisjointSet`2.Subset.Clear">
+            <summary>
+            Removes all elements from the managed subset.
+            </summary>
+        </member>
+        <member name="M:Academy.Collections.Generic.DisjointSet`2.Subset.Contains(`1)">
+            <summary>
+            Determines whether the managed subset contains the specified value.
+            </summary>
+            <param name="value">The value to find in the subset.</param>
+            <returns>true if the value is contained in the subset; otherwise false.</returns>
+        </member>
+        <member name="M:Academy.Collections.Generic.DisjointSet`2.Subset.CopyTo(`1[])">
+            <summary>
+            Copies the complete <see cref="T:Academy.Collections.Generic.DisjointSet`2.Subset"/> to a compatible one-dimensional array, starting at the beginning of the target array.
+            </summary>
+            <param name="array">A one-dimensional array that is the destination of the elements copied from the <see cref="T:Academy.Collections.Generic.DisjointSet`2.Subset"/>.</param>
+        </member>
+        <member name="M:Academy.Collections.Generic.DisjointSet`2.Subset.CopyTo(`1[],System.Int32)">
+            <summary>
+            Copies the complete <see cref="T:Academy.Collections.Generic.DisjointSet`2.Subset"/> to a compatible one-dimensional array, starting at the specific array index.
+            </summary>
+            <param name="array">A one-dimensional array that is the destination of the elements copied from the 
+            <see cref="T:Academy.Collections.Generic.DisjointSet`2.Subset"/>. The array must have zero-based indexing</param>
+            <param name="index">The zero-based index in array at which copying begins.</param>
+        </member>
+        <member name="M:Academy.Collections.Generic.DisjointSet`2.Subset.CopyTo(`1[],System.Int32,System.Int32)">
+            <summary>
+            Copies a specific number of elements from the <see cref="T:Academy.Collections.Generic.DisjointSet`2.Subset"/> 
+            to a compatible one-dimensional array, starting at the specific array index.
+            </summary>
+            <param name="array">A one-dimensional array that is the destination of the elements copied from the 
+            <see cref="T:Academy.Collections.Generic.DisjointSet`2.Subset"/>. The array must have zero-based indexing</param>
+            <param name="index">The zero-based index in array at which copying begins.</param>
+            <param name="count">The number of elements to copy.</param>
+        </member>
+        <member name="M:Academy.Collections.Generic.DisjointSet`2.Subset.Remove(`1)">
+            <summary>
+            Removes the specified value from the managed subset.
+            </summary>
+            <param name="item">The value to remove</param>
+            <returns>true if the value was found and successfully removed; otherwise false.</returns>
+        </member>
+        <member name="M:Academy.Collections.Generic.DisjointSet`2.Subset.GetEnumerator">
+            <summary>
+            Returns an enumerator that iterates through the <see cref="T:Academy.Collections.Generic.DisjointSet`2.Subset"/>.
+            </summary>
+            <returns>An enumerator that iterates through the managed subset.</returns>
+        </member>
+        <member name="P:Academy.Collections.Generic.DisjointSet`2.Subset.Count">
+            <summary>
+            Gets the number of values in the collection.
+            </summary>
+        </member>
+        <member name="P:Academy.Collections.Generic.DisjointSet`2.Subset.Key">
+            <summary>
+            Gets the key associated to the current collection.
+            </summary>
+        </member>
+        <member name="T:Academy.Collections.Generic.DisjointSet`2.Enumerator">
+            <summary>
+            Enumerates the subsets of a <see cref="T:Academy.Collections.Generic.DisjointSet`2"/>, as a sequence of <see cref="T:System.Linq.IGrouping`2"/>.
+            </summary>
+        </member>
+        <member name="M:Academy.Collections.Generic.DisjointSet`2.Enumerator.Dispose">
+            <summary>
+            Releases all resources used by the <see cref="T:Academy.Collections.Generic.DisjointSet`2.Enumerator"/>.
+            </summary>
+        </member>
+        <member name="M:Academy.Collections.Generic.DisjointSet`2.Enumerator.MoveNext">
+            <summary>
+            Advances the enumerator to the next subset of the <see cref="T:Academy.Collections.Generic.DisjointSet`2"/>
+            </summary>
+            <returns>true if the enumerator was successfully advanced to the next subset; false if the enumerator has passed the end of the collection.</returns>
+        </member>
+        <member name="M:Academy.Collections.Generic.DisjointSet`2.Enumerator.Reset">
+            <summary>
+            Resets the enumerator to its initial position, which is before the first subset in the disjointset.
+            </summary>
+        </member>
+        <member name="P:Academy.Collections.Generic.DisjointSet`2.Enumerator.Current">
+            <summary>
+            Gets an <see cref="T:System.Linq.IGrouping`2"/> implementation that represents the subset at the current position of the enumerator.
+            </summary>
+        </member>
+        <member name="T:Academy.Collections.Generic.EndlessQueue`1">
+            <summary>
+            Represents a first-in, first-out collection managing a fixed amount of objects. 
+            At maximum capacity, the collection deletes the first item when a new item is been inserted.
+            </summary>
+            <typeparam name="T">The type of objects in the queue.</typeparam>
+        </member>
+        <member name="M:Academy.Collections.Generic.EndlessQueue`1.#ctor(System.Int32)">
+            <summary>
+            Initializes a new instance of the 
+            <see cref="T:Academy.Collections.Generic.EndlessQueue`1"/> 
+            class that is empty and has the specified capacity.
+            </summary>
+            <param name="capacity">The number of elements the collection can contain.</param>
+        </member>
+        <member name="M:Academy.Collections.Generic.EndlessQueue`1.#ctor(System.Collections.Generic.IEnumerable{`0})">
+            <summary>
+            Initializes a new instance of the 
+            <see cref="T:Academy.Collections.Generic.EndlessQueue`1"/> 
+            class that contains elements copied from the specified collection.
+            </summary>
+            <param name="collection">The collection whose elements are copied to the <see cref="T:Academy.Collections.Generic.EndlessQueue`1"/>.</param>
+        </member>
+        <member name="M:Academy.Collections.Generic.EndlessQueue`1.Enqueue(`0)">
+            <summary>
+            Adds an object to the end of the 
+            <see cref="T:Academy.Collections.Generic.EndlessQueue`1"/>.
+            </summary>
+            <param name="item">
+            The object to add to the 
+            <see cref="T:Academy.Collections.Generic.EndlessQueue`1"/>. 
+            The value can be null for reference types.
+            </param>
+        </member>
+        <member name="M:Academy.Collections.Generic.EndlessQueue`1.Enqueue(`0,`0@)">
+            <summary>
+            Inserts an object at the end of the <see cref="T:Academy.Collections.Generic.EndlessQueue`1"/> and 
+            returns whether the collection was full, in which case the first item will be deleted allowing an 
+            empty space for the new item.
+            </summary>
+            <param name="item">
+            The object to add to the 
+            <see cref="T:Academy.Collections.Generic.EndlessQueue`1"/>. 
+            The value can be null for reference types.
+            </param>
+            <param name="deletedItem">
+            When this method returns, contains the deleted value at the beginning of the collection 
+            if the collection was full; otherwise contains the type default value.
+            </param>
+            <returns>
+            true if the number of items in the collection reached the maximum capacity before 
+            the operation performed, otherwise returns false.
+            </returns>
+        </member>
+        <member name="M:Academy.Collections.Generic.EndlessQueue`1.Dequeue">
+            <summary>
+            Removes and returns the object at the beginning of the <see cref="T:Academy.Collections.Generic.EndlessQueue`1"/>.
+            </summary>
+            <returns>The object that is removed from the beginning of the <see cref="T:Academy.Collections.Generic.EndlessQueue`1"/>.</returns>
+        </member>
+        <member name="M:Academy.Collections.Generic.EndlessQueue`1.Peek">
+            <summary>
+            Returns the object at the beginning of the <see cref="T:Academy.Collections.Generic.EndlessQueue`1"/> without removing it.
+            </summary>
+            <returns>The object at the beginning of the <see cref="T:Academy.Collections.Generic.EndlessQueue`1"/>.</returns>
+        </member>
+        <member name="M:Academy.Collections.Generic.EndlessQueue`1.Clear">
+            <summary>
+            Removes all objects from the <see cref="T:Academy.Collections.Generic.EndlessQueue`1"/>.
+            </summary>
+        </member>
+        <member name="M:Academy.Collections.Generic.EndlessQueue`1.Contains(`0)">
+            <summary>
+            Determines whether an element is in the 
+            <see cref="T:Academy.Collections.Generic.EndlessQueue`1"/>.
+            </summary>
+            <param name="item">
+            The object to locate in the 
+            <see cref="T:Academy.Collections.Generic.EndlessQueue`1"/>. 
+            The value can be null for reference types
+            </param>
+            <returns>
+            true if the item was found in the 
+            <see cref="T:Academy.Collections.Generic.EndlessQueue`1"/>; 
+            otherwise, false.
+            </returns>
+        </member>
+        <member name="M:Academy.Collections.Generic.EndlessQueue`1.TrimExcess">
+            <summary>
+            Sets the collection capacity to the number of elements in the 
+            <see cref="T:Academy.Collections.Generic.EndlessQueue`1"/>,
+            if that number is less than 90 percent of current capacity.
+            </summary>
+        </member>
+        <member name="M:Academy.Collections.Generic.EndlessQueue`1.ToArray">
+            <summary>
+            Copies the entire <see cref="T:Academy.Collections.Generic.EndlessQueue`1"/> 
+            to a new array.
+            </summary>
+            <returns>
+            A new array containing copies of the elements of the 
+            <see cref="T:Academy.Collections.Generic.EndlessQueue`1"/>.
+            </returns>
+        </member>
+        <member name="M:Academy.Collections.Generic.EndlessQueue`1.CopyTo(`0[])">
+            <summary>
+            Copies the complete <see cref="T:Academy.Collections.Generic.EndlessQueue`1"/> to a compatible one-dimensional array, starting at the beginning of the target array.
+            </summary>
+            <param name="array">A one-dimensional array that is the destination of the elements copied from the <see cref="T:Academy.Collections.Generic.EndlessQueue`1"/>.</param>
+        </member>
+        <member name="M:Academy.Collections.Generic.EndlessQueue`1.CopyTo(`0[],System.Int32)">
+            <summary>
+            Copies the complete <see cref="T:Academy.Collections.Generic.EndlessQueue`1"/> to a compatible one-dimensional array, starting at the specific array index.
+            </summary>
+            <param name="array">A one-dimensional array that is the destination of the elements copied from the 
+            <see cref="T:Academy.Collections.Generic.EndlessQueue`1"/>. The array must have zero-based indexing</param>
+            <param name="index">The zero-based index in array at which copying begins.</param>
+        </member>
+        <member name="M:Academy.Collections.Generic.EndlessQueue`1.CopyTo(`0[],System.Int32,System.Int32)">
+            <summary>
+            Copies a specific number of elements from the complete <see cref="T:Academy.Collections.Generic.EndlessQueue`1"/> to a compatible one-dimensional array, starting at the specific array index.
+            </summary>
+            <param name="array">A one-dimensional array that is the destination of the elements copied from 
+            the <see cref="T:Academy.Collections.Generic.EndlessQueue`1"/>. The array must have zero-based indexing</param>
+            <param name="index">The zero-based index in array at which copying begins.</param>
+            <param name="count">The number of elements to copy.</param>
+        </member>
+        <member name="M:Academy.Collections.Generic.EndlessQueue`1.GetEnumerator">
+            <summary>
+            Returns an enumerator for the <see cref="T:Academy.Collections.Generic.EndlessQueue`1"/>.
+            </summary>
+            <returns>
+            A <see cref="T:Academy.Collections.Generic.EndlessQueue`1.Enumerator"/> 
+            for the <see cref="T:Academy.Collections.Generic.EndlessQueue`1"/>.
+            </returns>
+        </member>
+        <member name="P:Academy.Collections.Generic.EndlessQueue`1.Count">
+            <summary>
+            The number of objects contained in the collection.
+            </summary>
+        </member>
+        <member name="P:Academy.Collections.Generic.EndlessQueue`1.Capacity">
+            <summary>
+            Gets or sets the total number of elements the internal 
+            data structure can hold before start deleting.
+            </summary>
+        </member>
+        <member name="T:Academy.Collections.Generic.EndlessQueue`1.Enumerator">
+            <summary>
+            Enumerates the elements of an <see cref="T:Academy.Collections.Generic.EndlessQueue`1"/>.
+            </summary>
+        </member>
+        <member name="M:Academy.Collections.Generic.EndlessQueue`1.Enumerator.Dispose">
+            <summary>
+            Releases all resources used by the 
+            <see cref="T:Academy.Collections.Generic.EndlessQueue`1.Enumerator"/>.
+            </summary>
+        </member>
+        <member name="M:Academy.Collections.Generic.EndlessQueue`1.Enumerator.MoveNext">
+            <summary>
+            Advances the enumerator to the next element of the 
+            <see cref="T:Academy.Collections.Generic.EndlessQueue`1"/>.
+            </summary>
+            <returns>
+            true if the enumerator was successfully advanced to the 
+            next element; false if the enumeration has passed the end of the collection.
+            </returns>
+        </member>
+        <member name="P:Academy.Collections.Generic.EndlessQueue`1.Enumerator.Current">
+            <summary>
+            Gets the element at the current position of the enumerator.
+            </summary>
+        </member>
+        <member name="T:Academy.Collections.Generic.EndlessStack`1">
+            <summary>
+            Represents a last-in, first-out collection managing a fixed amount of objects. 
+            At maximum capacity, the collection deletes the bottom items when inserting new items at the top.
+            </summary>
+            <typeparam name="T">The type of elements in the collection.</typeparam>
+        </member>
+        <member name="M:Academy.Collections.Generic.EndlessStack`1.#ctor(System.Int32)">
+            <summary>
+            Initializes a new instance of the 
+            <see cref="T:Academy.Collections.Generic.EndlessStack`1"/> 
+            class that is empty and has the specified capacity.
+            </summary>
+            <param name="capacity">The number of elements the collection can contain.</param>
+        </member>
+        <member name="M:Academy.Collections.Generic.EndlessStack`1.#ctor(System.Collections.Generic.IEnumerable{`0})">
+            <summary>
+            Initializes a new instance of the 
+            <see cref="T:Academy.Collections.Generic.EndlessStack`1"/> 
+            class that contains elements copied from the specified collection.
+            </summary>
+            <param name="collection">The collection whose elements are copied to the <see cref="T:Academy.Collections.Generic.EndlessStack`1"/>.</param>
+        </member>
+        <member name="M:Academy.Collections.Generic.EndlessStack`1.Push(`0)">
+            <summary>
+            Inserts an object at the top of the <see cref="T:Academy.Collections.Generic.EndlessStack`1"/>.
+            If the collection is full, the bottom item will be deleted allowing an empty space for the new item.
+            </summary>
+            <param name="item">The object to push onto the stack. The value can be null for reference types.</param>
+        </member>
+        <member name="M:Academy.Collections.Generic.EndlessStack`1.Push(`0,`0@)">
+            <summary>
+            Inserts an object at the top of the <see cref="T:Academy.Collections.Generic.EndlessStack`1"/> and 
+            returns whether the collection was full, in which case the bottom item will be deleted allowing an 
+            empty space for the new item.
+            </summary>
+            <param name="item">
+            The object to push onto the stack. The value can be null for reference types.
+            </param>
+            <param name="deletedItem">
+            When this method returns, contains the deleted value that was at the bottom of the collection 
+            if the collection was full; otherwise contains the type default value.
+            </param>
+            <returns>
+            true if the number of items in the collection reached the maximum capacity before 
+            the operation performed, otherwise returns false.
+            </returns>
+        </member>
+        <member name="M:Academy.Collections.Generic.EndlessStack`1.Pop">
+            <summary>
+            Returns and removes the object at the top of the <see cref="T:Academy.Collections.Generic.EndlessStack`1"/>.
+            </summary>
+            <returns>The object removed from the top of the <see cref="T:Academy.Collections.Generic.EndlessStack`1"/>.</returns>
+        </member>
+        <member name="M:Academy.Collections.Generic.EndlessStack`1.Peek">
+            <summary>
+            Returns the object at the top of the <see cref="T:Academy.Collections.Generic.EndlessStack`1"/> without removing it.
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:Academy.Collections.Generic.EndlessStack`1.Clear">
+            <summary>
+            Removes all objects from the <see cref="T:Academy.Collections.Generic.EndlessStack`1"/>.
+            </summary>
+        </member>
+        <member name="M:Academy.Collections.Generic.EndlessStack`1.Contains(`0)">
+            <summary>
+            Determines whether an element is in the <see cref="T:Academy.Collections.Generic.EndlessStack`1"/>.
+            </summary>
+            <param name="item">
+            The object to locate in the <see cref="T:Academy.Collections.Generic.EndlessStack`1"/>. The value can be null for reference types
+            </param>
+            <returns>true if the item was found in the <see cref="T:Academy.Collections.Generic.EndlessStack`1"/>; otherwise, false.</returns>
+        </member>
+        <member name="M:Academy.Collections.Generic.EndlessStack`1.TrimExcess">
+            <summary>
+            Sets the collection capacity to the number of elements in the <see cref="T:Academy.Collections.Generic.EndlessStack`1"/>,
+            if that number is less than 90 percent of current capacity.
+            </summary>
+        </member>
+        <member name="M:Academy.Collections.Generic.EndlessStack`1.ToArray">
+            <summary>
+            Copies the entire <see cref="T:Academy.Collections.Generic.EndlessStack`1"/> to a new array.
+            </summary>
+            <returns>A new array containing copies of the elements of the <see cref="T:Academy.Collections.Generic.EndlessStack`1"/>.</returns>
+        </member>
+        <member name="M:Academy.Collections.Generic.EndlessStack`1.CopyTo(`0[])">
+            <summary>
+            Copies the complete <see cref="T:Academy.Collections.Generic.EndlessStack`1"/> to a compatible one-dimensional array, starting at the beginning of the target array.
+            </summary>
+            <param name="array">A one-dimensional array that is the destination of the elements copied from the <see cref="T:Academy.Collections.Generic.EndlessStack`1"/>.</param>
+        </member>
+        <member name="M:Academy.Collections.Generic.EndlessStack`1.CopyTo(`0[],System.Int32)">
+            <summary>
+            Copies the complete <see cref="T:Academy.Collections.Generic.EndlessStack`1"/> to a compatible one-dimensional array, starting at the specific array index.
+            </summary>
+            <param name="array">A one-dimensional array that is the destination of the elements copied from the 
+            <see cref="T:Academy.Collections.Generic.EndlessStack`1"/>. The array must have zero-based indexing</param>
+            <param name="index">The zero-based index in array at which copying begins.</param>
+        </member>
+        <member name="M:Academy.Collections.Generic.EndlessStack`1.CopyTo(`0[],System.Int32,System.Int32)">
+            <summary>
+            Copies a specific number of elements from the complete <see cref="T:Academy.Collections.Generic.EndlessStack`1"/> to a compatible one-dimensional array, starting at the specific array index.
+            </summary>
+            <param name="array">A one-dimensional array that is the destination of the elements copied from 
+            the <see cref="T:Academy.Collections.Generic.EndlessStack`1"/>. The array must have zero-based indexing</param>
+            <param name="index">The zero-based index in array at which copying begins.</param>
+            <param name="count">The number of elements to copy.</param>
+        </member>
+        <member name="M:Academy.Collections.Generic.EndlessStack`1.GetEnumerator">
+            <summary>
+            Returns an enumerator for the <see cref="T:Academy.Collections.Generic.EndlessStack`1"/>.
+            </summary>
+            <returns>
+            A <see cref="T:Academy.Collections.Generic.EndlessStack`1.Enumerator"/> 
+            for the <see cref="T:Academy.Collections.Generic.EndlessStack`1"/>.
+            </returns>
+        </member>
+        <member name="P:Academy.Collections.Generic.EndlessStack`1.Count">
+            <summary>
+            The number of objects contained in the collection.
+            </summary>
+        </member>
+        <member name="P:Academy.Collections.Generic.EndlessStack`1.Capacity">
+            <summary>
+            Gets or sets the total number of elements the internal 
+            data structure can hold before start deleting.
+            </summary>
+        </member>
+        <member name="T:Academy.Collections.Generic.EndlessStack`1.Enumerator">
+            <summary>
+            Enumerates the elements of an <see cref="T:Academy.Collections.Generic.EndlessStack`1"/>.
+            </summary>
+        </member>
+        <member name="M:Academy.Collections.Generic.EndlessStack`1.Enumerator.Dispose">
+            <summary>
+            Releases all resources used by the 
+            <see cref="T:Academy.Collections.Generic.EndlessStack`1.Enumerator"/>.
+            </summary>
+        </member>
+        <member name="M:Academy.Collections.Generic.EndlessStack`1.Enumerator.MoveNext">
+            <summary>
+            Advances the enumerator to the next element of the 
+            <see cref="T:Academy.Collections.Generic.EndlessStack`1"/>.
+            </summary>
+            <returns>
+            true if the enumerator was successfully advanced to the 
+            next element; false if the enumeration has passed the end of the collection.
+            </returns>
+        </member>
+        <member name="P:Academy.Collections.Generic.EndlessStack`1.Enumerator.Current">
+            <summary>
+            Gets the element at the current position of the enumerator.
+            </summary>
+        </member>
+        <member name="T:Academy.Collections.Generic.IMatrix`1">
+            <summary>
+            Represents a collection of objects that can be individually accessed by row and column indices.
+            </summary>
+            <typeparam name="T">The type of elements in the matrix.</typeparam>
+        </member>
+        <member name="M:Academy.Collections.Generic.IMatrix`1.Contains(`0)">
+            <summary>
+            Determinates whether the matrix contains a specific value.
+            </summary>
+            <param name="item">The object to locate in the matrix.</param>
+            <returns>true if item is found in the matrix; otherwise,false.</returns>
+        </member>
+        <member name="P:Academy.Collections.Generic.IMatrix`1.Count">
+            <summary>
+            Gets the number of elements contained in the <see cref="T:Academy.Collections.Generic.IMatrix`1"/>.
+            </summary>
+        </member>
+        <member name="P:Academy.Collections.Generic.IMatrix`1.Item(System.Int32,System.Int32)">
+            <summary>
+            Gets or sets the element at the specified indices.
+            </summary>
+            <param name="rowIndex">The zero-based row index of the element to get or set.</param>
+            <param name="columnIndex">The zero-based column index of the element to get or set.</param>
+        </member>
+        <member name="P:Academy.Collections.Generic.IMatrix`1.ColumnCount">
+            <summary>
+            Gets the number of columns in the <see cref="T:Academy.Collections.Generic.IMatrix`1"/>.
+            </summary>
+        </member>
+        <member name="P:Academy.Collections.Generic.IMatrix`1.RowCount">
+            <summary>
+            Gets the number of rows in the <see cref="T:Academy.Collections.Generic.IMatrix`1"/>.
+            </summary>
+        </member>
+        <member name="T:Academy.Collections.Generic.IMatrixArithmeticHelper`1">
+            <summary>
+            Defines a set of methods that a type implements to provide arithmetic operations results 
+            using two <see cref="T:Academy.Collections.Generic.IMatrix`1"/> implementations.
+            </summary>
+            <typeparam name="T">The type of the elements in the matrices.</typeparam>
+        </member>
+        <member name="M:Academy.Collections.Generic.IMatrixArithmeticHelper`1.Add(Academy.Collections.Generic.IMatrix{`0},Academy.Collections.Generic.IMatrix{`0},Academy.Numerics.IArithmeticOperator)">
+            <summary>
+            Provides an <see cref="T:Academy.Collections.Generic.IMatrix`1"/> object
+            as result value of adding two specified matrices.
+            </summary>
+            <param name="left">The left matrix operand.</param>
+            <param name="right">The right matrix operand.</param>
+            <param name="op">The <see cref="T:Academy.Numerics.IArithmeticOperator`1"/> used to add matrix elements.</param>
+            <returns>
+            an <see cref="T:Academy.Collections.Generic.IMatrix`1"/> object that contains the result values 
+            of add the two specified <see cref="T:Academy.Collections.Generic.IMatrix`1"/> objects.
+            </returns>
+        </member>
+        <member name="M:Academy.Collections.Generic.IMatrixArithmeticHelper`1.Subtract(Academy.Collections.Generic.IMatrix{`0},Academy.Collections.Generic.IMatrix{`0},Academy.Numerics.IArithmeticOperator)">
+            <summary>
+            Provides an <see cref="T:Academy.Collections.Generic.IMatrix`1"/> object
+            as result value of subtract two specified matrices.
+            </summary>
+            <param name="left">The left matrix operand.</param>
+            <param name="right">The right matrix operand.</param>
+            <param name="op">The <see cref="T:Academy.Numerics.IArithmeticOperator`1"/> used to Subtract matrix elements.</param>
+            <returns>
+            an <see cref="T:Academy.Collections.Generic.IMatrix`1"/> object that contains the result values 
+            of Subtract the two specified <see cref="T:Academy.Collections.Generic.IMatrix`1"/> objects.
+            </returns>
+        </member>
+        <member name="M:Academy.Collections.Generic.IMatrixArithmeticHelper`1.Multiply(Academy.Collections.Generic.IMatrix{`0},Academy.Collections.Generic.IMatrix{`0},Academy.Numerics.IArithmeticOperator)">
+            <summary>
+            Provides an <see cref="T:Academy.Collections.Generic.IMatrix`1"/> object
+            as result value of multiply two specified matrices.
+            </summary>
+            <param name="left">The left matrix operand.</param>
+            <param name="right">The right matrix operand.</param>
+            <param name="op">The <see cref="T:Academy.Numerics.IArithmeticOperator`1"/> used to multiply matrix elements.</param>
+            <returns>
+            an <see cref="T:Academy.Collections.Generic.IMatrix`1"/> object that contains the result values 
+            of multiply the two specified <see cref="T:Academy.Collections.Generic.IMatrix`1"/> objects.
+            </returns>
+        </member>
+        <member name="T:Academy.Collections.Generic.IMatrixVectorView`1">
+            <summary>
+            Represents a personalized view of a vector in an <see cref="T:Academy.Collections.Generic.IMatrix`1"/>.
+            </summary>
+            <typeparam name="T">The type of elements in the <see cref="T:Academy.Collections.Generic.IMatrix`1"/> associated.</typeparam>
+        </member>
+        <member name="P:Academy.Collections.Generic.IMatrixVectorView`1.Index">
+            <summary>
+            Gets the index of the viewing vector in the <see cref="T:Academy.Collections.Generic.IMatrix`1"/> associated.
+            </summary>
+        </member>
+        <member name="P:Academy.Collections.Generic.IMatrixVectorView`1.Matrix">
+            <summary>
+            Gets the matrix that contains the viewing vector.
+            </summary>
+        </member>
+        <member name="P:Academy.Collections.Generic.IMatrixVectorView`1.Item(System.Int32)">
+            <summary>
+            Gets or sets the elements in the viewing matrix at the specified index.
+            </summary>
+            <param name="index">The index of the element to get or set.</param>
+        </member>
+        <member name="P:Academy.Collections.Generic.IMatrixVectorView`1.Count">
+            <summary>
+            Gets the number of elements managed by the <see cref="T:Academy.Collections.Generic.IMatrixVectorView`1"/>.
+            </summary>
+        </member>
+        <member name="T:Academy.Collections.Generic.ISortedCollection`1">
+            <summary>
+            Represents a collection of objects maintained in sorted order that can perform fast search operations.
+            </summary>
+            <typeparam name="T">The type of elements in the sorted collection.</typeparam>
+        </member>
+        <member name="M:Academy.Collections.Generic.ISortedCollection`1.Contains(`0)">
+            <summary>
+            Determinates whether the collection contains a specific value.
+            </summary>
+            <param name="item">The object to locate in the collection.</param>
+            <returns>true if item is found in the collection; otherwise,false.</returns>
+        </member>
+        <member name="P:Academy.Collections.Generic.ISortedCollection`1.Comparer">
+            <summary>
+            The default comparer used to compare stored elements.
+            </summary>
+        </member>
+        <member name="P:Academy.Collections.Generic.ISortedCollection`1.MinValue">
+            <summary>
+            Returns the smallest value contained in the collection.
+            </summary>
+        </member>
+        <member name="P:Academy.Collections.Generic.ISortedCollection`1.MaxValue">
+            <summary>
+            Returns the largest value contained in the collection.
+            </summary>
+        </member>
+        <member name="P:Academy.Collections.Generic.ISortedCollection`1.Count">
+            <summary>
+            Gets the number of elements contained in the <see cref="T:Academy.Collections.Generic.ISortedCollection`1"/>.
+            </summary>
+        </member>
+        <member name="T:Academy.Collections.Generic.Matrix`1">
+            <summary>
+            Represents a strongly typed matrix of objects that can be accessed by index.
+            </summary>
+            <typeparam name="T">The type of elements in the matrix.</typeparam>
+        </member>
+        <member name="M:Academy.Collections.Generic.Matrix`1.#ctor(System.Int32,System.Int32)">
+            <summary>
+            Initializes a new instance of the <see cref="T:Academy.Collections.Generic.Matrix`1"/> class 
+            with the specified dimensions.
+            </summary>
+            <param name="rowCount">The number of rows in the matrix.</param>
+            <param name="columnCount">The number of columns in the matrix.</param>
+        </member>
+        <member name="M:Academy.Collections.Generic.Matrix`1.#ctor(System.Int32,System.Int32,Academy.Collections.MatrixDataOrder)">
+            <summary>
+            Initializes a new instance of the <see cref="T:Academy.Collections.Generic.Matrix`1"/> class 
+            with the specified dimensions and order.
+            </summary>
+            <param name="rowCount">The number of rows in the matrix.</param>
+            <param name="columnCount">The number of columns in the matrix.</param>
+            <param name="dataOrder">The order the matrix will store elements in memory. 'Default' and 'Merged' values are used as 'Row' value.</param>
+        </member>
+        <member name="M:Academy.Collections.Generic.Matrix`1.Contains(`0)">
+            <summary>
+            Determines whether a value is in the <see cref="T:Academy.Collections.Generic.Matrix`1"/>.
+            </summary>
+            <param name="value">The value to locate in the matrix</param>
+            <returns>True if the value is contained in the matrix; otherwise, false.</returns>
+        </member>
+        <member name="M:Academy.Collections.Generic.Matrix`1.GetEnumerator">
+            <summary>
+            Returns an enumerator that iterates through the <see cref="T:Academy.Collections.Generic.Matrix`1"/>.
+            </summary>
+            <returns>An <see cref="T:Academy.Collections.Generic.Matrix`1.Enumerator"/> for the <see cref="T:Academy.Collections.Generic.Matrix`1"/>.</returns>
+        </member>
+        <member name="M:Academy.Collections.Generic.Matrix`1.Resize(System.Int32,System.Int32)">
+            <summary>
+            Resizes the matrix to the specified new dimension. If new dimension provokes a smaller matrix, out-bounds values will be ignored. 
+            Otherwise, if new dimension provokes a bigger matrix, new elements will have its type default value.
+            </summary>
+            <param name="newRowCount">The new number of rows.</param>
+            <param name="newColumnCount">The new number of columns.</param>
+        </member>
+        <member name="M:Academy.Collections.Generic.Matrix`1.Resize(System.Int32,System.Int32,Academy.Collections.MatrixDataOrder)">
+            <summary>
+            Resizes the matrix to the specified new dimension, specifying new dimensions and order. If new dimension provokes a smaller matrix, out-bounds values will be ignored. 
+            Otherwise, if new dimension provokes a bigger matrix, new elements will have its type default value.
+            </summary>
+            <param name="newRowCount">The new number of rows.</param>
+            <param name="newColumnCount">The new number of columns.</param>
+            <param name="dataOrder">The order the matrix will use to store the elements in the operation.</param>
+        </member>
+        <member name="P:Academy.Collections.Generic.Matrix`1.DataOrder">
+            <summary>
+            Gets the order the <see cref="T:Academy.Collections.Generic.Matrix`1"/> stores elements in memory.
+            </summary>
+        </member>
+        <member name="P:Academy.Collections.Generic.Matrix`1.Item(System.Int32,System.Int32)">
+            <summary>
+            Gets or sets the element at the specified indices.
+            </summary>
+            <param name="rowIndex">The zero-based row index of the element to get or set.</param>
+            <param name="columnIndex">The zero-based column index of the element to get or set.</param>
+        </member>
+        <member name="P:Academy.Collections.Generic.Matrix`1.Count">
+            <summary>
+            Gets the number of elements in the <see cref="T:Academy.Collections.Generic.Matrix`1"/>.
+            </summary>
+        </member>
+        <member name="P:Academy.Collections.Generic.Matrix`1.LongCount">
+            <summary>
+            Gets a 64-bit integer that represents the number of elements in the <see cref="T:Academy.Collections.Generic.Matrix`1"/>.
+            </summary>
+        </member>
+        <member name="P:Academy.Collections.Generic.Matrix`1.ColumnCount">
+            <summary>
+            Gets the number of columns contained in the <see cref="T:Academy.Collections.Generic.Matrix`1"/>.
+            </summary>
+        </member>
+        <member name="P:Academy.Collections.Generic.Matrix`1.RowCount">
+            <summary>
+            Gets the number of rows contained in the <see cref="T:Academy.Collections.Generic.Matrix`1"/>.
+            </summary>
+        </member>
+        <member name="T:Academy.Collections.Generic.Matrix`1.Enumerator">
+            <summary>
+            Enumerates the elements of a <see cref="T:Academy.Collections.Generic.Matrix`1"/>.
+            </summary>
+        </member>
+        <member name="M:Academy.Collections.Generic.Matrix`1.Enumerator.MoveNext">
+            <summary>
+            Advances the enumerator to the next element of the <see cref="T:Academy.Collections.Generic.Matrix`1"/>
+            </summary>
+            <returns>true if the enumerator was successfully advanced to the next element; false if the enumerator has passed the end of the collection.</returns>
+        </member>
+        <member name="P:Academy.Collections.Generic.Matrix`1.Enumerator.Current">
+            <summary>
+            Gets the element at the current position of the enumerator.
+            </summary>
+        </member>
+        <member name="T:Academy.Collections.Generic.MatrixArithmeticHelper`1">
+            <summary>
+            Provides a base class for implementations of the <see cref="T:Academy.Collections.Generic.IMatrixArithmeticHelper`1"/> generic interface.
+            </summary>
+            <typeparam name="T">The type of the elements in the matrices.</typeparam>
+        </member>
+        <member name="M:Academy.Collections.Generic.MatrixArithmeticHelper`1.Add(Academy.Collections.Generic.IMatrix{`0},Academy.Collections.Generic.IMatrix{`0})">
+            <summary>
+            Provides an <see cref="T:Academy.Collections.Generic.IMatrix`1"/> object
+            as result value of adding two specified matrices. Uses the operator provided by
+            the <see cref="P:Academy.Numerics.ArithmeticOperator`1.Default"/> property.
+            </summary>
+            <param name="left">The left matrix operand.</param>
+            <param name="right">The right matrix operand.</param>
+            <returns>
+            an <see cref="T:Academy.Collections.Generic.IMatrix`1"/> object that contains the result values 
+            of add the two specified <see cref="T:Academy.Collections.Generic.IMatrix`1"/> objects.
+            </returns>
+        </member>
+        <member name="M:Academy.Collections.Generic.MatrixArithmeticHelper`1.Add(Academy.Collections.Generic.IMatrix{`0},Academy.Collections.Generic.IMatrix{`0},Academy.Numerics.IArithmeticOperator)">
+            <summary>
+            When overridden in a derived class, provides an <see cref="T:Academy.Collections.Generic.IMatrix`1"/> object
+            as result value of adding two specified matrices.
+            </summary>
+            <param name="left">The left matrix operand.</param>
+            <param name="right">The right matrix operand.</param>
+            <param name="op">The <see cref="T:Academy.Numerics.IArithmeticOperator`1"/> used to add matrix elements.</param>
+            <returns>
+            an <see cref="T:Academy.Collections.Generic.IMatrix`1"/> object that contains the result values 
+            of add the two specified <see cref="T:Academy.Collections.Generic.IMatrix`1"/> objects.
+            </returns>
+        </member>
+        <member name="M:Academy.Collections.Generic.MatrixArithmeticHelper`1.Subtract(Academy.Collections.Generic.IMatrix{`0},Academy.Collections.Generic.IMatrix{`0})">
+            <summary>
+            Provides an <see cref="T:Academy.Collections.Generic.IMatrix`1"/> object
+            as result value of subtract two specified matrices. Uses the operator provided by
+            the <see cref="P:Academy.Numerics.ArithmeticOperator`1.Default"/> property.
+            </summary>
+            <param name="left">The left matrix operand.</param>
+            <param name="right">The right matrix operand.</param>
+            <returns>
+            an <see cref="T:Academy.Collections.Generic.IMatrix`1"/> object that contains the result values 
+            of Subtract the two specified <see cref="T:Academy.Collections.Generic.IMatrix`1"/> objects.
+            </returns>
+        </member>
+        <member name="M:Academy.Collections.Generic.MatrixArithmeticHelper`1.Subtract(Academy.Collections.Generic.IMatrix{`0},Academy.Collections.Generic.IMatrix{`0},Academy.Numerics.IArithmeticOperator)">
+            <summary>
+            When overridden in a derived class, provides an <see cref="T:Academy.Collections.Generic.IMatrix`1"/> object
+            as result value of subtract two specified matrices.
+            </summary>
+            <param name="left">The left matrix operand.</param>
+            <param name="right">The right matrix operand.</param>
+            <param name="op">The <see cref="T:Academy.Numerics.IArithmeticOperator`1"/> used to Subtract matrix elements.</param>
+            <returns>
+            an <see cref="T:Academy.Collections.Generic.IMatrix`1"/> object that contains the result values 
+            of Subtract the two specified <see cref="T:Academy.Collections.Generic.IMatrix`1"/> objects.
+            </returns>
+        </member>
+        <member name="M:Academy.Collections.Generic.MatrixArithmeticHelper`1.Multiply(Academy.Collections.Generic.IMatrix{`0},Academy.Collections.Generic.IMatrix{`0})">
+            <summary>
+            Provides an <see cref="T:Academy.Collections.Generic.IMatrix`1"/> object
+            as result value of multiply two specified matrices. Uses the operator provided by
+            the <see cref="P:Academy.Numerics.ArithmeticOperator`1.Default"/> property.
+            </summary>
+            <param name="left">The left matrix operand.</param>
+            <param name="right">The right matrix operand.</param>
+            <returns>
+            an <see cref="T:Academy.Collections.Generic.IMatrix`1"/> object that contains the result values 
+            of multiply the two specified <see cref="T:Academy.Collections.Generic.IMatrix`1"/> objects.
+            </returns>
+        </member>
+        <member name="M:Academy.Collections.Generic.MatrixArithmeticHelper`1.Multiply(Academy.Collections.Generic.IMatrix{`0},Academy.Collections.Generic.IMatrix{`0},Academy.Numerics.IArithmeticOperator)">
+            <summary>
+            When overridden in a derived class, provides an <see cref="T:Academy.Collections.Generic.IMatrix`1"/> object
+            as result value of multiply two specified matrices.
+            </summary>
+            <param name="left">The left matrix operand.</param>
+            <param name="right">The right matrix operand.</param>
+            <param name="op">The <see cref="T:Academy.Numerics.IArithmeticOperator`1"/> used to Subtract matrix elements.</param>
+            <returns>
+            an <see cref="T:Academy.Collections.Generic.IMatrix`1"/> object that contains the result values 
+            of multiply the two specified <see cref="T:Academy.Collections.Generic.IMatrix`1"/> objects.
+            </returns>
+        </member>
+        <member name="P:Academy.Collections.Generic.MatrixArithmeticHelper`1.Default">
+            <summary>
+            Returns a default helper for <see cref="T:Academy.Collections.Generic.IMatrix`1"/> implementations 
+            that uses the specified argument type as generic type.
+            </summary>
+        </member>
+        <member name="P:Academy.Collections.Generic.MatrixArithmeticHelper`1.DefaultOverLeftOperand">
+            <summary>
+            Returns a default helper for <see cref="T:Academy.Collections.Generic.IMatrix`1"/> implementations 
+            that uses the specified argument type as generic type. When performs the arithmetic operations it tries 
+            to stores the results in the left operand, which will be also the return object.
+            </summary>
+        </member>
+        <member name="T:Academy.Collections.Generic.MatrixEntry`1">
+            <summary>
+            Represents an object that relates a generic value to a row-column index system.
+            </summary>
+            <typeparam name="T">The type of the value.</typeparam>
+        </member>
+        <member name="M:Academy.Collections.Generic.MatrixEntry`1.#ctor(System.Int32,System.Int32,`0)">
+            <summary>
+            Initializes a new instance of <see cref="T:Academy.Collections.Generic.MatrixEntry`1"/> structure with specified indices and value.
+            </summary>
+            <param name="rowIndex">The row index.</param>
+            <param name="columnIndex">The column index</param>
+            <param name="value">The value associated to the specified indices.</param>
+        </member>
+        <member name="M:Academy.Collections.Generic.MatrixEntry`1.ToString">
+            <summary>
+            Returns a string representation of the <see cref="T:Academy.Collections.Generic.MatrixEntry`1"/> using the string representation of the value. 
+            </summary>
+            <returns>A string representation of the <see cref="T:Academy.Collections.Generic.MatrixEntry`1"/> which includes the string representation of the value.</returns>
+        </member>
+        <member name="M:Academy.Collections.Generic.MatrixEntry`1.GetHashCode">
+            <summary>
+            Gets current entry hash code using the row index, the column index and the associated value's hash code.
+            </summary>
+            <returns>returns a hash code for the current entry.</returns>
+        </member>
+        <member name="M:Academy.Collections.Generic.MatrixEntry`1.Equals(Academy.Collections.Generic.MatrixEntry{`0})">
+            <summary>
+            Indicates whether the current entry is equals to the specified entry.
+            </summary>
+            <param name="other">The other <see cref="T:Academy.Collections.Generic.MatrixEntry`1"/> object.</param>
+            <returns>true if the current and the specified entries are equals; otherwise false.</returns>
+        </member>
+        <member name="M:Academy.Collections.Generic.MatrixEntry`1.CompareTo(Academy.Collections.Generic.MatrixEntry{`0})">
+            <summary>
+            Compares the current <see cref="T:Academy.Collections.Generic.MatrixEntry`1"/> with another entry by comparing the row index and the column index.
+            </summary>
+            <param name="other">A <see cref="T:Academy.Collections.Generic.MatrixEntry`1"/> to compare with this entry.</param>
+            <returns>
+            A value that indicates the relative order of the objects being compared.
+            If the value is less than zero this entry is less than the <paramref name="other"/> parameter. 
+            If value is zero this entry and the <paramref name="other"/> parameter are equals. 
+            And if the value is greater than zero this entry is bigger than <paramref name="other"/>.
+            </returns>
+        </member>
+        <member name="M:Academy.Collections.Generic.MatrixEntry`1.CreateEntryComparer(Academy.Collections.MatrixDataOrder)">
+            <summary>
+            Returns an <see cref="T:System.Collections.Generic.IComparer`1"/> that can be used to 
+            compare <see cref="T:Academy.Collections.Generic.MatrixEntry`1"/> instances based on the specified order.
+            </summary>
+            <param name="order">The order used to create the comparer.</param>
+            <returns>A comparer used to compare <see cref="T:Academy.Collections.Generic.MatrixEntry`1"/> instances.</returns>
+        </member>
+        <member name="M:Academy.Collections.Generic.MatrixEntry`1.CreateEntryEqualityComparer">
+            <summary>
+            Returns an <see cref="T:System.Collections.Generic.IEqualityComparer`1"/> that can be used for equality 
+            testing of <see cref="T:Academy.Collections.Generic.MatrixEntry`1"/>.
+            </summary>
+            <returns>A comparer used for equality testing in <see cref="T:Academy.Collections.Generic.MatrixEntry`1"/> instances.</returns>
+        </member>
+        <member name="M:Academy.Collections.Generic.MatrixEntry`1.CreateEntryEqualityComparer(System.Collections.Generic.IEqualityComparer{`0})">
+            <summary>
+            Returns an <see cref="T:System.Collections.Generic.IEqualityComparer`1"/> that can be used for equality 
+            testing of <see cref="T:Academy.Collections.Generic.MatrixEntry`1"/> instances using the specifying 
+            comparer for the value type.
+            </summary>
+            <param name="comparer">The comparer to use for creating the returned comparer.</param>
+            <returns>A comparer used for equality testing in <see cref="T:Academy.Collections.Generic.MatrixEntry`1"/> instances.</returns>
+        </member>
+        <member name="P:Academy.Collections.Generic.MatrixEntry`1.RowIndex">
+            <summary>
+            Gets the row index.
+            </summary>
+        </member>
+        <member name="P:Academy.Collections.Generic.MatrixEntry`1.ColumnIndex">
+            <summary>
+            Gets the column index.
+            </summary>
+        </member>
+        <member name="P:Academy.Collections.Generic.MatrixEntry`1.Value">
+            <summary>
+            Gets the value associated.
+            </summary>
+        </member>
+        <member name="T:Academy.Collections.Generic.MatrixEntryCollection`1">
+            <summary>
+            Represents a collection of <see cref="T:Academy.Collections.Generic.MatrixEntry`1"/>.
+            </summary>
+            <typeparam name="T">The type of items in the entries contained in the collection.</typeparam>
+        </member>
+        <member name="M:Academy.Collections.Generic.MatrixEntryCollection`1.#ctor(Academy.Collections.MatrixDataOrder)">
+            <summary>
+            Initializes a new instance of the <see cref="T:Academy.Collections.Generic.MatrixEntryCollection`1"/> class with the specified order.
+            </summary>
+            <param name="order">The order used to enumerate through the elements contained in the collection.</param>
+        </member>
+        <member name="M:Academy.Collections.Generic.MatrixEntryCollection`1.ContainsEntry(System.Int32,System.Int32)">
+            <summary>
+            Gets whether the collection contains an entry with the specified indices.
+            </summary>
+            <param name="rowIndex">The row index.</param>
+            <param name="columnIndex">the column index.</param>
+            <returns>true if the collection contains an entry with the specified row and column indices.</returns>
+        </member>
+        <member name="M:Academy.Collections.Generic.MatrixEntryCollection`1.GetEnumerator">
+            <summary>
+            When implemented in a derived class, gets an enumerator that iterates through the elements of the <see cref="T:Academy.Collections.Generic.MatrixEntryCollection`1"/>.
+            </summary>
+            <returns>returns an enumerator that iterates through the elements of the <see cref="T:Academy.Collections.Generic.MatrixEntryCollection`1"/>.</returns>
+        </member>
+        <member name="M:Academy.Collections.Generic.MatrixEntryCollection`1.Create(System.Collections.Generic.IEnumerable{Academy.Collections.Generic.MatrixEntry{`0}},Academy.Collections.MatrixDataOrder)">
+            <summary>
+            Creates a new instance of <see cref="T:Academy.Collections.Generic.MatrixEntryCollection`1"/> that contains 
+            elements copied from the specified collection and sorted by the specified order.
+            </summary>
+            <param name="collection">The collection whose elements are copied to the new <see cref="T:Academy.Collections.Generic.MatrixEntryCollection`1"/>.</param>
+            <param name="order">The order the collection presents the entries.</param>
+            <returns>a new instance of <see cref="T:Academy.Collections.Generic.MatrixEntryCollection`1"/> containing elements copied from the specified collection 
+            and provides the specified order.</returns>
+        </member>
+        <member name="P:Academy.Collections.Generic.MatrixEntryCollection`1.Count">
+            <summary>
+            When overrided in a derived class, gets the number of elements in the collection.
+            </summary>
+        </member>
+        <member name="P:Academy.Collections.Generic.MatrixEntryCollection`1.Order">
+            <summary>
+            Gets or sets the order the <see cref="T:Academy.Collections.Generic.MatrixEntryCollection`1"/> iterates through the contained elements.
+            </summary>
+        </member>
+        <member name="T:Academy.Collections.Generic.PriorityQueue`1">
+            <summary>
+            Represents a collections of objects that is maintained arranged by priority.
+            </summary>
+            <typeparam name="T">The type of elements in the priority queue.</typeparam>
+        </member>
+        <member name="M:Academy.Collections.Generic.PriorityQueue`1.#ctor">
+            <summary>
+            Initialize a new instance of the <see cref="T:Academy.Collections.Generic.PriorityQueue`1"/> class that is empty and has the default capacity and comparer.
+            </summary>
+        </member>
+        <member name="M:Academy.Collections.Generic.PriorityQueue`1.#ctor(System.Int32)">
+            <summary>
+            Initialize a new instance of the <see cref="T:Academy.Collections.Generic.PriorityQueue`1"/> class that is 
+            empty and has the specified initial capacity.
+            </summary>
+            <param name="capacity">The number of elements that the new <see cref="T:Academy.Collections.Generic.PriorityQueue`1"/> can initially store.</param>e
+        </member>
+        <member name="M:Academy.Collections.Generic.PriorityQueue`1.#ctor(System.Int32,System.Collections.Generic.IComparer{`0})">
+            <summary>
+            Initialize a new instance of the <see cref="T:Academy.Collections.Generic.PriorityQueue`1"/> class that is 
+            empty and has the specified initial capacity and comparer.
+            </summary>
+            <param name="capacity">The number of elements that the new <see cref="T:Academy.Collections.Generic.PriorityQueue`1"/> instance can initially store.</param>
+            <param name="comparer">The default comparer to use for compare objects.</param>
+        </member>
+        <member name="M:Academy.Collections.Generic.PriorityQueue`1.#ctor(System.Collections.Generic.IEnumerable{`0})">
+            <summary>
+            Initialize a new instance of the <see cref="T:Academy.Collections.Generic.PriorityQueue`1"/> class that contains 
+            elements copied from the especified collection.
+            </summary>
+            <param name="collection">The collection whose elements are copied to the new <see cref="T:Academy.Collections.Generic.PriorityQueue`1"/>.</param>
+        </member>
+        <member name="M:Academy.Collections.Generic.PriorityQueue`1.#ctor(System.Collections.Generic.IEnumerable{`0},System.Collections.Generic.IComparer{`0})">
+            <summary>
+            Initialize a new instance of the <see cref="T:Academy.Collections.Generic.PriorityQueue`1"/> class that contains 
+            elements copied from the especified collection and uses the specified comparer.
+            </summary>
+            <param name="collection">The collection whose elements are copied to the new <see cref="T:Academy.Collections.Generic.PriorityQueue`1"/>.</param>
+            <param name="comparer">The default comparer to use for compare objects.</param>
+        </member>
+        <member name="M:Academy.Collections.Generic.PriorityQueue`1.Enqueue(`0)">
+            <summary>
+            Inserts an element to the priority queue.
+            </summary>
+            <param name="item">The element to insert.</param>
+        </member>
+        <member name="M:Academy.Collections.Generic.PriorityQueue`1.Clear">
+            <summary>
+            Removes all elements from the <see cref="T:Academy.Collections.Generic.PriorityQueue`1"/>.
+            </summary>
+        </member>
+        <member name="M:Academy.Collections.Generic.PriorityQueue`1.Clone">
+            <summary>
+            Creates a new object that is a copy of the current instance of the <see cref="T:Academy.Collections.Generic.PriorityQueue`1"/>.
+            </summary>
+            <returns>Returns a new object that is a copy of the current instance of the <see cref="T:Academy.Collections.Generic.PriorityQueue`1"/>.</returns>
+        </member>
+        <member name="M:Academy.Collections.Generic.PriorityQueue`1.Contains(`0)">
+            <summary>
+            Determines whether an element is contained in the <see cref="T:Academy.Collections.Generic.PriorityQueue`1"/>.
+            </summary>
+            <param name="item">The object to locate in the <see cref="T:Academy.Collections.Generic.PriorityQueue`1"/>.</param>
+            <returns>returns true if this <see cref="T:Academy.Collections.Generic.PriorityQueue`1"/> instance contains the object, otherwise returns false.</returns>
+        </member>
+        <member name="M:Academy.Collections.Generic.PriorityQueue`1.CopyTo(`0[])">
+            <summary>
+            Copies the complete <see cref="T:Academy.Collections.Generic.PriorityQueue`1"/> to a compatible one-dimensional array, starting at the beginning of the target array.
+            </summary>
+            <param name="array">A one-dimensional array that is the destination of the elements copied from the <see cref="T:Academy.Collections.Generic.PriorityQueue`1"/>.</param>
+        </member>
+        <member name="M:Academy.Collections.Generic.PriorityQueue`1.CopyTo(`0[],System.Int32)">
+            <summary>
+            Copies the complete <see cref="T:Academy.Collections.Generic.PriorityQueue`1"/> to a compatible one-dimensional array, starting at the specific array index.
+            </summary>
+            <param name="array">A one-dimensional array that is the destination of the elements copied from the 
+            <see cref="T:Academy.Collections.Generic.PriorityQueue`1"/>. The array must have zero-based indexing</param>
+            <param name="index">The zero-based index in array at which copying begins.</param>
+        </member>
+        <member name="M:Academy.Collections.Generic.PriorityQueue`1.CopyTo(`0[],System.Int32,System.Int32)">
+            <summary>
+            Copies a specific number of elements from the complete <see cref="T:Academy.Collections.Generic.PriorityQueue`1"/> to a compatible one-dimensional array, starting at the specific array index.
+            </summary>
+            <param name="array">A one-dimensional array that is the destination of the elements copied from 
+            the <see cref="T:Academy.Collections.Generic.PriorityQueue`1"/>. The array must have zero-based indexing</param>
+            <param name="index">The zero-based index in array at which copying begins.</param>
+            <param name="count">The number of elements to copy.</param>
+        </member>
+        <member name="M:Academy.Collections.Generic.PriorityQueue`1.Dequeue">
+            <summary>
+            Removes and returns the maximum priority element contained in the <see cref="T:Academy.Collections.Generic.PriorityQueue`1"/>.
+            </summary>
+            <returns>Returns the maximum priority element contained in the <see cref="T:Academy.Collections.Generic.PriorityQueue`1"/></returns>
+        </member>
+        <member name="M:Academy.Collections.Generic.PriorityQueue`1.Peek">
+            <summary>
+            Gets the maximum priority element contained in the <see cref="T:Academy.Collections.Generic.PriorityQueue`1"/> without removing it.
+            </summary>
+            <returns>Returns the object at the beginning of the <see cref="T:Academy.Collections.Generic.PriorityQueue`1"/></returns>
+        </member>
+        <member name="M:Academy.Collections.Generic.PriorityQueue`1.GetEnumerator">
+            <summary>
+            Returns an enumerator that iterates through <see cref="T:Academy.Collections.Generic.PriorityQueue`1"/>.
+            </summary>
+            <returns>Returns an enumerator that iterates through <see cref="T:Academy.Collections.Generic.PriorityQueue`1"/>.</returns>
+        </member>
+        <member name="M:Academy.Collections.Generic.PriorityQueue`1.TrimExcess">
+             <summary>
+            Sets the capacity to the actual number of elements in the <see cref="T:Academy.Collections.Generic.PriorityQueue`1"/>,
+            if that number is less than 90 percent of current capacity.
+             </summary>
+        </member>
+        <member name="M:Academy.Collections.Generic.PriorityQueue`1.ToArray">
+            <summary>
+            Copies the elements of the <see cref="T:Academy.Collections.Generics.PriorityQueue`1"/> to a new array.
+            </summary>
+            <returns>An array containing copies of the elements of the <see cref="T:Academy.Collections.Generics.PriorityQueue`1"/>.</returns>
+        </member>
+        <member name="M:Academy.Collections.Generic.PriorityQueue`1.ToList">
+            <summary>
+            Copies the elements of the <see cref="T:Academy.Collections.Generics.PriorityQueue`1"/> to a new <see cref="T:System.Collections.Generics.List`1"/>.
+            </summary>
+            <returns>A <see cref="T:System.Collections.Generics.List`1"/> containing copies of the elements of the <see cref="T:Academy.Collections.Generics.PriorityQueue`1"/>.</returns>
+        </member>
+        <member name="P:Academy.Collections.Generic.PriorityQueue`1.Comparer">
+            <summary>
+            Gets the default comparer used to compare stored elements.
+            </summary>
+        </member>
+        <member name="P:Academy.Collections.Generic.PriorityQueue`1.Count">
+            <summary>
+            Gets the number of elements contained in the <see cref="T:Academy.Collections.Generic.PriorityQueue`1"/>.
+            </summary>
+        </member>
+        <member name="T:Academy.Collections.Generic.PriorityQueue`1.Enumerator">
+            <summary>
+            Enumerates the elements of a <see cref="T:Academy.Collections.Generic.PriorityQueue`1"/>.
+            </summary>
+        </member>
+        <member name="M:Academy.Collections.Generic.PriorityQueue`1.Enumerator.MoveNext">
+            <summary>
+            Advances the enumerator to the next element of the <see cref="T:Academy.Collections.Generic.PriorityQueue`1"/>
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:Academy.Collections.Generic.PriorityQueue`1.Enumerator.Dispose">
+            <summary>
+            Releases all resources used by the <see cref="T:Academy.Collections.Generic.PriorityQueue`1.Enumerator"/>.
+            </summary>
+        </member>
+        <member name="P:Academy.Collections.Generic.PriorityQueue`1.Enumerator.Current">
+            <summary>
+            Gets the element at the current position of the enumerator.
+            </summary>
+        </member>
+        <member name="T:Academy.Collections.Generic.ReadOnlySortedSet`1">
+            <summary>
+            Represents a read-only collection of objects that is maintained in sorted order and can be accessed by index.
+            </summary>
+            <typeparam name="T">The type of elements in the set.</typeparam>
+        </member>
+        <member name="M:Academy.Collections.Generic.ReadOnlySortedSet`1.#ctor(System.Collections.Generic.IEnumerable{`0})">
+            <summary>
+            Initializes a new instance of the <see cref="T:Academy.Collections.Generic.ReadOnlySortedSet`1"/> class that contains 
+            elements copied from the especified collection.
+            </summary>
+            <param name="collection">The collection whose elements are copied to the new <see cref="T:Academy.Collections.Generic.ReadOnlySortedSet`1"/>.</param>
+        </member>
+        <member name="M:Academy.Collections.Generic.ReadOnlySortedSet`1.#ctor(System.Collections.Generic.IEnumerable{`0},System.Collections.Generic.IComparer{`0})">
+            <summary>
+            Initialize a new instance of the <see cref="T:Academy.Collections.Generic.ReadOnlySortedSet`1"/> class that contains 
+            elements copied from the especified collection and that uses a specified comparer.
+            </summary>
+            <param name="collection">The collection whose elements are copied to the new <see cref="T:Academy.Collections.Generic.ReadOnlySortedSet`1"/>.</param>
+            <param name="comparer">The default comparer to use for compare objects.</param>
+        </member>
+        <member name="M:Academy.Collections.Generic.ReadOnlySortedSet`1.Contains(`0)">
+            <summary>
+            Determines whether an element is in the <see cref="T:Academy.Collections.Generic.ReadOnlySortedSet`1"/>.
+            </summary>
+            <param name="value">The object to locate in the <see cref="T:Academy.Collections.Generic.ReadOnlySortedSet`1"/>. The value can be null for reference types.</param>
+            <returns>true if the <see cref="T:Academy.Collections.Generic.ReadOnlySortedSet`1"/> contains <paramref name="value"/>; otherwise, false.</returns>
+        </member>
+        <member name="M:Academy.Collections.Generic.ReadOnlySortedSet`1.CopyTo(`0[])">
+            <summary>
+            Copies the complete <see cref="T:Academy.Collections.Generic.ReadOnlySortedSet`1"/> to a compatible one-dimensional array, starting at the beginning of the target array.
+            </summary>
+            <param name="array">A one-dimensional array that is the destination of the elements copied from the <see cref="T:Academy.Collections.Generic.ReadOnlySortedSet`1"/>.</param>
+        </member>
+        <member name="M:Academy.Collections.Generic.ReadOnlySortedSet`1.CopyTo(`0[],System.Int32)">
+            <summary>
+            Copies the complete <see cref="T:Academy.Collections.Generic.ReadOnlySortedSet`1"/> to a compatible one-dimensional array, starting at the specific array index.
+            </summary>
+            <param name="array">A one-dimensional array that is the destination of the elements copied from the 
+            <see cref="T:Academy.Collections.Generic.ReadOnlySortedSet`1"/>. The array must have zero-based indexing</param>
+            <param name="index">The zero-based index in array at which copying begins.</param>
+        </member>
+        <member name="M:Academy.Collections.Generic.ReadOnlySortedSet`1.CopyTo(`0[],System.Int32,System.Int32)">
+            <summary>
+            Copies a specific number of elements from the <see cref="T:Academy.Collections.Generic.ReadOnlySortedSet`1"/> 
+            to a compatible one-dimensional array, starting at the specific array index.
+            </summary>
+            <param name="array">A one-dimensional array that is the destination of the elements copied from the 
+            <see cref="T:Academy.Collections.Generic.ReadOnlySortedSet`1"/>. The array must have zero-based indexing</param>
+            <param name="index">The zero-based index in array at which copying begins.</param>
+            <param name="count">The number of elements to copy.</param>
+        </member>
+        <member name="M:Academy.Collections.Generic.ReadOnlySortedSet`1.IndexOf(`0)">
+            <summary>
+            Searches for the specified object and returns the zero-based index where the object is located in the <see cref="T:Academy.Collections.Generic.ReadOnlySortedSet`1"/>.
+            </summary>
+            <param name="value">The object to locate in the <see cref="T:Academy.Collections.Generic.ReadOnlySortedSet`1"/>.</param>
+            <returns>The zero-based index where the specified object is located in the <see cref="T:Academy.Collections.Generic.ReadOnlySortedSet`1"/>, if found; otherwise, –1.</returns>
+        </member>
+        <member name="M:Academy.Collections.Generic.ReadOnlySortedSet`1.GetEnumerator">
+            <summary>
+            Returns an enumerator that iterates through <see cref="T:Academy.Collections.Generic.ReadOnlySortedSet`1"/>.
+            </summary>
+            <returns>Returns an enumerator that iterates through <see cref="T:Academy.Collections.Generic.ReadOnlySortedSet`1"/>.</returns>
+        </member>
+        <member name="M:Academy.Collections.Generic.ReadOnlySortedSet`1.IsProperSubsetOf(System.Collections.Generic.IEnumerable{`0})">
+            <summary>
+            Determines whether the current <see cref="T:Academy.Collections.Generic.ReadOnlySortedSet`1"/> is a proper (strict) subset of a specified collection.
+            </summary>
+            <param name="other">The collection to compare to the current set.</param>
+            <returns> true if the current <see cref="T:Academy.Collections.Generic.ReadOnlySortedSet`1"/> is a proper subset of <paramref name="other"/>; otherwise, false.</returns>
+        </member>
+        <member name="M:Academy.Collections.Generic.ReadOnlySortedSet`1.IsProperSupersetOf(System.Collections.Generic.IEnumerable{`0})">
+            <summary>
+            Determines whether the current <see cref="T:Academy.Collections.Generic.ReadOnlySortedSet`1"/> is a proper (strict) superset of a specified collection.
+            </summary>
+            <param name="other">The collection to compare to the current set.</param>
+            <returns>true if the current <see cref="T:Academy.Collections.Generic.ReadOnlySortedSet"/> is a proper superset of <paramref name="other"/>; otherwise, false.</returns>
+        </member>
+        <member name="M:Academy.Collections.Generic.ReadOnlySortedSet`1.IsSubsetOf(System.Collections.Generic.IEnumerable{`0})">
+            <summary>
+            Determines whether the current <see cref="T:Academy.Collections.Generic.ReadOnlySortedSet`1"/> is a subset of a specified collection.
+            </summary>
+            <param name="other">The collection to compare to the current set.</param>
+            <returns>true if the current <see cref="T:Academy.Collections.Generic.ReadOnlySortedSet`1"/> is a subset of the specified collection; otherwise, false.</returns>
+        </member>
+        <member name="M:Academy.Collections.Generic.ReadOnlySortedSet`1.IsSupersetOf(System.Collections.Generic.IEnumerable{`0})">
+            <summary>
+            Determines whether the current <see cref="T:Academy.Collections.Generic.ReadOnlySortedSet`1"/> is a superset of a specified collection.
+            </summary>
+            <param name="other">The collection to compare to the current set.</param>
+            <returns>true if the current <see cref="T:Academy.Collections.Generic.ReadOnlySortedSet`1"/> is a superset of <paramref name="other"/>; otherwise, false.</returns>
+        </member>
+        <member name="M:Academy.Collections.Generic.ReadOnlySortedSet`1.Overlaps(System.Collections.Generic.IEnumerable{`0})">
+            <summary>
+            Determines whether the current <see cref="T:Academy.Collections.Generic.ReadOnlySortedSet`1"/> overlaps with the specified collection.
+            </summary>
+            <param name="other">The collection to compare to the current set.</param>
+            <returns>true if the current <see cref="T:Academy.Collections.Generic.ReadOnlySortedSet`1"/> and <paramref name="other"/> share at least one common element; otherwise, false.</returns>
+        </member>
+        <member name="M:Academy.Collections.Generic.ReadOnlySortedSet`1.SetEquals(System.Collections.Generic.IEnumerable{`0})">
+            <summary>
+            Determines whether the current <see cref="T:Academy.Collections.Generic.ReadOnlySortedSet`1"/> and the specified collection contain the same elements.
+            </summary>
+            <param name="other">The collection to compare to the current set.</param>
+            <returns>true if the current <see cref="T:Academy.Collections.Generic.ReadOnlySortedSet`1"/> is equal to <paramref name="other"/>; otherwise, false.</returns>
+        </member>
+        <member name="M:Academy.Collections.Generic.ReadOnlySortedSet`1.GetViewBetween(`0,`0)">
+            <summary>
+            Return a view of a subset in a <see cref="T:Academy.Collections.Generic.ReadOnlySortedSet`1"/>.
+            </summary>
+            <param name="lowerValue">The lowest desired value in the view.</param>
+            <param name="upperValue">The highest desired value in the view.</param>
+            <returns>A subset view that contains only the values in the specified range.</returns>
+        </member>
+        <member name="P:Academy.Collections.Generic.ReadOnlySortedSet`1.Item(System.Int32)">
+            <summary>
+            Gets the element at the specified index.
+            </summary>
+            <param name="index">The zero-based index of the element to get.</param>
+            <returns>The element at the specified index.</returns>
+        </member>
+        <member name="P:Academy.Collections.Generic.ReadOnlySortedSet`1.Count">
+            <summary>
+            Gets the number of elements contained in the <see cref="T:Academy.Collections.Generic.ReadOnlySortedSet`1"/>.
+            </summary>
+        </member>
+        <member name="P:Academy.Collections.Generic.ReadOnlySortedSet`1.Comparer">
+            <summary>
+            Gets the default comparer used to compare stored elements.
+            </summary>
+        </member>
+        <member name="P:Academy.Collections.Generic.ReadOnlySortedSet`1.MinValue">
+            <summary>
+            Gets the minimum value in the <see cref="T:Academy.Collections.Generic.ReadOnlySortedSet`1"/>, as defined by the comparer.
+            </summary>
+        </member>
+        <member name="P:Academy.Collections.Generic.ReadOnlySortedSet`1.MaxValue">
+            <summary>
+            Gets the maximum value in the <see cref="T:Academy.Collections.Generic.ReadOnlySortedSet`1"/>, as defined by the comparer.
+            </summary>
+        </member>
+        <member name="T:Academy.Collections.Generic.ReadOnlySortedSet`1.Enumerator">
+             <summary>
+            Enumerates the elements of a <see cref="T:Academy.Collections.Generic.ReadOnlySortedSet`1"/>.
+             </summary>
+        </member>
+        <member name="M:Academy.Collections.Generic.ReadOnlySortedSet`1.Enumerator.MoveNext">
+            <summary>
+            Advances the enumerator to the next element of the <see cref="T:Academy.Collections.Generic.ReadOnlySortedSet`1"/>
+            </summary>
+            <returns>true if the enumerator was successfully advanced to the next element; false if the enumerator has passed the end of the collection.</returns>
+        </member>
+        <member name="P:Academy.Collections.Generic.ReadOnlySortedSet`1.Enumerator.Current">
+            <summary>
+            Gets the element at the current position of the enumerator.
+            </summary>
+        </member>
+        <member name="T:Academy.Collections.Generic.SortedLinkedList`1">
+            <summary>
+            Represents a linked list of objects that are maintained in sorted order. Repetead values are allowed.
+            </summary>
+            <typeparam name="T">The type of elements in the linked list.</typeparam>
+        </member>
+        <member name="M:Academy.Collections.Generic.SortedLinkedList`1.#ctor">
+            <summary>
+            Initializes a new instance of the <see cref="T:Academy.Collections.Generic.SortedLinkedList`1"/> class that has the default comparer.
+            </summary>
+        </member>
+        <member name="M:Academy.Collections.Generic.SortedLinkedList`1.#ctor(System.Collections.Generic.IComparer{`0})">
+            <summary>
+            Initialize a new instance of the <see cref="T:Academy.Collections.Generic.SortedLinkedList`1"/> class that uses a specified comparer.
+            </summary>
+            <param name="comparer">The default comparer to use for compare objects.</param>
+        </member>
+        <member name="M:Academy.Collections.Generic.SortedLinkedList`1.#ctor(System.Collections.Generic.IEnumerable{`0})">
+            <summary>
+            Initializes a new instance of the <see cref="T:Academy.Collections.Generic.SortedLinkedList`1"/> class that contains 
+            elements copied from the especified collection.
+            </summary>
+            <param name="collection">The collection whose elements are copied to the new <see cref="T:Academy.Collections.Generic.SortedLinkedList`1"/>.</param>
+        </member>
+        <member name="M:Academy.Collections.Generic.SortedLinkedList`1.#ctor(System.Collections.Generic.IEnumerable{`0},System.Collections.Generic.IComparer{`0})">
+            <summary>
+            Initialize a new instance of the <see cref="T:Academy.Collections.Generic.SortedLinkedList`1"/> class that contains 
+            elements copied from the especified collection and that uses a specified comparer.
+            </summary>
+            <param name="collection">The collection whose elements are copied to the new <see cref="T:Academy.Collections.Generic.SortedLinkedList`1"/>.</param>
+            <param name="comparer">The default comparer to use for compare objects.</param>
+        </member>
+        <member name="M:Academy.Collections.Generic.SortedLinkedList`1.#ctor(System.Runtime.Serialization.SerializationInfo,System.Runtime.Serialization.StreamingContext)">
+            <summary>
+            Initialize a new instance of the <see cref="T:Academy.Collections.Generic.SortedLinkedList`1"/> class that contains serialized data.
+            </summary>
+            <param name="info">The object that contains the information that is required to serialize the <see cref="T:Academy.Collections.Generic.SortedLinkedList`1"/> object.</param>
+            <param name="context">The structure that contains the source and destination of the serialized stream associated with the <see cref="T:Academy.Collections.Generic.SortedLinkedList`1"/> object.</param>
+        </member>
+        <member name="M:Academy.Collections.Generic.SortedLinkedList`1.Add(`0)">
+            <summary>
+            Adds an element to the list.
+            </summary>
+            <param name="value">The element to add to the list.</param>
+        </member>
+        <member name="M:Academy.Collections.Generic.SortedLinkedList`1.Clear">
+            <summary>
+            Removes all elements from the <see cref="T:Academy.Collections.Generic.SortedLinkedList`1"/>.
+            </summary>
+        </member>
+        <member name="M:Academy.Collections.Generic.SortedLinkedList`1.Contains(`0)">
+            <summary>
+            Determines whether an element is in the <see cref="T:Academy.Collections.Generic.SortedLinkedList`1"/>.
+            </summary>
+            <param name="value">The object to locate in the <see cref="T:Academy.Collections.Generic.SortedLinkedList`1"/>. The value can be null for reference types.</param>
+            <returns>true if the <see cref="T:Academy.Collections.Generic.SortedLinkedList`1"/> contains <paramref name="value"/>; otherwise, false.</returns>
+        </member>
+        <member name="M:Academy.Collections.Generic.SortedLinkedList`1.Contains(`0,System.Predicate{`0})">
+            <summary>
+            Determines whether an element is in the <see cref="T:Academy.Collections.Generic.SortedLinkedList`1"/> by searching every element that matches the specified value by using the
+            <see cref="T:System.Collections.Generic.IComparer`1"/> implementation provided by the Comparer property, and the specified <see cref="T:System.Predicate`1"/>.
+            </summary>
+            <param name="value">The first value to locate in the list.</param>
+            <param name="match">The predicate used to determinate if an element exists.</param>
+            <returns>true if any value matches both, the  <see cref="T:System.Collections.Generic.IComparer`1"/> provided by the Comparer property and the specified <see cref="T:System.Predicate`1"/>.</returns>
+        </member>
+        <member name="M:Academy.Collections.Generic.SortedLinkedList`1.CopyTo(`0[])">
+            <summary>
+            Copies the complete <see cref="T:Academy.Collections.Generic.SortedLinkedList`1"/> to a compatible one-dimensional array, starting at the beginning of the target array.
+            </summary>
+            <param name="array">A one-dimensional array that is the destination of the elements copied from the <see cref="T:Academy.Collections.Generic.SortedLinkedList`1"/>.</param>
+        </member>
+        <member name="M:Academy.Collections.Generic.SortedLinkedList`1.CopyTo(`0[],System.Int32)">
+            <summary>
+            Copies the complete <see cref="T:Academy.Collections.Generic.SortedLinkedList`1"/> to a compatible one-dimensional array, starting at the specific array index.
+            </summary>
+            <param name="array">A one-dimensional array that is the destination of the elements copied from the 
+            <see cref="T:Academy.Collections.Generic.SortedLinkedList`1"/>. The array must have zero-based indexing</param>
+            <param name="index">The zero-based index in array at which copying begins.</param>
+        </member>
+        <member name="M:Academy.Collections.Generic.SortedLinkedList`1.CopyTo(`0[],System.Int32,System.Int32)">
+            <summary>
+            Copies a specific number of elements from the <see cref="T:Academy.Collections.Generic.SortedLinkedList`1"/> 
+            to a compatible one-dimensional array, starting at the specific array index.
+            </summary>
+            <param name="array">A one-dimensional array that is the destination of the elements copied from the 
+            <see cref="T:Academy.Collections.Generic.SortedLinkedList`1"/>. The array must have zero-based indexing</param>
+            <param name="index">The zero-based index in array at which copying begins.</param>
+            <param name="count">The number of elements to copy.</param>
+        </member>
+        <member name="M:Academy.Collections.Generic.SortedLinkedList`1.GetEnumerator">
+            <summary>
+            Returns an enumerator that iterates through <see cref="T:Academy.Collections.Generic.SortedLinkedList`1"/>.
+            </summary>
+            <returns>Returns an enumerator that iterates through <see cref="T:Academy.Collections.Generic.SortedLinkedList`1"/>.</returns>
+        </member>
+        <member name="M:Academy.Collections.Generic.SortedLinkedList`1.Remove(`0)">
+            <summary>
+            Removes a specified value from the <see cref="T:Academy.Collections.Generic.SortedLinkedList`1"/>.
+            </summary>
+            <param name="value">The element to remove.</param>
+            <returns>Returns true if the element was removed, otherwise returns false.</returns>
+        </member>
+        <member name="M:Academy.Collections.Generic.SortedLinkedList`1.Remove(`0,System.Predicate{`0})">
+            <summary>
+            Removes a specified value from the <see cref="T:Academy.Collections.Generic.SortedLinkedList`1"/> by searching every element that matches the value by using the
+            <see cref="T:System.Collections.Generic.IComparer`1"/> implementation provided by the Comparer property, and the specified <see cref="T:System.Predicate`1"/>.
+            </summary>
+            <param name="value">The value to locate in the list.</param>
+            <param name="match">The predicate used to determinate if an element exists.</param>
+            <returns>true if any value matches both, the <see cref="T:System.Collections.Generic.IComparer`1"/> provided by the Comparer property and the specified <see cref="T:System.Predicate`1"/> and the found value was also successfully removed.</returns>
+        </member>
+        <member name="M:Academy.Collections.Generic.SortedLinkedList`1.RemoveWhere(System.Predicate{`0})">
+            <summary>
+            Removes all the values that match the conditions defined by the specified predicate from a <see cref="T:Academy.Collections.Generic.SortedLinkedList`1"/>.
+            </summary>
+            <param name="match">The delegate that defines the conditions of the elements to remove.</param>
+            <returns>The number of elements that were removed from the <see cref="T:Academy.Collections.Generic.SortedLinkedList`1"/> collection.</returns>
+        </member>
+        <member name="M:Academy.Collections.Generic.SortedLinkedList`1.GetViewBetween(`0,`0)">
+            <summary>
+            Return a view of a sublist in a <see cref="T:Academy.Collections.Generic.SortedLinkedList`1"/>.
+            </summary>
+            <param name="lowerValue">The lowest desired value in the view.</param>
+            <param name="upperValue">The highest desired value in the view.</param>
+            <returns>A sublist view that contains only the values in the specified range.</returns>
+        </member>
+        <member name="M:Academy.Collections.Generic.SortedLinkedList`1.GetMatchView(`0)">
+            <summary>
+            Return a view of a sublist in a <see cref="T:Academy.Collections.Generic.SortedLinkedList`1"/> containing the range where the stored values matches the specified value
+            using the comparer provided by the <see cref="P:Academy.Collections.Generic.SortedLinkedList`1.Comparer"/> property.
+            </summary>
+            <param name="value">The value used to determine the range.</param>
+            <returns>A sublist view that contains only the values that matches the specified value.</returns>
+        </member>
+        <member name="M:Academy.Collections.Generic.SortedLinkedList`1.GetObjectData(System.Runtime.Serialization.SerializationInfo,System.Runtime.Serialization.StreamingContext)">
+            <summary>
+            Implements the <see cref="T:System.Runtime.Serialization.ISerializable"/> interface and returns the data that you must have to serialize an <see cref="T:Academy.Collections.Generic.SortedLinkedList`1"/> object.
+            </summary>
+            <param name="info">The <see cref="T:System.Runtime.Serialization.SerializationInfo"/> that contains the information that is required to serialize the <see cref="T:Academy.Collections.Generic.SortedLinkedList`1"/> object.</param>
+            <param name="context">The <see cref="T:System.Runtime.Serialization.StreamingContext"/> structure that contains the source and destination of the serialized stream associated with the  <see cref="T:Academy.Collections.Generic.SortedLinkedList`1"/> object.</param>
+        </member>
+        <member name="M:Academy.Collections.Generic.SortedLinkedList`1.OnDeserialization(System.Object)">
+            <summary>
+            Implements the <see cref="T:System.Runtime.Serialization.ISerializable"/> interface, and raises the deserialization event when the deserialization is complete.
+            </summary>
+            <param name="sender">The source of the deserialization event.</param>
+        </member>
+        <member name="P:Academy.Collections.Generic.SortedLinkedList`1.Comparer">
+            <summary>
+            Gets the default comparer used to compare stored elements.
+            </summary>
+        </member>
+        <member name="P:Academy.Collections.Generic.SortedLinkedList`1.Count">
+            <summary>
+            Gets the number of elements contained in the <see cref="T:Academy.Collections.Generic.SortedLinkedList`1"/>.
+            </summary>
+        </member>
+        <member name="P:Academy.Collections.Generic.SortedLinkedList`1.MinValue">
+            <summary>
+            Gets the minimum value in the <see cref="T:Academy.Collections.Generic.SortedLinkedList`1"/>, as defined by the comparer.
+            </summary>
+        </member>
+        <member name="P:Academy.Collections.Generic.SortedLinkedList`1.MaxValue">
+            <summary>
+            Gets the maximum value in the <see cref="T:Academy.Collections.Generic.SortedLinkedList`1"/>, as defined by the comparer.
+            </summary>
+        </member>
+        <member name="T:Academy.Collections.Generic.SortedLinkedList`1.Enumerator">
+            <summary>
+            Enumerates the elements of a <see cref="T:Academy.Collections.Generic.SortedLinkedList`1"/>.
+            </summary>
+        </member>
+        <member name="M:Academy.Collections.Generic.SortedLinkedList`1.Enumerator.MoveNext">
+            <summary>
+            Advances the enumerator to the next element of the <see cref="T:Academy.Collections.Generic.SortedLinkedList`1"/>
+            </summary>
+            <returns>true if the enumerator was successfully advanced to the next element; false if the enumerator has passed the end of the collection.</returns>
+        </member>
+        <member name="P:Academy.Collections.Generic.SortedLinkedList`1.Enumerator.Current">
+            <summary>
+            Gets the element at the current position of the enumerator.
+            </summary>
+        </member>
+        <member name="T:Academy.Collections.Generic.SparseMatrix`1">
+            <summary>
+            Represents a big dimensions matrix of objects that contains only few values different from a specified default value.
+            </summary>
+            <typeparam name="T">The type of elements in the matrix.</typeparam>
+        </member>
+        <member name="M:Academy.Collections.Generic.SparseMatrix`1.#ctor(System.Int32,System.Int32)">
+            <summary>
+            Initializes a new instance of the <see cref="T:Academy.Collections.Generic.SparseMatrix`1"/> class with specified dimensions.
+            </summary>
+            <param name="rowCount">The number of rows in the matrix.</param>
+            <param name="columnCount">The number of columns in the matrix.</param>
+        </member>
+        <member name="M:Academy.Collections.Generic.SparseMatrix`1.#ctor(System.Int32,System.Int32,`0)">
+            <summary>
+            Initializes a new instance of the <see cref="T:Academy.Collections.Generic.SparseMatrix`1"/> class with specified dimensions and default value.
+            </summary>
+            <param name="rowCount">The number of rows in the matrix.</param>
+            <param name="columnCount">The number of columns in the matrix.</param>
+            <param name="defaultValue">The value the matrix will assume as the default value.</param>
+        </member>
+        <member name="M:Academy.Collections.Generic.SparseMatrix`1.#ctor(System.Int32,System.Int32,Academy.Collections.MatrixDataOrder)">
+            <summary>
+            Initializes a new instance of the <see cref="T:Academy.Collections.Generic.SparseMatrix`1"/> class with specified dimensions and data order.
+            </summary>
+            <param name="rowCount">The number of rows in the matrix.</param>
+            <param name="columnCount">The number of columns in the matrix.</param>
+            <param name="order">The order the matrix will store elements in memory. 'Default' and 'Merged' values are used as 'Row' value.</param>
+        </member>
+        <member name="M:Academy.Collections.Generic.SparseMatrix`1.#ctor(System.Int32,System.Int32,`0,Academy.Collections.MatrixDataOrder)">
+            <summary>
+            Initializes a new instance of the <see cref="T:Academy.Collections.Generic.SparseMatrix`1"/> class with specified dimensions, data order and default value.
+            </summary>
+            <param name="rowCount">The number of rows in the matrix.</param>
+            <param name="columnCount">The number of columns in the matrix.</param>
+            <param name="defaultValue">The value the matrix will assume as the default value.</param>
+            <param name="dataOrder">The order the matrix will store elements in memory. 'Default' and 'Merged' values are used as 'Row' value.</param>
+        </member>
+        <member name="M:Academy.Collections.Generic.SparseMatrix`1.#ctor(System.Collections.Generic.IEnumerable{Academy.Collections.Generic.MatrixEntry{`0}},System.Int32,System.Int32,`0,Academy.Collections.MatrixDataOrder)">
+            <summary>
+            Initializes a new instance of the <see cref="T:Academy.Collections.Generic.SparseMatrix`1"/> class with specified dimensions, data order, 
+            default value and elements copied from the specified collection and positioned in the indices specified by the respective entries.
+            </summary>
+            <param name="entries">The collection whose elements are copied to the new matrix.</param>
+            <param name="rowCount">The amount of rows of the matrix.</param>
+            <param name="columnDimension">The amount of columns of the matrix.</param>
+            <param name="defaultValue">The value the matrix will assume as the default value.</param>
+            <param name="order">The order the matrix will store elements in memory. 'Default' and 'Merged' values are used as 'Row' value.</param>
+        </member>
+        <member name="M:Academy.Collections.Generic.SparseMatrix`1.GetRowViewAt(System.Int32)">
+            <summary>
+            Gets a view of the row at the specified index in the current instance of <see cref="T:Academy.Collections.Generic.SparseMatrix`1"/>.
+            </summary>
+            <param name="rowIndex">The zero-based index of the row to view.</param>
+            <returns>Returns a view of the row at the specified index in the matrix.</returns>
+        </member>
+        <member name="M:Academy.Collections.Generic.SparseMatrix`1.GetColumnViewAt(System.Int32)">
+            <summary>
+            Gets a view of the column at the specified index in the current instance of <see cref="T:Academy.Collections.Generic.SparseMatrix`1"/>.
+            </summary>
+            <param name="columnIndex">The zero-based index of the column to view.</param>
+            <returns>Returns a view of the column at the specified index in the matrix.</returns>
+        </member>
+        <member name="M:Academy.Collections.Generic.SparseMatrix`1.Contains(`0)">
+            <summary>
+            Determines whether a value is in the <see cref="T:Academy.Collections.Generic.SparseMatrix`1"/>.
+            </summary>
+            <param name="value">The value to locate in the matrix</param>
+            <returns>True if the value is contained in the matrix; otherwise, false.</returns>
+        </member>
+        <member name="M:Academy.Collections.Generic.SparseMatrix`1.GetEnumerator">
+            <summary>
+            Returns an enumerator that iterates through the <see cref="T:Academy.Collections.Generic.SparseMatrix`1"/>.
+            </summary>
+            <returns>A <see cref="T:Academy.Collections.Generic.SparseMatrix`1.Enumerator"/> for the <see cref="T:Academy.Collections.Generic.SparseMatrix`1"/>.</returns>
+        </member>
+        <member name="M:Academy.Collections.Generic.SparseMatrix`1.TryGetEntry(`0,Academy.Collections.Generic.MatrixEntry{`0}@)">
+            <summary>
+            Gets the matrix entry for the specified value.
+            </summary>
+            <param name="value">The value of the entry.</param>
+            <param name="entry">When this method returns, the entry for the specified value, if the value is found; otherwise the first entry for a matrix.</param>
+            <returns>true if the <see cref="T:Academy.Collections.Generic.SparseMatrix`1"/> contains the specified value; otherwise, false.</returns>
+        </member>
+        <member name="M:Academy.Collections.Generic.SparseMatrix`1.Resize(System.Int32,System.Int32)">
+            <summary>
+            Resizes the matrix to the specified new dimension. If new dimension provokes a smaller matrix, out-bounds values will be ignored. 
+            Otherwise, if new dimension provokes a bigger matrix, new elements will have its type default value.
+            </summary>
+            <param name="newRowCount">The new number of rows.</param>
+            <param name="newColumnCount">The new number of columns.</param>
+        </member>
+        <member name="M:Academy.Collections.Generic.SparseMatrix`1.CreateHelper">
+            <summary>
+            Provides an object that inherits from <see cref="T:Academy.Collections.Generic.MatrixMatrixArithmeticHelperHelper`1"/> and personalizes 
+            arithmetic operations for <see cref="T:Academy.Collections.Generic.SparseMatrix`1"/> instances.
+            </summary>
+            <returns>an <see cref="T:Academy.Collections.Generic.MatrixArithmeticHelper`1"/> object that personalizes arithmetic operations 
+            for <see cref="T:Academy.Collections.Generic.SparseMatrix`1"/> instances.</returns>
+        </member>
+        <member name="M:Academy.Collections.Generic.SparseMatrix`1.CreateHelperOverLeftOperand">
+            <summary>
+            Provides an object that inherits from <see cref="T:Academy.Collections.Generic.MatrixArithmeticHelper`1"/> and personalizes 
+            arithmetic operations for <see cref="T:Academy.Collections.Generic.SparseMatrix`1"/> instances. 
+            The operations will use the left operand to save the result values.
+            </summary>
+            <returns>an <see cref="T:Academy.Collections.Generic.MatrixArithmeticHelper`1"/> object that personalizes arithmetic operations 
+            for <see cref="T:Academy.Collections.Generic.SparseMatrix`1"/> instances. The left operand will be used for storing 
+            result values instead of creating a new matrix.</returns>
+        </member>
+        <member name="P:Academy.Collections.Generic.SparseMatrix`1.Item(System.Int32,System.Int32)">
+            <summary>
+            Gets or sets the element at the specified indices.
+            </summary>
+            <param name="rowIndex">The zero-based row index of the element to get or set.</param>
+            <param name="columnIndex">The zero-based column index of the element to get or set.</param>
+        </member>
+        <member name="P:Academy.Collections.Generic.SparseMatrix`1.ColumnCount">
+            <summary>
+            Gets the number of columns contained in the <see cref="T:Academy.Collections.Generic.SparseMatrix`1"/>.
+            </summary>
+        </member>
+        <member name="P:Academy.Collections.Generic.SparseMatrix`1.RowCount">
+            <summary>
+            Gets the number of rows contained in the <see cref="T:Academy.Collections.Generic.SparseMatrix`1"/>.
+            </summary>
+        </member>
+        <member name="P:Academy.Collections.Generic.SparseMatrix`1.Count">
+            <summary>
+            Gets the number of elements in the <see cref="T:Academy.Collections.Generic.SparseMatrix`1"/>.
+            </summary>
+        </member>
+        <member name="P:Academy.Collections.Generic.SparseMatrix`1.LongCount">
+            <summary>
+            Gets a 64-bit integer that represents the number of elements in the <see cref="T:Academy.Collections.Generic.SparseMatrix`1"/>.
+            </summary>
+        </member>
+        <member name="P:Academy.Collections.Generic.SparseMatrix`1.DataOrder">
+            <summary>
+            Gets the order the <see cref="T:Academy.Collections.Generic.SparseMatrix`1"/> stores elements in memory.
+            </summary>
+        </member>
+        <member name="P:Academy.Collections.Generic.SparseMatrix`1.NonDefaultEntries">
+            <summary>
+            Gets a collection of <see cref="T:Academy.Collections.Generic.MatrixEntry`1"/> containing the elements that are different from the default value.
+            </summary>
+        </member>
+        <member name="P:Academy.Collections.Generic.SparseMatrix`1.IsDense">
+            <summary>
+            Returns if the current instance of the <see cref="T:Academy.Collections.Generic.SparseMatrix`1"/> represents a dense matrix. That is that more than the half of the elements in the matrix are different from the default value.
+            </summary>
+        </member>
+        <member name="P:Academy.Collections.Generic.SparseMatrix`1.DefaultValue">
+            <summary>
+            Gets the value this matrix assumes as default value.
+            </summary>
+        </member>
+        <member name="T:Academy.Collections.Generic.SparseMatrix`1.Enumerator">
+            <summary>
+            Enumerates the elements of a <see cref="T:Academy.Collections.Generic.SparseMatrix`1"/>.
+            </summary>
+        </member>
+        <member name="M:Academy.Collections.Generic.SparseMatrix`1.Enumerator.MoveNext">
+            <summary>
+            Advances the enumerator to the next element of the <see cref="T:Academy.Collections.Generic.SparseMatrix`1"/>
+            </summary>
+            <returns>true if the enumerator was successfully advanced to the next element; false if the enumerator has passed the end of the collection.</returns>
+        </member>
+        <member name="P:Academy.Collections.Generic.SparseMatrix`1.Enumerator.Current">
+            <summary>
+            Gets the element at the current position of the enumerator.
+            </summary>
+        </member>
+        <member name="T:Academy.Collections.Generic.TriangularMatrix`1">
+            <summary>
+            Provides a collection of objects that can be accessed by a triangular index system.
+            </summary>
+            <typeparam name="T">The type of elements in the matrix.</typeparam>
+        </member>
+        <member name="M:Academy.Collections.Generic.TriangularMatrix`1.TriangularCount(System.Int32)">
+            <summary>
+            Gets the amount of items of any triangular matrix with specified dimension.
+            </summary>
+            <param name="dim">The dimension of the triangular matrix.</param>
+        </member>
+        <member name="M:Academy.Collections.Generic.TriangularMatrix`1.#ctor(System.Int32)">
+            <summary>
+            Initializes a new instance of the <see cref="T:Academy.Collections.Generic.TriangularMatrix`1"/> class that has the specified dimension.
+            </summary>
+            <param name="dimension">The dimension of the matrix. Used to calculate the number of elements the new matrix can store.</param>
+        </member>
+        <member name="M:Academy.Collections.Generic.TriangularMatrix`1.#ctor(System.Int32,Academy.Collections.TriangularBase,Academy.Collections.MatrixDataOrder)">
+            <summary>
+            Initializes a new instance of the <see cref="T:Academy.Collections.Generic.TriangularMatrix`1"/> class that has the specified dimension, mode and order.
+            </summary>
+            <param name="dimension">The dimension of the matrix. Used to calculate the number of elements the new matrix can store.</param>
+            <param name="mode">The mode the new matrix will access stored elements by index.</param>
+            <param name="dataOrder">The order the new matrix will store elements in memory. 'Default' and 'Merged' values are used as 'Row' value.</param>
+        </member>
+        <member name="M:Academy.Collections.Generic.TriangularMatrix`1.#ctor(System.Int32,Academy.Collections.TriangularBase,Academy.Collections.MatrixDataOrder,System.Boolean,`0)">
+            <summary>
+            Initializes a new instance of the <see cref="T:Academy.Collections.Generic.TriangularMatrix`1"/> class that has the specified dimension, triangular mode, data order and default value settings.
+            </summary>
+            <param name="dimension">The dimension of the matrix. Used to calculate the number of elements the new matrix can store.</param>
+            <param name="mode">The mode the new matrix will access stored elements by index.</param>
+            <param name="dataOrder">The order the new matrix will store elements in memory. 'Default' and 'Merged' values are used as 'Row' value.</param>
+            <param name="allowDefaultValues">Specifies whether the matrix bounds will allow defaults cells or not.</param>
+            <param name="defaultValue">The value the matrix assumes as the default value. Specified value will be ignored if the <paramref name="allowDefaultValues"/> parameter has value <value>true</value>.</param>
+        </member>
+        <member name="M:Academy.Collections.Generic.TriangularMatrix`1.#ctor(System.Collections.Generic.IEnumerable{`0},`0)">
+            <summary>
+            Initializes a new instance of the <see cref="T:Academy.Collections.Generic.TriangularMatrix`1"/> class that contains
+            elements copied from the specified collection and has the precise dimension to store the number of elements copied.
+            </summary>
+            <param name="collection">The collection whose elements are copied to the new matrix.</param>
+            <param name="defaultValue">The value the matrix assumes as the default value.</param>
+            <exception cref="T:System.ArgumentNullException"><paramref name="collection"/>is null.</exception>
+        </member>
+        <member name="M:Academy.Collections.Generic.TriangularMatrix`1.#ctor(System.Collections.Generic.IEnumerable{`0},Academy.Collections.TriangularBase,Academy.Collections.MatrixDataOrder,System.Boolean,`0)">
+            <summary>
+            Initializes a new instance of the <see cref="T:Academy.Collections.Generic.TriangularMatrix`1"/> class that contains
+            elements copied from the specified collection and has the precise dimension to store the number of elements copied.
+            </summary>
+            <param name="collection">The collection whose elements are copied to the new matrix.</param>
+            <param name="mode">The mode the new matrix will access stored elements by index.</param>
+            <param name="dataOrder">The order the new matrix will store elements in memory. 'Default' and 'Merged' values are used as 'Row' value.</param>
+            <param name="allowDefaultValues">Specifies whether the matrix bounds will allow defaults cells or not.</param>
+            <param name="defaultValue">The value the matrix assumes as the default value. Specified value will be ignored if the <paramref name="allowDefaultValues"/> parameter has value <value>true</value>.</param>
+            <exception cref="T:System.ArgumentNullException"><paramref name="collection"/>is null.</exception>
+        </member>
+        <member name="M:Academy.Collections.Generic.TriangularMatrix`1.Contains(`0)">
+            <summary>
+            Determines whether a value is in the <see cref="T:Academy.Collections.Generic.TriangularMatrix`1"/>.
+            </summary>
+            <param name="value">The value to locate in the matrix</param>
+            <returns>True if the value is contained in the matrix; otherwise, false.</returns>
+        </member>
+        <member name="M:Academy.Collections.Generic.TriangularMatrix`1.Contains(`0,System.Collections.Generic.IEqualityComparer{`0})">
+            <summary>
+            Determines whether a value is in the <see cref="T:Academy.Collections.Generic.TriangularMatrix`1"/> using the specified comparer.
+            </summary>
+            <param name="value">The value to locate in the matrix</param>
+            <param name="comparer">The <see cref="T:System.Collections.Generic.IEqualityComparer`1"/> used to compare the specified value and the stored elements.</param>
+            <returns>True if the value is contained in the matrix; otherwise, false.</returns>
+        </member>
+        <member name="M:Academy.Collections.Generic.TriangularMatrix`1.GetEnumerator">
+            <summary>
+             Returns an enumerator that iterates through the <see cref="T:Academy.Collections.Generic.TriangularMatrix`1"/>.
+            </summary>
+            <returns>An <see cref="T:Academy.Collections.Generic.TriangularMatrix`1.Enumerator"/> for the <see cref="T:Academy.Collections.Generic.TriangularMatrix`1"/>.</returns>
+        </member>
+        <member name="M:Academy.Collections.Generic.TriangularMatrix`1.GetRowViewAt(System.Int32)">
+            <summary>
+            Gets a view of the row at the specified index in the current instance of <see cref="T:Academy.Collections.Generic.TriangularMatrix`1"/>.
+            </summary>
+            <param name="rowIndex">The zero-based index of the row to get the view.</param>
+            <returns>Returns a view of the <see cref="T:Academy.Collections.Generic.TriangularMatrix`1"/> at the specified row index.</returns>
+        </member>
+        <member name="M:Academy.Collections.Generic.TriangularMatrix`1.GetRowViewAt(System.Int32,System.Boolean)">
+            <summary>
+            Gets a view of the row at the specified index in the current instance of <see cref="T:Academy.Collections.Generic.TriangularMatrix`1"/>.
+            </summary>
+            <param name="rowIndex">The zero-based index of the row to get the view.</param>
+            <param name="allowOutBoundsEntries">Specifies whether the view groups also the entries that are out of the triangluar bounds as defined by the <see cref="P:Academy.Collections.Generic.TriangularMatrix`1.Base"/> property .</param>
+            <exception cref="T:System.ArgumentOutOfRangeExecption"><paramref name="rowIndex"/> is lesser than zero or bigger or equals than the <see cref="T:Academy.Collections.Generic.TriangularMatrix`1.Dimension"/> property.</exception>
+            <returns>Returns a view of the <see cref="T:Academy.Collections.Generic.TriangularMatrix`1"/> at the specified row index.</returns>
+        </member>
+        <member name="M:Academy.Collections.Generic.TriangularMatrix`1.GetColumnViewAt(System.Int32)">
+            <summary>
+            Gets a view of the column at the specified index in the current instance of <see cref="T:Academy.Collections.Generic.TriangularMatrix`1"/>.
+            </summary>
+            <param name="columnIndex">The zero-based index of the column to get the view.</param>
+            <returns>Returns a view of the <see cref="T:Academy.Collections.Generic.TriangularMatrix`1"/> at the specified column index.</returns>
+        </member>
+        <member name="M:Academy.Collections.Generic.TriangularMatrix`1.GetColumnViewAt(System.Int32,System.Boolean)">
+            <summary>
+            Gets a view of the column at the specified index in the current instance of <see cref="T:Academy.Collections.Generic.TriangularMatrix`1"/>.
+            </summary>
+            <param name="columnIndex">The zero-based index of the column to get the view.</param>
+            <param name="allowOutBoundsEntries">Specifies whether the view groups also the entries that are out of the triangluar bounds as defined by the <see cref="P:Academy.Collections.Generic.TriangularMatrix`1.Base"/> property .</param>
+            <exception cref="T:System.ArgumentOutOfRangeExecption"><paramref name="columnIndex"/> is lesser than zero or bigger or equals than the <see cref="T:Academy.Collections.Generic.TriangularMatrix`1.Dimension"/> property.</exception>
+            <returns>Returns a view of the <see cref="T:Academy.Collections.Generic.TriangularMatrix`1"/> at the specified column index.</returns>
+        </member>
+        <member name="M:Academy.Collections.Generic.TriangularMatrix`1.Resize(System.Int32)">
+            <summary>
+            Resizes the <see cref="T:Academy.Collections.Generic.TriangularMatrix`1"/> to a new specified dimension. 
+            If dimension decreases, outside elements will be ignored, otherwise new elements will have the type default value.
+            </summary>
+            <param name="newDimension">The new dimension to resize the <see cref="T:Academy.Collections.Generic.TriangularMatrix`1"/>.</param>
+        </member>
+        <member name="M:Academy.Collections.Generic.TriangularMatrix`1.CreateHelper">
+            <summary>
+            Provides an object that inherits from <see cref="T:Academy.Collections.Generic.MatrixArithmeticHelper`1"/> and personalizes 
+            arithmetic operations for <see cref="T:Academy.Collections.Generic.TriangularMatrix`1"/> instances.
+            </summary>
+            <returns>an <see cref="T:Academy.Collections.Generic.MatrixArithmeticHelper`1"/> object that personalizes arithmetic operations 
+            for <see cref="T:Academy.Collections.Generic.TriangularMatrix`1"/> instances.</returns>
+        </member>
+        <member name="M:Academy.Collections.Generic.TriangularMatrix`1.CreateHelperOverLeftOperand">
+            <summary>
+            Provides an object that inherits from <see cref="T:Academy.Collections.Generic.MatrixArithmeticHelper`1"/> and personalizes 
+            arithmetic operations for <see cref="T:Academy.Collections.Generic.TriangularMatrix`1"/> instances. 
+            The operations will use the left operand to save the result values.
+            </summary>
+            <returns>an <see cref="T:Academy.Collections.Generic.MatrixArithmeticHelper`1"/> object that personalizes arithmetic operations 
+            for <see cref="T:Academy.Collections.Generic.SparseMatrix`1"/> instances. The left operand will be used for storing 
+            result values instead of creating a new matrix.</returns>
+        </member>
+        <member name="P:Academy.Collections.Generic.TriangularMatrix`1.Item(System.Int32,System.Int32)">
+            <summary>
+            Gets or sets the element at the specified indices.
+            </summary>
+            <param name="rowIndex">The zero-based row index of the element to get or set.</param>
+            <param name="columnIndex">The zero-based column index of the element to get or set.</param>
+            <exception cref="T:System.ArgumentOutOfRangeException">rowIndex and/or columnIndex are outside the bounds of the valid matrix values. Which variates according to the <see cref="T:Academy.Collections.Generic.TriangularMatrix`1.Mode"/>property.</exception>
+        </member>
+        <member name="P:Academy.Collections.Generic.TriangularMatrix`1.Count">
+            <summary>
+            Gets the number of elements contained in the <see cref="T:Academy.Collections.Generic.TriangularMatrix`1"/>.
+            </summary>
+        </member>
+        <member name="P:Academy.Collections.Generic.TriangularMatrix`1.LongCount">
+            <summary>
+            Gets a 64-bit integer that represents the number of elements in the <see cref="T:Academy.Collections.Generic.TriangularMatrix`1"/>.
+            </summary>
+        </member>
+        <member name="P:Academy.Collections.Generic.TriangularMatrix`1.Dimension">
+            <summary>
+            Gets or sets the dimension of the <see cref="T:Academy.Collections.Generic.TriangularMatrix`1"/>. 
+            While setting if new dimension is lesser than the old one, out-bound items will be ignored, otherwise, 
+            if new dimension is bigger than the old, new items will have its default value.
+            </summary>
+        </member>
+        <member name="P:Academy.Collections.Generic.TriangularMatrix`1.Base">
+            <summary>
+            Gets the structure of the elements in the <see cref="T:Academy.Collections.Generic.TriangularMatrix`1"/>.
+            </summary>
+        </member>
+        <member name="P:Academy.Collections.Generic.TriangularMatrix`1.DataOrder">
+            <summary>
+            Gets the order the <see cref="T:Academy.Collections.Generic.TriangularMatrix`1"/> stores elements in memory.
+            </summary>
+        </member>
+        <member name="P:Academy.Collections.Generic.TriangularMatrix`1.DefaultValue">
+            <summary>
+            Gets the value this matrix assumes as default value.
+            </summary>
+        </member>
+        <member name="P:Academy.Collections.Generic.TriangularMatrix`1.AllowDefaultValues">
+            <summary>
+            Gets whether the matrix bounds will allow default cells or not.
+            </summary>
+        </member>
+        <member name="P:Academy.Collections.Generic.TriangularMatrix`1.Entries">
+            <summary>
+            Gets all stored elements as a collection of <see cref="T:Academy.Collections.Generic.MatrixEntry`1"/>.
+            </summary>
+        </member>
+        <member name="P:Academy.Collections.Generic.TriangularMatrix`1.InBoundEntries">
+            <summary>
+            Gets a collection of <see cref="T:Academy.Collections.Generic.MatrixEntry`1"/> containing only the elements
+            that are under or over the main diagonal as defined by the <see cref="P:Academy.Collections.Generic.TriangularMatrix`1.Base"/> property.
+            </summary>
+        </member>
+        <member name="T:Academy.Collections.Generic.TriangularMatrix`1.Enumerator">
+            <summary>
+            Enumerates the elements of a <see cref="T:Academy.Collections.Generic.TriangularMatrix`1"/>.
+            </summary>
+        </member>
+        <member name="M:Academy.Collections.Generic.TriangularMatrix`1.Enumerator.MoveNext">
+            <summary>
+            Advances the enumerator to the next element of the <see cref="T:Academy.Collections.Generic.TriangularMatrix`1"/>
+            </summary>
+            <returns>true if the enumerator was successfully advanced to the next element; false if the enumerator has passed the end of the collection.</returns>
+        </member>
+        <member name="M:Academy.Collections.Generic.TriangularMatrix`1.Enumerator.Dispose">
+            <summary>
+            Releases all resources used by the <see cref="T:Academy.Collections.Generic.TriangularMatrix`1.Enumerator"/>.
+            </summary>
+        </member>
+        <member name="P:Academy.Collections.Generic.TriangularMatrix`1.Enumerator.Current">
+            <summary>
+            Gets the element at the current position of the enumerator.
+            </summary>
+        </member>
+        <member name="T:Academy.Collections.MatrixDataOrder">
+            <summary>
+            Specifies a value to stablish the way a matrix stores data in memory and/or iterates through stored elements.
+            </summary>
+        </member>
+        <member name="F:Academy.Collections.MatrixDataOrder.Default">
+            <summary>
+            Specifies the default order for desired operation.
+            </summary>
+        </member>
+        <member name="F:Academy.Collections.MatrixDataOrder.Row">
+            <summary>
+            Specifies the matrix stores (or iterates through) row elements first.
+            </summary>
+        </member>
+        <member name="F:Academy.Collections.MatrixDataOrder.Column">
+            <summary>
+            Specifies the matrix stores (or iterates through) columns elements first.
+            </summary>
+        </member>
+        <member name="F:Academy.Collections.MatrixDataOrder.Merged">
+            <summary>
+            Specifies the matrix stores (or iterates through) elements following no sorted order. 
+            </summary>
+        </member>
+        <member name="T:Academy.Collections.Properties.Resources">
+            <summary>
+              A strongly-typed resource class, for looking up localized strings, etc.
+            </summary>
+        </member>
+        <member name="P:Academy.Collections.Properties.Resources.ResourceManager">
+            <summary>
+              Returns the cached ResourceManager instance used by this class.
+            </summary>
+        </member>
+        <member name="P:Academy.Collections.Properties.Resources.Culture">
+            <summary>
+              Overrides the current thread's CurrentUICulture property for all
+              resource lookups using this strongly typed resource class.
+            </summary>
+        </member>
+        <member name="P:Academy.Collections.Properties.Resources.Argument_ArrayNotLongEnought">
+            <summary>
+              Looks up a localized string similar to Array is not long enough..
+            </summary>
+        </member>
+        <member name="P:Academy.Collections.Properties.Resources.Argument_ArrayRank">
+            <summary>
+              Looks up a localized string similar to Attempted to operate on an array with the incorrect number of dimensions..
+            </summary>
+        </member>
+        <member name="P:Academy.Collections.Properties.Resources.Argument_InvalidArrayType">
+            <summary>
+              Looks up a localized string similar to Target array type is not compatible with the type of items in current context..
+            </summary>
+        </member>
+        <member name="P:Academy.Collections.Properties.Resources.Argument_LinkedNode_G">
+            <summary>
+              Looks up a localized string similar to Node is attached to another {0}..
+            </summary>
+        </member>
+        <member name="P:Academy.Collections.Properties.Resources.Argument_LinkSourceInvalid">
+            <summary>
+              Looks up a localized string similar to Invalid value for &quot;source&quot; argument, this collection only allows links with a common source..
+            </summary>
+        </member>
+        <member name="P:Academy.Collections.Properties.Resources.Argument_LinkTargetInvalid">
+            <summary>
+              Looks up a localized string similar to Invalid value for &quot;target&quot; argument, this collection only allows links with a common target..
+            </summary>
+        </member>
+        <member name="P:Academy.Collections.Properties.Resources.Argument_lowerBiggerThanUpper">
+            <summary>
+              Looks up a localized string similar to lowerBound is greater than upperBound.
+            </summary>
+        </member>
+        <member name="P:Academy.Collections.Properties.Resources.Argument_LowerBoundArrayNotZero">
+            <summary>
+              Looks up a localized string similar to The lower bound of target array must be zero..
+            </summary>
+        </member>
+        <member name="P:Academy.Collections.Properties.Resources.Argument_MatrixDimensionsNotMatch">
+            <summary>
+              Looks up a localized string similar to The dimensions of the specified matrixes are different..
+            </summary>
+        </member>
+        <member name="P:Academy.Collections.Properties.Resources.Argument_NullOrNotSpectedType_G">
+            <summary>
+              Looks up a localized string similar to The specified argument is null or does not represents an instance of the {0} class..
+            </summary>
+        </member>
+        <member name="P:Academy.Collections.Properties.Resources.Argument_SourceMissed">
+            <summary>
+              Looks up a localized string similar to The specified source is do not exist in the collection. Use a contained key as source..
+            </summary>
+        </member>
+        <member name="P:Academy.Collections.Properties.Resources.Argument_TargetMissed">
+            <summary>
+              Looks up a localized string similar to The specified target is do not exist in the collection. Use a contained key as target..
+            </summary>
+        </member>
+        <member name="P:Academy.Collections.Properties.Resources.Argument_TriangularBaseNotMatch">
+            <summary>
+              Looks up a localized string similar to The specified matrixes do not share the Base value..
+            </summary>
+        </member>
+        <member name="P:Academy.Collections.Properties.Resources.Argument_UnknownNode_G">
+            <summary>
+              Looks up a localized string similar to Node does not belong to current {0}..
+            </summary>
+        </member>
+        <member name="P:Academy.Collections.Properties.Resources.Argument_WrongType_G">
+            <summary>
+              Looks up a localized string similar to The value &apos;{0}&apos; is not of type &apos;{1}&apos; and cannot be used in this generic context..
+            </summary>
+        </member>
+        <member name="P:Academy.Collections.Properties.Resources.ArgumentOutOfRange_ColIndex">
+            <summary>
+              Looks up a localized string similar to Index was out of range. Must be in a valid column range..
+            </summary>
+        </member>
+        <member name="P:Academy.Collections.Properties.Resources.ArgumentOutOfRange_EntryOutOfBounds">
+            <summary>
+              Looks up a localized string similar to An entry contained in the specified collection is out of the bound of the matrix..
+            </summary>
+        </member>
+        <member name="P:Academy.Collections.Properties.Resources.ArgumentOutOfRange_Index">
+            <summary>
+              Looks up a localized string similar to Index was out of range. Must be non-negative and less than the size of the collection..
+            </summary>
+        </member>
+        <member name="P:Academy.Collections.Properties.Resources.ArgumentOutOfRange_Negative">
+            <summary>
+              Looks up a localized string similar to Positive value is required..
+            </summary>
+        </member>
+        <member name="P:Academy.Collections.Properties.Resources.ArgumentOutOfRange_Range_G">
+            <summary>
+              Looks up a localized string similar to Valid values are between &apos;{0}&apos; and &apos;{1}&apos;, inclusive..
+            </summary>
+        </member>
+        <member name="P:Academy.Collections.Properties.Resources.ArgumentOutOfRange_RowIndex">
+            <summary>
+              Looks up a localized string similar to Index was out of range. Must be in a valid row range..
+            </summary>
+        </member>
+        <member name="P:Academy.Collections.Properties.Resources.ArgumentOutOfRange_TriangularIndex">
+            <summary>
+              Looks up a localized string similar to Indices were out of the modifiable bounds of the matrix. Please try to modify a valid range value..
+            </summary>
+        </member>
+        <member name="P:Academy.Collections.Properties.Resources.ArgumentOutOfRange_ViewValue">
+            <summary>
+              Looks up a localized string similar to Specified argument was out of the range of valid values. Specify a value inside the current view bounds..
+            </summary>
+        </member>
+        <member name="P:Academy.Collections.Properties.Resources.InvalidCast_ReturnTypeNotCompatible_G">
+            <summary>
+              Looks up a localized string similar to Unable to cast object of type {0} to type {1} which is the return type of the &quot;{2}&quot; operation according to the specified arithmetic operator argument..
+            </summary>
+        </member>
+        <member name="P:Academy.Collections.Properties.Resources.InvalidOperation_ColumnIndex">
+            <summary>
+              Looks up a localized string similar to Matrix has been modified. Current column index does not exist anymore..
+            </summary>
+        </member>
+        <member name="P:Academy.Collections.Properties.Resources.InvalidOperation_DefaultValueNotAllowed">
+            <summary>
+              Looks up a localized string similar to Current matrix does not allows default values..
+            </summary>
+        </member>
+        <member name="P:Academy.Collections.Properties.Resources.InvalidOperation_EmptyCollection">
+            <summary>
+              Looks up a localized string similar to Collection is empty..
+            </summary>
+        </member>
+        <member name="P:Academy.Collections.Properties.Resources.InvalidOperation_EnumCorrupt">
+            <summary>
+              Looks up a localized string similar to Collection was modified; enumeration operation may not excecute..
+            </summary>
+        </member>
+        <member name="P:Academy.Collections.Properties.Resources.InvalidOperation_EnumEnded">
+            <summary>
+              Looks up a localized string similar to Enumeration already finished.
+            </summary>
+        </member>
+        <member name="P:Academy.Collections.Properties.Resources.InvalidOperation_EnumInvalid">
+            <summary>
+              Looks up a localized string similar to Enumeration has either not started or has already finished.
+            </summary>
+        </member>
+        <member name="P:Academy.Collections.Properties.Resources.InvalidOperation_EnumNotStarted">
+            <summary>
+              Looks up a localized string similar to Enumeration has not started. Call MoveNext()..
+            </summary>
+        </member>
+        <member name="P:Academy.Collections.Properties.Resources.InvalidOperation_GraphKeyMissed">
+            <summary>
+              Looks up a localized string similar to Graph was modified; node key does not exist anymore..
+            </summary>
+        </member>
+        <member name="P:Academy.Collections.Properties.Resources.InvalidOperation_GraphKeysRelation">
+            <summary>
+              Looks up a localized string similar to Graph was modified; source and/or target key does not exist anymore..
+            </summary>
+        </member>
+        <member name="P:Academy.Collections.Properties.Resources.InvalidOperation_GraphRelationBroken">
+            <summary>
+              Looks up a localized string similar to Graph was modified; element does not exist anymore..
+            </summary>
+        </member>
+        <member name="P:Academy.Collections.Properties.Resources.InvalidOperation_InvMethodCall">
+            <summary>
+              Looks up a localized string similar to Method call is invalid for this collection..
+            </summary>
+        </member>
+        <member name="P:Academy.Collections.Properties.Resources.InvalidOperation_MatrixDimensionInvalid">
+            <summary>
+              Looks up a localized string similar to The left matrix operand should have the same dimensions (row and column) than the second matrix column dimension in order to be modified by this operation..
+            </summary>
+        </member>
+        <member name="P:Academy.Collections.Properties.Resources.InvalidOperation_MatrixDimensionsNotMatches">
+            <summary>
+              Looks up a localized string similar to The matrices should have the same number of Rows and Columns to perform this operation..
+            </summary>
+        </member>
+        <member name="P:Academy.Collections.Properties.Resources.InvalidOperation_MatrixDimensionsTooBig">
+            <summary>
+              Looks up a localized string similar to Matrix dimensions are too big to perform current operation..
+            </summary>
+        </member>
+        <member name="P:Academy.Collections.Properties.Resources.InvalidOperation_MatrixNotAccessible_G">
+            <summary>
+              Looks up a localized string similar to The left matrix operand threw when trying to modify index [{0},{1}]..
+            </summary>
+        </member>
+        <member name="P:Academy.Collections.Properties.Resources.InvalidOperation_MultiplicityDimensionsNotMatch">
+            <summary>
+              Looks up a localized string similar to The first matrix should have the same number of rows than the second matrix number of columns. And also the same number of columns than the second matrix number of rows..
+            </summary>
+        </member>
+        <member name="P:Academy.Collections.Properties.Resources.InvalidOperation_NoSubsetContained">
+            <summary>
+              Looks up a localized string similar to The current disjoint set has no subset associated. Almost one subset is required to perform this operation..
+            </summary>
+        </member>
+        <member name="P:Academy.Collections.Properties.Resources.InvalidOperation_NotAllowedOnASparseMatrix">
+            <summary>
+              Looks up a localized string similar to Current operation can not be performed over the elements in a sparse matrix.
+            </summary>
+        </member>
+        <member name="P:Academy.Collections.Properties.Resources.InvalidOperation_RowIndex">
+            <summary>
+              Looks up a localized string similar to Matrix has been modified. Current row index does not exist anymore..
+            </summary>
+        </member>
+        <member name="P:Academy.Collections.Properties.Resources.InvalidOperation_SetKeyMissed">
+            <summary>
+              Looks up a localized string similar to Set was modified; sub set does not exist anymore..
+            </summary>
+        </member>
+        <member name="P:Academy.Collections.Properties.Resources.KeyNotFound_DSetInvalidKey">
+            <summary>
+              Looks up a localized string similar to The given key was not present in the disjoint set..
+            </summary>
+        </member>
+        <member name="P:Academy.Collections.Properties.Resources.NotSupported_ReadOnlyCollection">
+            <summary>
+              Looks up a localized string similar to Collection is read-only..
+            </summary>
+        </member>
+        <member name="P:Academy.Collections.Properties.Resources.Serialization_CountNotMatch">
+            <summary>
+              Looks up a localized string similar to The serialized Count information doesn&apos;t match the number of items..
+            </summary>
+        </member>
+        <member name="P:Academy.Collections.Properties.Resources.Serialization_InvalidOnDeserialization">
+            <summary>
+              Looks up a localized string similar to OnDeserialization method was called while the object was not being deserialized..
+            </summary>
+        </member>
+        <member name="P:Academy.Collections.Properties.Resources.Serialization_ValuesMissing">
+            <summary>
+              Looks up a localized string similar to The Values for this collection are missing..
+            </summary>
+        </member>
+        <member name="T:Academy.Collections.TriangularBase">
+            <summary>
+            Specifies the base in a triangular matrix.
+            </summary>
+        </member>
+        <member name="F:Academy.Collections.TriangularBase.Upper">
+            <summary>
+            Defines a triangular matrix as Upper. That is all the elements bellow the main diagonal has a default value and are considered default cells.
+            </summary>
+        </member>
+        <member name="F:Academy.Collections.TriangularBase.Lower">
+            <summary>
+            Defines a triangular matrix as Lower. That is all the elements over the main diagonal has a default value and are considered default cells
+            </summary>
+        </member>
+        <member name="F:Academy.Collections.TriangularBase.Default">
+            <summary>
+            Specifies the default base for a triangular matrix. Which is <see cref="F:Academy.Collections.TriangularBase.Lower"/>.
+            </summary>
+        </member>
+    </members>
+</doc>

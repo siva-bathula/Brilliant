@@ -1,0 +1,13 @@
+astroid==1.4.5
+collections-extended==0.7.0
+colorama==0.3.7
+gmpy2==2.0.7
+lazy-object-proxy==1.2.1
+mpmath==0.19
+Pillow==3.1.1
+primefac==1.1
+pylint==1.5.5
+six==1.10.0
+sympy==1.0
+virtualenv==15.0.1
+wrapt==1.10.6

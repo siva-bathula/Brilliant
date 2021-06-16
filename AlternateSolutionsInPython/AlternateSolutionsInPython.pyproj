@@ -1,0 +1,129 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003" ToolsVersion="4.0">
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>eabde483-7499-4a3d-b2fe-c84a48b00e4b</ProjectGuid>
+    <ProjectHome>.</ProjectHome>
+    <StartupFile>AdventOfCode\2016\Day8.py</StartupFile>
+    <SearchPath>
+    </SearchPath>
+    <WorkingDirectory>.</WorkingDirectory>
+    <OutputPath>.</OutputPath>
+    <Name>AlternateSolutionsInPython</Name>
+    <RootNamespace>AlternateSolutionsInPython</RootNamespace>
+    <IsWindowsApplication>False</IsWindowsApplication>
+    <InterpreterId>{2af0f10d-7135-4994-9156-5d01c9c11b7e}</InterpreterId>
+    <InterpreterVersion>3.4</InterpreterVersion>
+    <SccProjectName>SAK</SccProjectName>
+    <SccProvider>SAK</SccProvider>
+    <SccAuxPath>SAK</SccAuxPath>
+    <SccLocalPath>SAK</SccLocalPath>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)' == 'Debug' ">
+    <DebugSymbols>true</DebugSymbols>
+    <EnableUnmanagedDebugging>false</EnableUnmanagedDebugging>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)' == 'Release' ">
+    <DebugSymbols>true</DebugSymbols>
+    <EnableUnmanagedDebugging>false</EnableUnmanagedDebugging>
+  </PropertyGroup>
+  <ItemGroup>
+    <Compile Include="AdventOfCode\2016\Day10.py">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="AdventOfCode\2016\Day11.py">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="AdventOfCode\2016\Day12.py">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="AdventOfCode\2016\Day13.py">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="AdventOfCode\2016\Day14.py">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="AdventOfCode\2016\Day15.py">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="AdventOfCode\2016\Day18.py" />
+    <Compile Include="AdventOfCode\2016\Day17.py" />
+    <Compile Include="AdventOfCode\2016\Day16.py">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="AdventOfCode\2016\Day7.py">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="AdventOfCode\2016\Day8.py">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="AdventOfCode\2016\Day9.py">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="AlternateSolutionsInPython.py" />
+    <Compile Include="BrilliantProblems\ComputerScience\LoopTheLoops.py">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Classes\Algorithms\Manacher.py">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Classes\Algorithms\__init__.py">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="LargeFactor.py">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="BrilliantProblems\ComputerScience\__init__.py" />
+    <Compile Include="BrilliantProblems\__init__.py" />
+    <Compile Include="Classes\Factorial.py">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Classes\Prime.py">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Classes\PrimeGenerator.py">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Classes\pyecm.py" />
+    <Compile Include="Classes\__init__.py">
+      <SubType>Code</SubType>
+    </Compile>
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="AdventOfCode\2016\" />
+    <Folder Include="AdventOfCode\2016\data\" />
+    <Folder Include="BrilliantProblems\ComputerScience\" />
+    <Folder Include="Classes\" />
+    <Folder Include="BrilliantProblems\" />
+    <Folder Include="Classes\Algorithms\" />
+    <Folder Include="AdventOfCode\" />
+  </ItemGroup>
+  <ItemGroup>
+    <InterpreterReference Include="{2af0f10d-7135-4994-9156-5d01c9c11b7e}\3.4" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="AdventOfCode\2016\data\day15.txt" />
+    <Content Include="AdventOfCode\2016\data\day12.txt" />
+    <Content Include="AdventOfCode\2016\data\day11.txt" />
+    <Content Include="AdventOfCode\2016\data\day10.txt" />
+    <Content Include="AdventOfCode\2016\data\day9.txt" />
+    <Content Include="AdventOfCode\2016\data\day8.txt" />
+    <Content Include="AdventOfCode\2016\data\day7.txt" />
+    <Content Include="requirements.txt" />
+  </ItemGroup>
+  <PropertyGroup>
+    <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
+    <PtvsTargetsFile>$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)\Python Tools\Microsoft.PythonTools.targets</PtvsTargetsFile>
+  </PropertyGroup>
+  <Import Condition="Exists($(PtvsTargetsFile))" Project="$(PtvsTargetsFile)" />
+  <Import Condition="!Exists($(PtvsTargetsFile))" Project="$(MSBuildToolsPath)\Microsoft.Common.targets" />
+  <!-- Uncomment the CoreCompile target to enable the Build command in
+       Visual Studio and specify your pre- and post-build commands in
+       the BeforeBuild and AfterBuild targets below. -->
+  <!--<Target Name="CoreCompile" />-->
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+</Project>

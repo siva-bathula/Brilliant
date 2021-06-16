@@ -1,0 +1,71 @@
+<?xml version="1.0" encoding="utf-8"?>
+<CodeSnippets xmlns="http://schemas.microsoft.com/VisualStudio/2005/CodeSnippet">
+  <CodeSnippet Format="1.0.0">
+  	<Header>
+	    <Title>Assembly Stream Read.</Title>
+	</Header>
+    <Snippet>
+	    <Code Language="CSharp">
+	    	<![CDATA[using (var stream = Utility.GetEmbeddedResourceStream("<AssemblyName>.<FolderName>.<ResourceName>", true))
+                {
+                    using (StreamReader sr = new StreamReader(stream))
+                    {
+                        string s = string.Empty;
+                        while ((s = sr.ReadLine()) != null)
+                        {
+
+                        }
+                    }
+                }]]>
+	    </Code>
+	    <Imports>
+		    <Import>
+		       <Namespace>GenericDefs.DotNet</Namespace>
+		    </Import>
+        <Import>
+          <Namespace>System.IO</Namespace>
+        </Import>
+		</Imports>
+		<References>
+		    <Reference>
+		        <Assembly>GenericDefs.dll</Assembly>
+		    </Reference>
+        <Reference>
+          <Assembly>System.dll</Assembly>
+        </Reference>
+		</References>
+	</Snippet>
+  </CodeSnippet>
+
+  <CodeSnippet Format="1.0.0">
+    <Header>
+      <Title>Func delegate example. Accept object parameter return boolean.</Title>
+    </Header>
+    <Snippet>
+      <Code Language="C#">
+        <![CDATA[
+            Func<object, bool> rule = delegate (object o)
+            {
+                return true;
+            };]]>
+      </Code>
+    </Snippet>
+  </CodeSnippet>
+
+  <CodeSnippet Format="1.0.0">
+    <Header>
+      <Title>Func delegate recursion example.</Title>
+    </Header>
+    <Snippet>
+      <Code Language="C#">
+        <![CDATA[    
+            Func<int, int> Recursion = null;
+            Recursion = delegate (int depth) {
+                if(depth < <maxDepth>) return Recursion(depth+1);
+                else return 0;
+            };  
+        ]]>
+      </Code>
+    </Snippet>
+  </CodeSnippet>
+</CodeSnippets>

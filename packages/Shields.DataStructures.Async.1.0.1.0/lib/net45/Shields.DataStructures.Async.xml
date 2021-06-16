@@ -1,0 +1,545 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>Shields.DataStructures.Async</name>
+    </assembly>
+    <members>
+        <member name="T:Shields.DataStructures.Async.AsyncBoundedQueue`1">
+            <summary>
+            An asynchronous queue with limited capacity.
+            </summary>
+            <typeparam name="T">The value type of the queue.</typeparam>
+        </member>
+        <member name="M:Shields.DataStructures.Async.AsyncBoundedQueue`1.#ctor(System.Int32)">
+            <summary>
+            Constructs an empty queue with the specified capacity.
+            </summary>
+            <param name="capacity">The capacity of the queue.</param>
+        </member>
+        <member name="M:Shields.DataStructures.Async.AsyncBoundedQueue`1.TryPeek(`0@)">
+            <summary>
+            Tries to read the value at the front of the queue.
+            </summary>
+            <param name="value">The value at the front of the queue.</param>
+            <returns>True if and only if the queue was not empty.</returns>
+        </member>
+        <member name="M:Shields.DataStructures.Async.AsyncBoundedQueue`1.TryDequeue">
+            <summary>
+            Tries to remove the value at the front of the queue.
+            </summary>
+            <returns>True if and only if the queue was not empty.</returns>
+        </member>
+        <member name="M:Shields.DataStructures.Async.AsyncBoundedQueue`1.TryDequeue(`0@)">
+            <summary>
+            Tries to remove the value at the front of the queue.
+            </summary>
+            <param name="value">The value at the front of the queue.</param>
+            <returns>True if and only if the queue was not empty.</returns>
+        </member>
+        <member name="M:Shields.DataStructures.Async.AsyncBoundedQueue`1.DequeueAsync">
+            <summary>
+            Dequeues a value from the queue. If the queue is not empty,
+            the returned task will already be completed. If the queue is
+            empty, the returned task will complete when a value becomes
+            available.
+            </summary>
+            <returns>A task whose result will be the dequeued value.</returns>
+        </member>
+        <member name="M:Shields.DataStructures.Async.AsyncBoundedQueue`1.DequeueAsync(System.Threading.CancellationToken)">
+            <summary>
+            Dequeues a value from the queue. If the queue is not empty,
+            the returned task will already be completed. If the queue is
+            empty, the returned task will complete when a value becomes
+            available.
+            </summary>
+            <param name="cancellationToken">The cancellation token.</param>
+            <returns>A task whose result will be the dequeued value.</returns>
+        </member>
+        <member name="M:Shields.DataStructures.Async.AsyncBoundedQueue`1.TryEnqueue(`0)">
+            <summary>
+            Tries to add a value to the back of the queue.
+            </summary>
+            <param name="value">The value to add at the back of the queue.</param>
+            <returns>True if and only if the queue was not full.</returns>
+        </member>
+        <member name="M:Shields.DataStructures.Async.AsyncBoundedQueue`1.EnqueueAsync(`0)">
+            <summary>
+            Enqueues a value into the queue. If the queue is not at full
+            capacity, the returned task will already be completed. If the
+            queue is at full capacity, the returned task will completed
+            when the value is enqueued.
+            </summary>
+            <param name="value">The value to enqueue.</param>
+            <returns>A task that will complete when the value has been enqueued.</returns>
+        </member>
+        <member name="M:Shields.DataStructures.Async.AsyncBoundedQueue`1.EnqueueAsync(`0,System.Threading.CancellationToken)">
+            <summary>
+            Enqueues a value into the queue. If the queue is not at full
+            capacity, the returned task will already be completed. If the
+            queue is at full capacity, the returned task will completed
+            when the value is enqueued.
+            </summary>
+            <param name="value">The value to enqueue.</param>
+            <param name="cancellationToken">The cancellation token.</param>
+            <returns>A task that will complete when the value has been enqueued.</returns>
+        </member>
+        <member name="M:Shields.DataStructures.Async.AsyncBoundedQueue`1.CompleteAllDequeue(`0)">
+            <summary>
+            Returns a disposable that completes all waiting dequeue operations with the specified value.
+            </summary>
+            <param name="value">The value to return from all waiting dequeue operations.</param>
+            <returns>The disposable that completes all waiting dequeue operations.</returns>
+        </member>
+        <member name="M:Shields.DataStructures.Async.AsyncBoundedQueue`1.CancelAllDequeue">
+            <summary>
+            Returns a disposable that cancels all waiting dequeue operations.
+            </summary>
+            <returns>The disposable that cancels all waiting dequeue operations.</returns>
+        </member>
+        <member name="M:Shields.DataStructures.Async.AsyncBoundedQueue`1.CompleteAllEnqueue">
+            <summary>
+            Returns a disposable that completes all waiting enqueue operations.
+            </summary>
+            <returns>The disposable that completes all waiting enqueue operations.</returns>
+        </member>
+        <member name="M:Shields.DataStructures.Async.AsyncBoundedQueue`1.CancelAllEnqueue">
+            <summary>
+            Returns a disposable that cancels all waiting enqueue operations.
+            </summary>
+            <returns>The disposable that cancels all waiting enqueue operations.</returns>
+        </member>
+        <member name="P:Shields.DataStructures.Async.AsyncBoundedQueue`1.Count">
+            <summary>
+            Gets the number of values in the queue.
+            </summary>
+        </member>
+        <member name="P:Shields.DataStructures.Async.AsyncBoundedQueue`1.Capacity">
+            <summary>
+            Gets the capacity of the queue.
+            </summary>
+        </member>
+        <member name="T:Shields.DataStructures.Async.AsyncLockDictionary`1">
+            <summary>
+            A dictionary of keyed mutual exclusion locks that are compatible with async.
+            Note that these locks are not recursive!
+            </summary>
+            <typeparam name="TKey">The key type.</typeparam>
+        </member>
+        <member name="M:Shields.DataStructures.Async.AsyncLockDictionary`1.#ctor">
+            <summary>
+            Constructs an <see cref="T:Shields.DataStructures.Async.AsyncLockDictionary`1"/> using the default comparer for the key type.
+            </summary>
+        </member>
+        <member name="M:Shields.DataStructures.Async.AsyncLockDictionary`1.#ctor(System.Collections.Generic.IEqualityComparer{`0})">
+            <summary>
+            Constructs an <see cref="T:Shields.DataStructures.Async.AsyncLockDictionary`1"/> using the specified comparer for the key type.
+            </summary>
+            <param name="comparer">The comparer for the key type.</param>
+        </member>
+        <member name="M:Shields.DataStructures.Async.AsyncLockDictionary`1.LockAsync(`0)">
+            <summary>
+            Asynchronously acquires the lock. Returns a disposable that releases the
+            lock when disposed.
+            </summary>
+            <param name="key">The key to lock.</param>
+            <returns>A disposable that releases the lock when disposed.</returns>
+        </member>
+        <member name="M:Shields.DataStructures.Async.AsyncLockDictionary`1.LockAsync(`0,System.Threading.CancellationToken)">
+            <summary>
+            Asynchronously acquires the lock. Returns a disposable that releases the
+            lock when disposed.
+            </summary>
+            <param name="key">The key to lock.</param>
+            <param name="cancellationToken">
+            The cancellation token used to cancel the lock. If this is already set, then
+            this method will attempt to take the lock immediately (succeeding if the
+            lock is currently available).
+            </param>
+            <returns>A disposable that releases the lock when disposed.</returns>
+        </member>
+        <member name="M:Shields.DataStructures.Async.AsyncLockDictionary`1.Lock(`0)">
+            <summary>
+            Synchronously acquires the lock. Returns a disposable that releases the
+            lock when disposed.
+            </summary>
+            <param name="key">The key to lock.</param>
+            <returns>A disposable that releases the lock when disposed.</returns>
+        </member>
+        <member name="M:Shields.DataStructures.Async.AsyncLockDictionary`1.Lock(`0,System.Threading.CancellationToken)">
+            <summary>
+            Synchronously acquires the lock. Returns a disposable that releases the
+            lock when disposed.
+            </summary>
+            <param name="key">The key to lock.</param>
+            <param name="cancellationToken">
+            The cancellation token used to cancel the lock. If this is already set, then
+            this method will attempt to take the lock immediately (succeeding if the
+            lock is currently available).
+            </param>
+            <returns>A disposable that releases the lock when disposed.</returns>
+        </member>
+        <member name="P:Shields.DataStructures.Async.AsyncLockDictionary`1.Comparer">
+            <summary>
+            Gets the <see cref="T:System.Collections.Generic.IEqualityComparer`1"/> that is used to determine equality of keys for the dictionary.
+            </summary>
+        </member>
+        <member name="T:Shields.DataStructures.Async.AsyncQueue`1">
+            <summary>
+            An asynchronous queue with unlimited capacity.
+            </summary>
+            <typeparam name="T">The value type of the queue.</typeparam>
+        </member>
+        <member name="M:Shields.DataStructures.Async.AsyncQueue`1.#ctor">
+            <summary>
+            Constructs an empty queue.
+            </summary>
+        </member>
+        <member name="M:Shields.DataStructures.Async.AsyncQueue`1.TryPeek(`0@)">
+            <summary>
+            Tries to read the value at the front of the queue.
+            </summary>
+            <param name="value">The value at the front of the queue.</param>
+            <returns>True if and only if the queue was not empty.</returns>
+        </member>
+        <member name="M:Shields.DataStructures.Async.AsyncQueue`1.TryDequeue">
+            <summary>
+            Tries to remove the value at the front of the queue.
+            </summary>
+            <returns>True if and only if the queue was not empty.</returns>
+        </member>
+        <member name="M:Shields.DataStructures.Async.AsyncQueue`1.TryDequeue(`0@)">
+            <summary>
+            Tries to remove the value at the front of the queue.
+            </summary>
+            <param name="value">The value at the front of the queue.</param>
+            <returns>True if and only if the queue was not empty.</returns>
+        </member>
+        <member name="M:Shields.DataStructures.Async.AsyncQueue`1.DequeueAsync">
+            <summary>
+            Asynchronously removes the value at the front of the queue.
+            If the queue is currently empty, the caller enters a queue of waiters.
+            </summary>
+            <returns>The value at the front of the queue.</returns>
+        </member>
+        <member name="M:Shields.DataStructures.Async.AsyncQueue`1.DequeueAsync(System.Threading.CancellationToken)">
+            <summary>
+            Asynchronously removes the value at the front of the queue.
+            If the queue is currently empty, the caller enters a queue of waiters.
+            </summary>
+            <param name="cancellationToken">The cancellation token.</param>
+            <returns>The value at the front of the queue.</returns>
+        </member>
+        <member name="M:Shields.DataStructures.Async.AsyncQueue`1.Enqueue(`0)">
+            <summary>
+            Adds a value to the back of the queue.
+            </summary>
+            <param name="value">The value to add at the back of the queue.</param>
+        </member>
+        <member name="M:Shields.DataStructures.Async.AsyncQueue`1.CompleteAllDequeue(`0)">
+            <summary>
+            Returns a disposable that completes all waiting DequeueAsync calls.
+            </summary>
+            <param name="value">The value to return to the waiting DequeueAsync callers.</param>
+            <returns>The disposable that completes all waiting DequeueAsync calls.</returns>
+        </member>
+        <member name="M:Shields.DataStructures.Async.AsyncQueue`1.CancelAllDequeue">
+            <summary>
+            Returns a disposable that cancels all waiting DequeueAsync calls.
+            </summary>
+            <returns>The disposable that cancels all waiting DequeueAsync calls.</returns>
+        </member>
+        <member name="P:Shields.DataStructures.Async.AsyncQueue`1.Count">
+            <summary>
+            Gets the number of values in the queue.
+            </summary>
+        </member>
+        <member name="T:Shields.DataStructures.Async.AsyncReaderWriterLockDictionary`1">
+            <summary>
+            A dictionary of keyed reader/writer locks that are compatible with async.
+            Note that these locks are not recursive!
+            </summary>
+            <typeparam name="TKey">The key type.</typeparam>
+        </member>
+        <member name="M:Shields.DataStructures.Async.AsyncReaderWriterLockDictionary`1.#ctor">
+            <summary>
+            Constructs an <see cref="T:Shields.DataStructures.Async.AsyncReaderWriterLockDictionary`1"/> using the default comparer for the key type.
+            </summary>
+        </member>
+        <member name="M:Shields.DataStructures.Async.AsyncReaderWriterLockDictionary`1.#ctor(System.Collections.Generic.IEqualityComparer{`0})">
+            <summary>
+            Constructs an <see cref="T:Shields.DataStructures.Async.AsyncReaderWriterLockDictionary`1"/> using the specified comparer for the key type.
+            </summary>
+            <param name="comparer">The comparer for the key type.</param>
+        </member>
+        <member name="M:Shields.DataStructures.Async.AsyncReaderWriterLockDictionary`1.ReaderLockAsync(`0)">
+            <summary>
+            Asynchronously acquires the lock as a reader. Returns a disposable that releases
+            the lock when disposed.
+            </summary>
+            <param name="key">The key to lock.</param>
+            <returns>A disposable that releases the lock when disposed.</returns>
+        </member>
+        <member name="M:Shields.DataStructures.Async.AsyncReaderWriterLockDictionary`1.ReaderLockAsync(`0,System.Threading.CancellationToken)">
+            <summary>
+            Asynchronously acquires the lock as a reader. Returns a disposable that releases
+            the lock when disposed.
+            </summary>
+            <param name="key">The key to lock.</param>
+            <param name="cancellationToken">
+            The cancellation token used to cancel the lock. If this is already set, then
+            this method will attempt to take the lock immediately (succeeding if the
+            lock is currently available).
+            </param>
+            <returns>A disposable that releases the lock when disposed.</returns>
+        </member>
+        <member name="M:Shields.DataStructures.Async.AsyncReaderWriterLockDictionary`1.ReaderLock(`0)">
+            <summary>
+            Synchronously acquires the lock as a reader. Returns a disposable that releases
+            the lock when disposed.
+            </summary>
+            <param name="key">The key to lock.</param>
+            <returns>A disposable that releases the lock when disposed.</returns>
+        </member>
+        <member name="M:Shields.DataStructures.Async.AsyncReaderWriterLockDictionary`1.ReaderLock(`0,System.Threading.CancellationToken)">
+            <summary>
+            Synchronously acquires the lock as a reader. Returns a disposable that releases
+            the lock when disposed.
+            </summary>
+            <param name="key">The key to lock.</param>
+            <param name="cancellationToken">
+            The cancellation token used to cancel the lock. If this is already set, then
+            this method will attempt to take the lock immediately (succeeding if the
+            lock is currently available).
+            </param>
+            <returns>A disposable that releases the lock when disposed.</returns>
+        </member>
+        <member name="M:Shields.DataStructures.Async.AsyncReaderWriterLockDictionary`1.UpgradeableReaderLockAsync(`0)">
+            <summary>
+            Asynchronously acquires the lock as a reader with the option to upgrade.
+            Returns a key that can be used to upgrade and downgrade the lock, and releases
+            the lock when disposed.
+            </summary>
+            <param name="key">The key to lock.</param>
+            <returns>
+            A key that can be used to upgrade and downgrade this lock, and releases the
+            lock when disposed.
+            </returns>
+        </member>
+        <member name="M:Shields.DataStructures.Async.AsyncReaderWriterLockDictionary`1.UpgradeableReaderLockAsync(`0,System.Threading.CancellationToken)">
+            <summary>
+            Asynchronously acquires the lock as a reader with the option to upgrade.
+            Returns a key that can be used to upgrade and downgrade the lock, and releases
+            the lock when disposed.
+            </summary>
+            <param name="key">The key to lock.</param>
+            <param name="cancellationToken">
+            The cancellation token used to cancel the lock. If this is already set, then
+            this method will attempt to take the lock immediately (succeeding if the
+            lock is currently available).
+            </param>
+            <returns>
+            A key that can be used to upgrade and downgrade this lock, and releases the
+            lock when disposed.
+            </returns>
+        </member>
+        <member name="M:Shields.DataStructures.Async.AsyncReaderWriterLockDictionary`1.UpgradeableReaderLock(`0)">
+            <summary>
+            Synchronously acquires the lock as a reader with the option to upgrade.
+            Returns a key that can be used to upgrade and downgrade the lock, and releases
+            the lock when disposed.
+            </summary>
+            <param name="key">The key to lock.</param>
+            <returns>
+            A key that can be used to upgrade and downgrade this lock, and releases the
+            lock when disposed.
+            </returns>
+        </member>
+        <member name="M:Shields.DataStructures.Async.AsyncReaderWriterLockDictionary`1.UpgradeableReaderLock(`0,System.Threading.CancellationToken)">
+            <summary>
+            Synchronously acquires the lock as a reader with the option to upgrade.
+            Returns a key that can be used to upgrade and downgrade the lock, and releases
+            the lock when disposed.
+            </summary>
+            <param name="key">The key to lock.</param>
+            <param name="cancellationToken">
+            The cancellation token used to cancel the lock. If this is already set, then
+            this method will attempt to take the lock immediately (succeeding if the
+            lock is currently available).
+            </param>
+            <returns>
+            A key that can be used to upgrade and downgrade this lock, and releases the
+            lock when disposed.
+            </returns>
+        </member>
+        <member name="M:Shields.DataStructures.Async.AsyncReaderWriterLockDictionary`1.WriterLockAsync(`0)">
+            <summary>
+            Asynchronously acquires the lock as a writer. Returns a disposable that releases
+            the lock when disposed.
+            </summary>
+            <param name="key">The key to lock.</param>
+            <returns>A disposable that releases the lock when disposed.</returns>
+        </member>
+        <member name="M:Shields.DataStructures.Async.AsyncReaderWriterLockDictionary`1.WriterLockAsync(`0,System.Threading.CancellationToken)">
+            <summary>
+            Asynchronously acquires the lock as a writer. Returns a disposable that releases
+            the lock when disposed.
+            </summary>
+            <param name="key">The key to lock.</param>
+            <param name="cancellationToken">
+            The cancellation token used to cancel the lock. If this is already set, then
+            this method will attempt to take the lock immediately (succeeding if the
+            lock is currently available).
+            </param>
+            <returns>A disposable that releases the lock when disposed.</returns>
+        </member>
+        <member name="M:Shields.DataStructures.Async.AsyncReaderWriterLockDictionary`1.WriterLock(`0)">
+            <summary>
+            Synchronously acquires the lock as a writer. Returns a disposable that releases
+            the lock when disposed.
+            </summary>
+            <param name="key">The key to lock.</param>
+            <returns>A disposable that releases the lock when disposed.</returns>
+        </member>
+        <member name="M:Shields.DataStructures.Async.AsyncReaderWriterLockDictionary`1.WriterLock(`0,System.Threading.CancellationToken)">
+            <summary>
+            Synchronously acquires the lock as a writer. Returns a disposable that releases
+            the lock when disposed.
+            </summary>
+            <param name="key">The key to lock.</param>
+            <param name="cancellationToken">
+            The cancellation token used to cancel the lock. If this is already set, then
+            this method will attempt to take the lock immediately (succeeding if the
+            lock is currently available).
+            </param>
+            <returns>A disposable that releases the lock when disposed.</returns>
+        </member>
+        <member name="P:Shields.DataStructures.Async.AsyncReaderWriterLockDictionary`1.Comparer">
+            <summary>
+            Gets the <see cref="T:System.Collections.Generic.IEqualityComparer`1"/> that is used to determine equality of keys for the dictionary.
+            </summary>
+        </member>
+        <member name="T:Shields.DataStructures.Async.AsyncReaderWriterLockDictionary`1.UpgradeableReaderKey">
+            <summary>
+            The disposable which manages the upgradeable reader lock.
+            </summary>
+        </member>
+        <member name="M:Shields.DataStructures.Async.AsyncReaderWriterLockDictionary`1.UpgradeableReaderKey.Dispose">
+            <summary>
+            Release the lock.
+            </summary>
+        </member>
+        <member name="M:Shields.DataStructures.Async.AsyncReaderWriterLockDictionary`1.UpgradeableReaderKey.Upgrade">
+            <summary>
+            Synchronously upgrades the reader lock to a writer lock. Returns a disposable
+            that downgrades the writer lock to a reader lock when disposed. This method
+            may block the calling thread.
+            </summary>
+        </member>
+        <member name="M:Shields.DataStructures.Async.AsyncReaderWriterLockDictionary`1.UpgradeableReaderKey.Upgrade(System.Threading.CancellationToken)">
+            <summary>
+            Synchronously upgrades the reader lock to a writer lock. Returns a disposable
+            that downgrades the writer lock to a reader lock when disposed. This method
+            may block the calling thread.
+            </summary>
+            <param name="cancellationToken">
+            The cancellation token used to cancel the upgrade. If this is already set,
+            then this method will attempt to upgrade immediately (succeeding if the lock
+            is currently available).
+            </param>
+            <returns></returns>
+        </member>
+        <member name="M:Shields.DataStructures.Async.AsyncReaderWriterLockDictionary`1.UpgradeableReaderKey.UpgradeAsync">
+            <summary>
+            Upgrades the reader lock to a writer lock. Returns a disposable that downgrades
+            the writer lock to a reader lock when disposed.
+            </summary>
+        </member>
+        <member name="M:Shields.DataStructures.Async.AsyncReaderWriterLockDictionary`1.UpgradeableReaderKey.UpgradeAsync(System.Threading.CancellationToken)">
+            <summary>
+            Upgrades the reader lock to a writer lock. Returns a disposable that downgrades
+            the writer lock to a reader lock when disposed.
+            </summary>
+            <param name="cancellationToken">
+            The cancellation token used to cancel the upgrade. If this is already set,
+            then this method will attempt to upgrade immediately (succeeding if the lock
+            is currently available).
+            </param>
+            <returns></returns>
+        </member>
+        <member name="P:Shields.DataStructures.Async.AsyncReaderWriterLockDictionary`1.UpgradeableReaderKey.Upgraded">
+            <summary>
+            Gets a value indicating whether this lock has been upgraded to a write lock.
+            </summary>
+        </member>
+        <member name="T:Shields.DataStructures.AsyncStack`1">
+            <summary>
+            An asynchronous stack with unlimited capacity.
+            </summary>
+            <typeparam name="T">The value type of the stack.</typeparam>
+        </member>
+        <member name="M:Shields.DataStructures.AsyncStack`1.#ctor">
+            <summary>
+            Constructs an empty stack.
+            </summary>
+        </member>
+        <member name="M:Shields.DataStructures.AsyncStack`1.TryPeek(`0@)">
+            <summary>
+            Tries to read the value at the top of the stack.
+            </summary>
+            <param name="value">The value at the top of the stack.</param>
+            <returns>True if and only if the stack was not empty.</returns>
+        </member>
+        <member name="M:Shields.DataStructures.AsyncStack`1.TryPop">
+            <summary>
+            Tries to remove the value at the top of the stack.
+            </summary>
+            <returns>True if and only if the stack was not empty.</returns>
+        </member>
+        <member name="M:Shields.DataStructures.AsyncStack`1.TryPop(`0@)">
+            <summary>
+            Tries to remove the value at the top of the stack.
+            </summary>
+            <param name="value">The value at the top of the stack.</param>
+            <returns>True if and only if the stack was not empty.</returns>
+        </member>
+        <member name="M:Shields.DataStructures.AsyncStack`1.PopAsync">
+            <summary>
+            Asynchronously removes the value at the top of the stack.
+            If the stack is currently empty, the caller enters a queue of waiters.
+            </summary>
+            <returns>The value at the top of the stack.</returns>
+        </member>
+        <member name="M:Shields.DataStructures.AsyncStack`1.PopAsync(System.Threading.CancellationToken)">
+            <summary>
+            Asynchronously removes the value at the top of the stack.
+            If the stack is currently empty, the caller enters a queue of waiters.
+            </summary>
+            <param name="cancellationToken">The cancellation token.</param>
+            <returns>The value at the top of the stack.</returns>
+        </member>
+        <member name="M:Shields.DataStructures.AsyncStack`1.Push(`0)">
+            <summary>
+            Adds a value to the top of the stack.
+            </summary>
+            <param name="value">The value to add at the top of the stack.</param>
+        </member>
+        <member name="M:Shields.DataStructures.AsyncStack`1.CompleteAllPop(`0)">
+            <summary>
+            Returns a disposable that completes all waiting PopAsync calls.
+            </summary>
+            <param name="value">The value to return to the waiting PopAsync callers.</param>
+            <returns>The disposable that completes all waiting PopAsync calls.</returns>
+        </member>
+        <member name="M:Shields.DataStructures.AsyncStack`1.CancelAllPop">
+            <summary>
+            Returns a disposable that cancels all waiting PopAsync calls.
+            </summary>
+            <returns>The disposable that cancels all waiting PopAsync calls.</returns>
+        </member>
+        <member name="P:Shields.DataStructures.AsyncStack`1.Count">
+            <summary>
+            Gets the number of values in the stack.
+            </summary>
+        </member>
+    </members>
+</doc>

@@ -1,0 +1,37 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema"
+           attributeFormDefault="unqualified"
+           elementFormDefault="qualified">
+  <xs:element name="taskTypeConfigElement">
+    <xs:complexType>
+      <xs:attribute name="taskType" use="required">
+        <xs:annotation>
+          <xs:documentation>Tasktypes for Apprunner.</xs:documentation>
+        </xs:annotation>
+        <xs:simpleType>
+          <xs:restriction base="xs:string">
+            <xs:enumeration value="Brilliant">
+              <xs:annotation>
+                <xs:documentation>Run brilliant project problem.</xs:documentation>
+              </xs:annotation>
+            </xs:enumeration>
+            <xs:enumeration value="ProjectEuler">
+              <xs:annotation>
+                <xs:documentation>Run project euler problem.</xs:documentation>
+              </xs:annotation>
+            </xs:enumeration>
+          </xs:restriction>
+        </xs:simpleType>
+      </xs:attribute>
+      <xs:attribute name="problem" use="required">
+        <xs:annotation>
+          <xs:documentation>Problem name of selected tasktype.</xs:documentation>
+        </xs:annotation>
+        <xs:simpleType>
+          <xs:restriction base="xs:string">
+          </xs:restriction>
+        </xs:simpleType>
+      </xs:attribute>
+    </xs:complexType>
+  </xs:element>
+</xs:schema>
